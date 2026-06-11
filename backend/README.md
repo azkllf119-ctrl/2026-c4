@@ -16,7 +16,7 @@
 ```bash
 cd backend
 pip install -r requirements.txt
-bash run.sh                      # http://127.0.0.1:8000 ，交互文档 /docs
+bash run.sh                      # 默认绑定 0.0.0.0:8000（本机开 http://127.0.0.1:8000 ，交互文档 /docs）
 python3 -m tests.smoke_test      # 离线冒烟测试（验证 5 个案例全链路）
 ```
 
