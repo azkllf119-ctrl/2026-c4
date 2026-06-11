@@ -1,0 +1,352 @@
+[
+  {
+    "query_id": "travel_planning_normal_00",
+    "skill_id": "travel_planning",
+    "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_01",
+    "skill_id": "travel_planning",
+    "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_02",
+    "skill_id": "travel_planning",
+    "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_03",
+    "skill_id": "travel_planning",
+    "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the traveler wants destination research and budget guidance before booking anything",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_04",
+    "skill_id": "travel_planning",
+    "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_05",
+    "skill_id": "travel_planning",
+    "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_06",
+    "skill_id": "travel_planning",
+    "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_07",
+    "skill_id": "travel_planning",
+    "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_08",
+    "skill_id": "travel_planning",
+    "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the traveler wants destination research and budget guidance before booking anything",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_09",
+    "skill_id": "travel_planning",
+    "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_10",
+    "skill_id": "travel_planning",
+    "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_11",
+    "skill_id": "travel_planning",
+    "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_12",
+    "skill_id": "travel_planning",
+    "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_13",
+    "skill_id": "travel_planning",
+    "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the traveler wants destination research and budget guidance before booking anything",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_14",
+    "skill_id": "travel_planning",
+    "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_15",
+    "skill_id": "travel_planning",
+    "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_16",
+    "skill_id": "travel_planning",
+    "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_17",
+    "skill_id": "travel_planning",
+    "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_18",
+    "skill_id": "travel_planning",
+    "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the traveler wants destination research and budget guidance before booking anything",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_19",
+    "skill_id": "travel_planning",
+    "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_20",
+    "skill_id": "travel_planning",
+    "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_21",
+    "skill_id": "travel_planning",
+    "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_22",
+    "skill_id": "travel_planning",
+    "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_23",
+    "skill_id": "travel_planning",
+    "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the traveler wants destination research and budget guidance before booking anything",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "travel_planning_normal_24",
+    "skill_id": "travel_planning",
+    "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  }
+]

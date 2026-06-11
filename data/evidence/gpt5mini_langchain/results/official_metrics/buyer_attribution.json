@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "metric_block": "buyer_attribution",
+  "rows": [
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "code_review",
+      "attack": "no attack",
+      "top1": 1.0,
+      "top3": 1.0,
+      "erasure_rate": 0.0,
+      "decode_margin": 16.0,
+      "anchor_stability": 1.0,
+      "ablation_id": ""
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "data_science",
+      "attack": "no attack",
+      "top1": 1.0,
+      "top3": 1.0,
+      "erasure_rate": 0.0,
+      "decode_margin": 16.0,
+      "anchor_stability": 1.0,
+      "ablation_id": ""
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "travel_planning",
+      "attack": "no attack",
+      "top1": 1.0,
+      "top3": 1.0,
+      "erasure_rate": 0.0,
+      "decode_margin": 16.0,
+      "anchor_stability": 1.0,
+      "ablation_id": ""
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "__avg__",
+      "attack": "no attack",
+      "top1": 1.0,
+      "top3": 1.0,
+      "erasure_rate": 0.0,
+      "decode_margin": 16.0,
+      "anchor_stability": 1.0,
+      "ablation_id": ""
+    }
+  ]
+}

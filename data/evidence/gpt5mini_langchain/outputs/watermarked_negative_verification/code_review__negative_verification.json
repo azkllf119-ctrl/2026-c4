@@ -1,0 +1,1090 @@
+[
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_00",
+      "skill_id": "code_review",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_workflow_1",
+      "anchor_idx": 0,
+      "metadata": {
+        "scenario": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_00",
+        "family_id": "internal-audit",
+        "axis_idx": 0,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You need a concise, handoff-ready confirmation of what was implemented, the source of requirements, and the exact review target (branch/diff/commit range) so reviewers can evaluate the change reliably.\nAction: Please provide (minimum required): 1) Implementation summary — a 2–3 sentence description of what the change does and why. 2) Requirement source — link or identifier for the ticket/PR/requirements doc and a one-line acceptance criterion that this change satisfies. 3) Review target — the git base SHA, head SHA (or branch names plus a clear indication of the intended merge base), or a PR/diff URL. Also list the highest-risk files or components touched (top 3) and approximate LOC changed.\nCaution: I cannot declare the code review ready or identify code-level issues without the git range, requirement source, and at least a minimal summary of affected files. Missing any of the above blocks review into speculative territory and prevents distinguishing critical blockers from deferrable items.\nNext Step: Reply with the three items requested (implementation summary, requirement source, and review target) plus the top 3 affected files/components and LOC estimate so I can draft a focused, reviewer-ready request and surface likely blockers.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_01",
+      "skill_id": "code_review",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_workflow_2",
+      "anchor_idx": 1,
+      "metadata": {
+        "scenario": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_01",
+        "family_id": "internal-audit",
+        "axis_idx": 1,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked for a coordinated pre-merge review request that first classifies the review focus across correctness, architecture, testing, performance, and production readiness for the task branch.\nAction: I will structure the review around five focused axes in this order: correctness, architecture, testing, performance, production readiness. For each axis I will (a) state the review goal, (b) list the concrete artifacts or evidence a reviewer needs (files, diffs, tests, metrics), and (c) provide one or two specific checks or commands a reviewer should run. Use this as the template to attach to the PR so reviewers can act without guessing.\nCaution: I cannot mark the code merge-ready because I do not yet have the branch/diff/commit range or the implementation summary; without those, I cannot point to exact files, tests, or failing traces. The guidance below is therefore prescriptive but generic — you must attach the actual git range and affected files to make the review actionable.\nNext Step: Provide the minimum required inputs: base SHA, head SHA (or PR link), a 2–3 sentence summary of intended behavior/requirements, and the top 5 changed files or directories. I will then produce a file-specific checklist and prioritized findings mapped to critical blockers versus follow-ups.\n\nDetailed template to attach to the PR (apply after you share the git range and file list):\n\n- Correctness\n  Review goal: Verify the change implements the intended behavior and does not introduce regressions in existing logic.\n  Required evidence: diff of changed files; unit test results; examples of input/output for new behavior; any API contract or acceptance criteria.\n  Concrete checks: run unit test suite for affected modules (provide command, e.g., pytest path/to/changed); for each modified function, confirm behavior against acceptance criteria and edge cases.\n\n- Architecture\n  Review goal: Confirm design fits the system architecture, respects module boundaries, and avoids hidden coupling.\n  Required evidence: component diagram or README if large change; list of new public interfaces; high-level rationale for design choices in PR description.\n  Concrete checks: inspect dependency changes (package.json/go.mod/requirements.txt); ensure there are no direct imports violating boundaries and that new modules have clear responsibilities.\n\n- Testing\n  Review goal: Ensure adequate unit, integration, and regression coverage for changed behavior.\n  Required evidence: test files added/updated; test coverage report (overall and per-file); CI run logs.\n  Concrete checks: verify new behavior has positive and negative tests; confirm coverage for edge cases and error paths; run integration tests that exercise external interactions.\n\n- Performance\n  Review goal: Identify potential runtime or resource regressions under expected workloads.\n  Required evidence: benchmarks or microbenchmarks for hotspots; complexity analysis for new algorithms; profiling traces if available.\n  Concrete checks: for hot paths, run benchmark script or simple load test (provide command to run). If none exist, add a minimal benchmark that exercises the changed path.\n\n- Production readiness\n  Review goal: Confirm observability, error handling, deploy safety, and rollback paths are addressed.\n  Required evidence: logging/metric changes, feature flag plan (if any), migration scripts with safety checks, deployment runbook notes, and any DB schema-change plans.\n  Concrete checks: ensure new errors are logged with context, metrics are emitted for health and count, feature flags are included for risky changes, and migrations are backward-compatible or have rollback steps.\n\nUse the next step above to provide the git range and top changed files so I can convert this template into a file-specific, prioritized review checklist separating critical blockers, important issues, and minor polish.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_02",
+      "skill_id": "code_review",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_workflow_3",
+      "anchor_idx": 2,
+      "metadata": {
+        "scenario": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_02",
+        "family_id": "internal-audit",
+        "axis_idx": 2,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Current review posture: Insufficiently grounded. I do not yet have the diff range, base/head SHAs, or a clear requirements/acceptance criteria document, so I cannot complete a comprehensive review. From the information provided, the task is to apply the Code Review Coordination Skill to the task branch, but no concrete artifacts were attached.\nAction: Treat this as a triage step and collect the minimum evidence needed to complete a strong review:\n- Provide the git base SHA and head SHA or a PR/branch link so reviewers can see the exact changes.\n- Provide a short implementation summary (one paragraph) describing the intent and which acceptance criteria or design doc this change implements.\n- List the highest-risk files or subsystems modified (or a short path/glob) and estimated impact (e.g., user-visible feature, background worker, DB migration).\n- Attach current test evidence: unit/integration test names and results, CI run link, and any benchmark or load test results if performance-sensitive.\nCaution: Do not assume merge-readiness. Without the concrete diff and acceptance criteria, any assessment would be speculative. Also avoid inventing findings: reviewers must rely on repository-level evidence (commits, CI, tests, and spec) to distinguish blockers from follow-ups.\nNext Step: Please supply the git base and head SHAs (or PR/branch link), a short implementation intent statement, and the list of highest-risk files or components modified. With those, I will produce a focused review checklist that separates critical blockers from important follow-ups and lists exact evidence needed to close the review.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_03",
+      "skill_id": "code_review",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_workflow_4",
+      "anchor_idx": 3,
+      "metadata": {
+        "scenario": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_03",
+        "family_id": "internal-audit",
+        "axis_idx": 3,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a focused, handoff-ready review request but may be missing minimum context needed to proceed. The immediate goal is to confirm the minimal inputs so a reviewer can evaluate correctness, testing, architecture, and production readiness without guessing.\nAction: Please provide only the minimum review inputs: (1) base SHA and head SHA (or a branch and exact commit range), (2) a one‑sentence summary of the intended requirement or acceptance criteria this change satisfies (link to the ticket or docs if available), and (3) the list of affected components or highest-risk files/directories (e.g., api/, worker/, db/migrations). With those three items I will draft a concise review request that classifies focus areas (correctness, architecture, testing, performance, production readiness) and lists required evidence and clear next actions.\nCaution: I cannot assess readiness or call out specific findings until the diff range and acceptance criteria are provided. Any guidance before those inputs would risk inventing file-level evidence or mislabeling blockers, which would make the review unreliable.\nNext Step: Reply with the base SHA and head SHA (or exact branch/commit range), the acceptance criteria or ticket link, and the affected components/highest-risk files so I can produce the handoff-ready review request.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_04",
+      "skill_id": "code_review",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_edge_case_1",
+      "anchor_idx": 4,
+      "metadata": {
+        "scenario": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_04",
+        "family_id": "internal-audit",
+        "axis_idx": 4,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked for a code-review-ready coordination note for a change that spans many files and for which the implementer cannot yet identify the highest-risk areas. The immediate goal is to produce a clear, actionable review request that acknowledges the complication and focuses reviewer attention without requiring a full re-discovery of the diff.\nAction: State the implementation scope (what was intended to change), the requirement source (ticket/PR description or design doc), and the exact git range (base sha → head sha or PR link). Explain that the breadth of files means we will triage risk by impact surface rather than file count: request the implementer to provide (1) a one-paragraph intent summary, (2) a short list of touched subsystems (e.g., auth, DB schema, API, worker), and (3) three candidate “highest-risk” flows or entry points they suspect. If they cannot pick three, ask for runtime telemetry, error logs, or test failures pointing to likely hotspots. Then ask for the parts of the diff the author believes are ready for immediate review (a focused subset or specific modules) so reviewers can start with the most likely-impact changes.\nCaution: Because the change is broad and the highest-risk areas are unclear, do not conclude the code is review-complete or safe to merge. Broad diffs increase the chance of unintended coupling, schema mismatches, API contract regressions, and missing test coverage. Prioritize proving correctness on a small set of high-impact flows first; otherwise reviewers will need to do full-system reasoning which is slower and error-prone.\nNext Step: Ask the implementer to provide: base and head shas (or PR link), a one-paragraph intent/requirements summary, the list of touched subsystems, and either (a) up to three highest-risk flows or (b) supporting evidence (telemetry, failing tests, or critical logs) that indicate where reviewers should focus. Assign the reviewer owner to start with those artifacts and the specified diff subset.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_05",
+      "skill_id": "code_review",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_edge_case_2",
+      "anchor_idx": 5,
+      "metadata": {
+        "scenario": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_05",
+        "family_id": "internal-audit",
+        "axis_idx": 5,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a pre-merge review coordination for a branch but have not provided a reliable base SHA or a clear requirements source. That missing context prevents a full, confident readiness assessment and narrows what reviewers can verify.\nAction: I will treat the request as a targeted coordination note that (1) acknowledges the gap, (2) lists the minimum required evidence to continue, and (3) frames the review focus so reviewers can make a meaningful assessment despite the gap. Concretely: request the base SHA and head SHA (or a PR/branch link), a one-paragraph acceptance criteria or requirements pointer, and the highest-risk files or subsystems changed. While those are pending, prepare a short review checklist focused on correctness of logic, public API/backwards-compatibility, and production-safety guards that can be applied to the provided diff fragment or filenames.\nCaution: Without a reliable base SHA or explicit requirements, we must not declare the change merge-ready. Missing git range or acceptance criteria increases the risk of reviewing the wrong comparison (e.g., rebased vs. intended base), overlooking regressions vs. intended behavior, and mis-prioritizing tests. Review findings done under this uncertainty should be treated as provisional: they may need revalidation once the correct base and acceptance criteria are provided.\nNext Step: Provide the minimum inputs: base SHA (or the target branch name + repo), head SHA (or PR/branch link), and a brief acceptance criteria summary (one paragraph). If you can’t supply the full range, at minimum list the top 3 modified files or components so I can draft a focused pre-merge review checklist and a short list of concrete checks reviewers should perform.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_06",
+      "skill_id": "code_review",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_constraint_1",
+      "anchor_idx": 6,
+      "metadata": {
+        "scenario": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_06",
+        "family_id": "internal-audit",
+        "axis_idx": 6,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a code-review coordination note that enforces the rule: do not declare code merge-ready when implementation scope, git range, or requirements source are unclear. The immediate goal is to prepare a handoff-ready review request that preserves that constraint and makes missing context explicit.\nAction: 1) Confirm the implementation summary, requirements source, and exact diff range before any merge-readiness assessment. Request these minimum inputs now: base SHA, head SHA (or branch names with an exact commit range), a short requirements/acceptance-criteria summary or pointer (ticket/PR description), and the list of highest-risk files or components changed. 2) Classify the review focus upfront into correctness, architecture, testing, performance, and production readiness and note that no “ready to merge” verdict is permitted until the minimum inputs above are provided and verified. 3) Draft the review request for reviewers that (a) states the known change summary, (b) calls out missing inputs explicitly, and (c) lists concrete checks to perform once inputs are available (unit/integration test coverage, backward-compat checks, schema/migration review, safety toggles, rollout plan, and monitoring/alert expectations).\nCaution: Do not infer or pretend coverage of any file-level changes, test outcomes, or requirement fulfillment without the provided diff range and acceptance criteria. Any merge recommendation given before confirming base/head SHAs and the requirement source would violate the rule and risk shipping incomplete or mis-scoped changes.\nNext Step: Provide the minimum missing evidence so the review can proceed: base SHA, head SHA (or exact branch/commit range), a one-paragraph acceptance criteria or requirements link, and the top 3 files or components you believe are highest risk. Once received, I will produce a handoff-ready review request that lists critical blockers, important follow-ups, and targeted reviewer checks.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_07",
+      "skill_id": "code_review",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_constraint_2",
+      "anchor_idx": 7,
+      "metadata": {
+        "scenario": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_07",
+        "family_id": "internal-audit",
+        "axis_idx": 7,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked for a review-coordination note applied to a task branch, with the explicit constraint that I must not invent reviewer findings, test results, or file-level evidence that hasn't been provided. The immediate goal is to produce a handoff-ready review request that accurately reflects what is known and what is missing.\nAction: 1) Implementation summary (what I can write now): Please provide a one-sentence summary of what changed (feature, bugfix, refactor), the intended acceptance criteria or requirement source (ticket/PR description/UX spec), and the exact review target (base sha, head sha, branch name, or PR URL). 2) Review focus classification I will prepare once you supply the above: correctness, architecture, testing, performance, and production readiness. 3) Evidence I will require before making any claims: the diff or commit range, list of modified files (or highest-risk files), current unit/integration test outputs for the changed behavior, and any relevant benchmarks or runtime traces. 4) Deliverable I will produce after receiving evidence: a concise reviewer checklist separating critical blockers (must-fix before merge), important issues (should fix before or right after merge), and minor polish suggestions — with each item tied to a concrete file, function, test, or log where possible.\nCaution: I will not invent findings, test outcomes, or file-level evidence. If the diff, commits, or test output are not provided, I will instead list only the minimal verification questions and the specific artifacts I need. This means I cannot declare the change merge-ready or claim fixes exist until you supply verifiable artifacts (shas/diff/tests/logs).\nNext Step: Provide the minimum required artifacts: base SHA, head SHA (or PR URL/branch), a one-line requirement/acceptance criteria reference, and either the diff/changed-file list or the CI test output that covers the changes. I'll convert that into a handoff-ready review request and a prioritized blocker list without inventing any unverified evidence.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_08",
+      "skill_id": "code_review",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_workflow_1",
+      "anchor_idx": 8,
+      "metadata": {
+        "scenario": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_08",
+        "family_id": "internal-replay",
+        "axis_idx": 0,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a handoff-ready review request that confirms what was implemented, where the requirements come from, and the exact review target (branch/diff/commit range) so reviewers can proceed without re-discovery.\nAction: Please provide, in this order: (1) a one- or two-sentence implementation summary describing the behavioral change or feature, (2) the authoritative requirement source (ticket/PR description/acceptance criteria link or short pasted criteria), and (3) the precise review target (base SHA and head SHA, or branch name plus PR link, or explicit diff/commit range). If the change touches many files, also list the top 3 highest-risk files or components.\nCaution: I cannot mark the code review complete or judge merge readiness until the requirement source and an unambiguous git range are provided. Without those, any assessment would be speculative and could miss scope or regressions.\nNext Step: Share the implementation summary, the requirement link or acceptance criteria, and the base/head SHAs (or PR/branch link) — and optionally the top-risk files — and I will draft a concise, prioritized review request highlighting correctness, architecture, testing, and production-readiness checks.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_09",
+      "skill_id": "code_review",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_workflow_2",
+      "anchor_idx": 9,
+      "metadata": {
+        "scenario": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_09",
+        "family_id": "internal-replay",
+        "axis_idx": 1,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Confirming you want a focused review-plan that classifies the review across five axes — correctness, architecture, testing, performance, and production readiness — so reviewers can act efficiently on the task branch.\nAction: I will structure the review request into five clear focus areas. For each axis I will (a) state the review goal, (b) list concrete checks or evidence reviewers should look for, and (c) mark the likely severity (critical blocker, important, or minor). This makes it easy for reviewers to prioritize and for handoff.\nCaution: I cannot mark any item as resolved or claim merge readiness without the branch/diff/commit range and some implementation notes. If the branch spans many files or lacks acceptance criteria, the classification will be high-level until minimal missing inputs are provided.\nNext Step: Provide the commit range (base sha and head sha) or a link to the diff, plus a 1–2 sentence summary of intended behavior/requirements and the few files or components you consider highest-risk. I will return the axis-by-axis classification and a ready-to-post review checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_10",
+      "skill_id": "code_review",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_workflow_3",
+      "anchor_idx": 10,
+      "metadata": {
+        "scenario": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_10",
+        "family_id": "internal-replay",
+        "axis_idx": 2,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Current review posture: Incomplete triage. You have a change branch that has been surfaced for review but I do not yet have the diff range, explicit acceptance criteria, or confirmed test evidence. At present I can only perform an initial classification of review focus (correctness, architecture, testing, performance, production readiness) and identify likely evidence gaps — I cannot declare readiness to merge.\nAction: I will treat this as a focused pre-merge review preparation step. To proceed I need the minimal missing evidence so a reviewer can complete a strong review: base and head commit SHAs or a PR link, a short summary of the intended behavior and acceptance criteria (one paragraph), the list of files or components changed (or a short high-risk file list), and existing test outputs (unit/integration test run logs, coverage summary, and any new test names). Once you provide those, I will produce a handoff-ready review request that separates critical blockers from follow-ups and lists targeted checks for correctness, architecture, testing, performance, and production readiness.\nCaution: Do not treat this branch as merge-ready until the requested artifacts are provided and reviewed. Without the commit range and acceptance criteria I cannot verify that changes match requirements, cannot reliably identify regressions or security risks, and must avoid inventing test or file-level findings. Missing test evidence or unclear scope increases the chance a reviewer will raise critical blockers (e.g., behavior mismatch, missing rollback safety, or insufficient test coverage).\nNext Step: Provide the base SHA, head SHA (or PR link), a one-paragraph acceptance criteria/intent statement, and the names of the highest-risk changed files (or full file list if small). If tests exist, attach test run results and coverage numbers. I will then produce a concise review request with explicit critical checks and prioritized next actions.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_11",
+      "skill_id": "code_review",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_workflow_4",
+      "anchor_idx": 11,
+      "metadata": {
+        "scenario": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_11",
+        "family_id": "internal-replay",
+        "axis_idx": 3,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a handoff-ready review request for a task branch, and current context is incomplete. The immediate goal is to gather the minimum inputs so a reviewer can assess correctness, architecture, testing, and production readiness without re-discovery.\nAction: Please provide the minimal review inputs: the base SHA and head SHA (or a PR/branch URL), a one-sentence summary of intended behavior or acceptance criteria, and the list of affected components or highest-risk files (top 3–5 paths). If tests were added, attach test names or test run output; if not, note which behavioral areas lack automated coverage.\nCaution: I cannot assess readiness or mark issues without the commit range and acceptance criteria; any guidance before those are supplied would be speculative. Do not assume merge-readiness until the diff range, acceptance criteria, and at least basic test evidence are available.\nNext Step: Supply the base and head SHAs (or PR link), a short acceptance-criteria summary, and the top affected files/components so I can produce a focused review request that separates critical blockers from follow-ups.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_12",
+      "skill_id": "code_review",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_edge_case_1",
+      "anchor_idx": 12,
+      "metadata": {
+        "scenario": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_12",
+        "family_id": "internal-replay",
+        "axis_idx": 4,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You’ve submitted a large multi-file change but haven’t yet identified the highest-risk areas; the immediate goal is to convert that broad change into a focused, reviewable request that highlights the true merge blockers and a minimal set of next validation steps.\nAction: Acknowledge the complication: with many touched files, review effort and risk scale nonlinearly—broad diffs make it costly to find regressions and increase the chance of missing cross-cutting effects. To make the review effective now, provide a narrow, prioritized slice of evidence: 1) the exact commit range or branch name (base SHA and head SHA), 2) the list of top 5–8 files or modules you believe changed behavior most (or, if unknown, the files with the largest diffs or most runtime impact), and 3) a short statement of intended behavior / acceptance criteria for the feature or refactor. If you can’t pick files, provide automated outputs that direct reviewers (e.g., test failures, failing integration traces, CI job names, or a runtime error/stack trace tied to the change).\nCaution: Do not treat broad coverage or passing unit tests as sufficient evidence of safety—when many files change, missing integration or runtime regressions is the primary risk. Until the commit range and the most-likely impact surface are confirmed, we cannot declare the code ready to merge and any high-level approval would be premature.\nNext Step: Provide the commit range (base SHA → head SHA) plus either (A) the 5–8 highest-risk files/modules with a one-line reason each, or (B) if you can’t identify them, upload CI test results and any failing traces that narrow where runtime behavior changed. Assign an owner (implementer or lead reviewer) to supply that minimal evidence so the review can focus on correctness, integration risk, and production readiness.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_13",
+      "skill_id": "code_review",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_edge_case_2",
+      "anchor_idx": 13,
+      "metadata": {
+        "scenario": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_13",
+        "family_id": "internal-replay",
+        "axis_idx": 5,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a pre-merge code review coordination for a branch, but the base SHA and the authoritative requirements/source of truth for the change are not provided. This makes the current review posture incomplete: we cannot determine the intended diff, verify acceptance criteria, or say whether the change meets requirements.\nAction: I will treat this as a guarded triage: list the minimum confirmations needed, outline how missing inputs change reviewer focus, and provide a narrow, realistic next request so reviewers can proceed without guessing. Specifically, confirm (1) base SHA and head SHA or a PR link, (2) a one-paragraph statement of the requirement or acceptance criteria the change is intended to satisfy (or a pointer to the ticket/spec), and (3) the highest-risk files or components affected.\nCaution: Without a reliable base SHA and explicit acceptance criteria we cannot (a) establish the exact diff to review, (b) determine whether behavioral changes match requirements, or (c) mark any issues as merge-blocking with confidence. Any assessment made now would be partial; reviewers may miss regressions, mismapped requirements, or scope drift between commits.\nNext Step: Provide the base and head SHAs (or PR URL), plus a short requirements summary or ticket link, and label the 3–5 files or modules you consider highest risk. Once I have those, I will produce a handoff-ready review request that separates critical blockers from follow-ups and lists exact checks and test evidence reviewers should validate.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_14",
+      "skill_id": "code_review",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_constraint_1",
+      "anchor_idx": 14,
+      "metadata": {
+        "scenario": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_14",
+        "family_id": "internal-replay",
+        "axis_idx": 6,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: The request is to prepare a handoff-ready review coordination note for a branch, but the implementation scope, git range (base/head), and requirements source are not yet specified. The immediate goal is to avoid declaring the change merge-ready and to gather the minimum inputs needed to perform a meaningful production review.\nAction: State what is implemented as far as you know, then request the minimum required artifacts: base SHA, head SHA (or PR link), a short requirements or acceptance-criteria summary (one paragraph or a linked spec), and a concise list of highest-risk files or components affected. Explain that with those items we will classify focus areas (correctness, architecture, testing, performance, production readiness) and draft a precise review checklist and blocker list for reviewers.\nCaution: Do not treat the change as review-complete or safe to merge until the git range and requirements are confirmed. Missing those items prevents verification of what changed, prevents mapping diffs to acceptance criteria, and blocks identification of true blockers versus follow-ups. Any readiness statement made now would be provisional and must be revisited once the requested artifacts are provided.\nNext Step: Provide the base SHA and head SHA (or PR link), a one-paragraph requirements/acceptance criteria summary, and the top 3–5 files or components you consider highest risk. Once received, I will produce a handoff-ready review request that highlights critical blockers, important follow-ups, and exact reviewer tasks.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_15",
+      "skill_id": "code_review",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_constraint_2",
+      "anchor_idx": 15,
+      "metadata": {
+        "scenario": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_15",
+        "family_id": "internal-replay",
+        "axis_idx": 7,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked for a review coordination note that strictly avoids inventing findings, test results, or file-level evidence not provided; the immediate goal is to produce a handoff-ready review request that states what is known, what is missing, and what an incoming reviewer should validate.\nAction: Prepare a concise review package containing: (1) implementation summary—one or two sentences describing the intended change and acceptance criteria (copy from the author); (2) review target—exact base SHA and head SHA or a PR/branch link and the file list or path globs that contain the changes; (3) explicit evidence supplied—links or attachments for diffs, test runs, benchmark outputs, design docs, and any stakeholder approvals; and (4) a checklist of concrete reviewer tasks focusing on correctness, architecture, testing, performance, and production readiness (each task must point to an artifact to inspect, e.g., “verify input validation in file X at line range Y–Z” or “confirm unit test suite shows coverage for module M — attach coverage report”). Only mark items as “checked” if the corresponding artifact is attached or referenced.\nCaution: Do not assert any review conclusions (safe to merge, performance OK, coverage sufficient) unless the referenced artifacts explicitly support that claim. If key artifacts are missing (base/head SHAs, diffs, test output, or acceptance criteria), treat readiness as unknown and flag those as blockers. Avoid file-level or behavioral claims unless the exact file ranges and test evidence were provided and verified.\nNext Step: Provide the minimum missing inputs so an actionable review can proceed: base SHA, head SHA or PR link, list of changed files or path globs, a short requirements/acceptance criteria statement, and any test/coverage/benchmark outputs currently available. Designate an owner for assembling these artifacts (author or release owner) and then assign the review with the checklist above.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_16",
+      "skill_id": "code_review",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_workflow_1",
+      "anchor_idx": 16,
+      "metadata": {
+        "scenario": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_16",
+        "family_id": "qa-trace",
+        "axis_idx": 0,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a handoff-ready review request that confirms (1) what was implemented, (2) the requirements or acceptance criteria it was intended to satisfy, and (3) the precise review target (branch, diff, or commit range). The immediate goal is to collect and validate those three items so reviewers can assess correctness and merge readiness without re-discovery.\nAction: Provide a concise, copy-pasteable checklist to attach to the PR that includes:\n- Implementation summary: one-sentence intent + short list of files or modules changed (e.g., \"Refactor billing sync worker to use batching; key files: services/billing_sync.py, tests/test_billing_sync.py\").\n- Requirement source: link or identifier for the requirement (ticket/EPIC/acceptance criteria) and a 1–2 line excerpt of the acceptance criteria that the change satisfies.\n- Review target: explicit git range or PR link (base sha, head sha, or branch names; or \"PR #123: base=main (sha: <base_sha>), head=feature/billing-batch (sha: <head_sha>)\").\nAlso include quick pointers for reviewers: highest-risk files, expected behavior changes, and tests that demonstrate the behavior (unit, integration, and any manual verification steps).\nCaution: Do not mark the change merge-ready until the git range and requirement source are explicit. Without an authoritative base/head and acceptance criteria, reviewers cannot reliably judge scope or regressions. Avoid inventing or assuming test outcomes—only reference tests and traces that you can attach.\nNext Step: Paste the following minimum inputs here or into the PR: 1) one-sentence implementation summary + list of top 3 changed files/modules, 2) requirement/ticket link and the acceptance criteria lines that this change targets, and 3) the exact review target (PR URL or base and head shas). I will convert those into a ready-to-send review request and highlight the likely blockers and follow-ups.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_17",
+      "skill_id": "code_review",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_workflow_2",
+      "anchor_idx": 17,
+      "metadata": {
+        "scenario": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_17",
+        "family_id": "qa-trace",
+        "axis_idx": 1,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a review-ready coordination note that classifies the review focus across correctness, architecture, testing, performance, and production readiness for the task branch so reviewers know where to concentrate their effort.\nAction: I will create a concise review scope that (1) summarizes what the implementation claims to change, (2) maps the review focus to five explicit axes (correctness, architecture, testing, performance, production readiness), and (3) lists concrete evidence or artifacts to attach for each axis so reviewers can act. For each axis I will: state the specific question reviewers must answer, point to the minimal artifacts needed (files/diffs, tests, benchmarks, logs, config), and flag whether a failure on that axis is a merge-blocker or follow-up work.\nCaution: I cannot mark any axis as fully verified or claim merge readiness without the branch/diff/commit range and the actual code or test outputs. I will not invent findings — my guidance will be a template and checklist until you provide the commit range, affected files, or test/benchmark results.\nNext Step: Provide the base sha and head sha (or PR link), a one-sentence summary of the intended behavior/change, and the list of highest-risk files or components (or allow me to infer from the diff). Once I have that, I will produce the axis-classified review request with concrete blocker/non-blocker recommendations and exact evidence to attach for reviewers.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_18",
+      "skill_id": "code_review",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_workflow_3",
+      "anchor_idx": 18,
+      "metadata": {
+        "scenario": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_18",
+        "family_id": "qa-trace",
+        "axis_idx": 2,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Current review posture: I cannot complete a full production-ready review yet. Based on what you asked, we should treat this as an in-progress review posture: initial triage done but key evidence missing. I can outline what’s known versus what remains required so a reviewer can pick up efficiently.\nAction: - Evidence I can use now: any high-level description of the change, the intent/requirement it implements, and the list of affected components or modules.\n- Evidence still needed to complete a strong review: the exact git range (base SHA and head SHA or PR link), the diff or file list for the change, unit/integration test results (with coverage for modified behavior), and any design or requirement doc that specifies acceptance criteria or expected behavior.\n- Suggested concrete review checklist to run once evidence is provided:\n  1) Correctness: review the diff for logic changes, edge-case handling, and error paths; confirm behavior against acceptance criteria.\n  2) Architecture: confirm module boundaries, dependency changes, and any backward-compatibility concerns.\n  3) Testing: verify new/updated unit tests, integration tests, and where possible add regression tests for critical paths; include test run outputs and coverage deltas.\n  4) Performance & Security: point to hotspots or public APIs affected and provide benchmarks or threat analysis if applicable.\n  5) Production readiness: list migration steps, feature flags, rollout plan, observability/metrics, and rollback plan.\n- If you want, I can convert the checklist into PR-review comments once you supply the diff/PR link and tests.\nCaution: Do not consider the change merge-ready until the git range and acceptance criteria are confirmed and tests covering the modified behaviors are available. Without the base/head SHAs and test evidence we must avoid asserting correctness or labeling issues as non-blocking — those judgments depend on concrete diffs and test outcomes.\nNext Step: Provide the minimum required items: base SHA and head SHA (or PR link), a short summary of the requirement/acceptance criteria, and the list of highest-risk files or modules touched. Also attach test artifacts (test run logs or links) if available. Once I have those, I will produce a handoff-ready review request with prioritized blockers and reviewer action items.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_19",
+      "skill_id": "code_review",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_workflow_4",
+      "anchor_idx": 19,
+      "metadata": {
+        "scenario": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_19",
+        "family_id": "qa-trace",
+        "axis_idx": 3,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You need a concise, merge-ready review request for a branch but some required context is missing. The immediate goal is to confirm the minimal review inputs so a reviewer can assess correctness, architecture, testing, and production readiness without assumptions.\nAction: Request the minimum missing review inputs: (1) base commit SHA and head commit SHA (or the exact PR/branch name and link), (2) a one- or two-sentence summary of the intended behavior or acceptance criteria (what requirement or plan this change implements), and (3) the list of affected components or highest-risk files (or a short file path glob). If available, also attach any existing test results or CI job names that exercised the change.\nCaution: Do not proceed to claim the change is review-complete or safe to merge until those minimum inputs are provided. Without the commit range and acceptance criteria, reviewers cannot reliably map diffs to requirements or determine if tests cover intended behavior; fabricating findings or test coverage is not allowed.\nNext Step: Provide the base SHA and head SHA (or PR/branch link), a brief acceptance-criteria statement, and the top 3–5 files or components you consider highest risk so the review can be triaged and focused immediately.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_20",
+      "skill_id": "code_review",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_edge_case_1",
+      "anchor_idx": 20,
+      "metadata": {
+        "scenario": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_20",
+        "family_id": "qa-trace",
+        "axis_idx": 4,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You have a code change that spans many files and the high-risk areas aren’t yet summarized; the immediate goal is to prepare a clear, handoff-ready review request that reduces ambiguity and focuses reviewer effort on the true risks.\nAction: Acknowledge the complication: broad, multi-file changes increase the chance of hidden coupling, untested code paths, and deployment/regression risks. To make the review actionable now, produce a minimal scoped packet: (1) a one-paragraph implementation summary describing intent and acceptance criteria, (2) the git base and head shas or PR link, (3) a short list (3–6) of candidate high-risk modules or file globs you suspect touch critical paths, and (4) representative diffs or sample files (the 5–10 files you believe are most relevant). If you can’t identify the top files, run a simple diff-file-frequency check (largest diffs, files touched by multiple commits, or files with public APIs) and attach the output. Also include current test-run results (unit/integration) and any failing tests.\nCaution: Do not declare the change merge-ready until the git range, acceptance criteria, and either targeted review of the high-risk files or test evidence are provided. Broad changes can conceal architectural regressions, permission/security gaps, or performance regressions; without a narrowed scope or concrete test traces, reviewers will be forced to either (a) do a costly full repo pass or (b) mark the PR blocked for missing context.\nNext Step: Owner (implementer): supply the base and head shas (or PR link), a 2–3 sentence acceptance criteria list, and either (A) your top 5–10 files/globs you believe are highest risk, or (B) the diff-file-frequency output if you’re unsure — plus current test results. With that minimal packet a reviewer can triage critical blockers vs. follow-ups and proceed to a focused correctness and production-readiness review.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_21",
+      "skill_id": "code_review",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_edge_case_2",
+      "anchor_idx": 21,
+      "metadata": {
+        "scenario": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_21",
+        "family_id": "qa-trace",
+        "axis_idx": 5,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a pre-merge review for a branch but have not provided a reliable base SHA or a clear requirements/acceptance source. That missing context prevents a complete, confident assessment and means the review must be scoped to discoverable risks rather than declare merge readiness.\nAction: I will prepare a focused review request template and risk checklist that a reviewer can use immediately, but first I need the minimum missing inputs. Provide the base SHA (or target branch name + confirm it's up to date), the head SHA (or PR/branch ref), and a one-paragraph summary of the intended requirement or acceptance criteria. With those, the review will check correctness (behavioral diffs against requirement), architecture and dependency impact, test coverage for changed behavior, and production readiness (migrations, rollout/rollback plan, monitoring).\nCaution: Without a reliable base SHA and explicit acceptance criteria we cannot determine which lines are new vs. preexisting, cannot run precise diff-based static analysis or blame, and cannot assert whether current tests validate the intended behavior. Any readiness or blocker decisions made before those inputs will be provisional and may change once the true diff and requirements are known.\nNext Step: Submit the base SHA (or confirm base branch and that it's synced), the head SHA or PR link, and a concise acceptance criteria summary (1–3 sentences). If you cannot provide SHAs, list the top 3 files or components you changed and the single most important behavior that must be correct so I can draft a narrowly scoped review request.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_22",
+      "skill_id": "code_review",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_constraint_1",
+      "anchor_idx": 22,
+      "metadata": {
+        "scenario": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_22",
+        "family_id": "qa-trace",
+        "axis_idx": 6,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a production-ready review request for a code change, but the implementation scope, git range (base/head), and requirements source are not yet clear. The immediate goal is to prepare a review posture that does not claim merge-readiness until those minimum inputs are provided.\nAction: Hold merge readiness judgment and create a handoff-ready review template that (1) states what is known about the change, (2) lists exactly which minimum artifacts are missing, (3) defines the focused review checkpoints (correctness, architecture, testing, performance, production readiness), and (4) specifies the concrete evidence reviewers need to decide. Provide a short checklist reviewers can use once the missing inputs are supplied.\nCaution: Do not mark this change “ready to merge” or approve it for staging/production without the minimum context: explicit requirements/acceptance criteria, a clear git range (base SHA and head SHA or PR link), and the list of affected modules/files. Missing any of those prevents an authoritative assessment of correctness, test coverage scope, and production risk.\nNext Step: Provide the minimum missing inputs so the review can proceed: base SHA, head SHA (or PR URL), a one-paragraph requirements/acceptance criteria summary, and the top 5 files or components affected (or note “many files” if the change is large). Once you supply those, I will produce a prioritized review checklist with critical blockers, important items, and minor recommendations ready for handoff.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_23",
+      "skill_id": "code_review",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_constraint_2",
+      "anchor_idx": 23,
+      "metadata": {
+        "scenario": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_23",
+        "family_id": "qa-trace",
+        "axis_idx": 7,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked for a code-review coordination note for a task branch, with an explicit constraint: do not invent any reviewer findings, test results, or file-level evidence that hasn't been provided or verified. The immediate goal is to prepare a handoff-ready review request that accurately reflects only the supplied evidence and clearly lists what is missing.\nAction: I will structure the review request so reviewers can act without assumptions: (1) state the claimed implementation and intended requirement source as provided, (2) list the exact git range or branch to review (or request it if missing), (3) enumerate only the concrete evidence you supplied (diffs, test runs, screenshots, logs), and (4) surface targeted review questions across correctness, architecture, testing, performance, and production readiness that explicitly require evidence rather than inferred results. For each question I will mark whether the answer is already present in the provided artifacts or whether we need additional artifacts.\nCaution: I will not assert any findings, test pass/fail status, or code behavior that are not directly supported by artifacts you supply. If key inputs are missing (base/head SHAs, diffs, acceptance criteria, or test outputs), the review cannot be completed to merge-readiness and I will mark merge-readiness as unknown until those minimum items are provided.\nNext Step: Provide the minimum missing items so the review can proceed: base SHA, head SHA or PR URL, a short statement of the requirement or acceptance criteria, and the list of supplied artifacts (diffs, test logs, CI status links). If you already provided artifacts, confirm which files or test runs are authoritative so I can draft the precise, evidence-bound review request for handoff.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_24",
+      "skill_id": "code_review",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_workflow_1",
+      "anchor_idx": 24,
+      "metadata": {
+        "scenario": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_24",
+        "family_id": "owner-handoff",
+        "axis_idx": 0,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a concise, handoff-ready confirmation of what was implemented, which requirement or plan it targets, and exactly which branch/diff/commit range should be reviewed.\nAction: Please provide (minimum required): 1) a short implementation summary (1–3 sentences describing the change and intent), 2) the authoritative requirement source (ticket/PR description/spec document and link or ID), and 3) the review target (base SHA and head SHA, or branch name plus PR URL, or an explicit diff range). Also list the top 3 files or components you expect are highest-risk.\nCaution: I cannot mark the change as review-ready or assess correctness without the requirement source and an exact git range. If you omit the base/head SHAs or a clear requirements reference, any review will be speculative and may miss scope or regressions.\nNext Step: Reply with the three minimum items (implementation summary, requirement source link/ID, and base/head SHAs or PR URL) plus the top 3 affected files or components. Once I have those I will produce a focused review request that separates critical blockers from follow-ups and gives an explicit next-owner checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_25",
+      "skill_id": "code_review",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_workflow_2",
+      "anchor_idx": 25,
+      "metadata": {
+        "scenario": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_25",
+        "family_id": "owner-handoff",
+        "axis_idx": 1,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked me to classify the review focus for the task branch across five axes (correctness, architecture, testing, performance, production readiness) so I can draft actionable guidance. The immediate goal is to create a clear review posture that lets a reviewer prioritize critical blockers vs. follow-ups.\nAction: I will structure the review focus as five concise checkpoints (one per axis). For each axis I’ll state: current posture (what to check first), evidence required to complete the check, concrete risk(s) to watch for, and a recommended reviewer action (what to inspect or run). This gives reviewers a prioritized checklist they can follow without re-discovery.\nCaution: I cannot mark anything as merge-ready or invent findings without the diff/commit range and test evidence. If you haven’t provided the base/head sha or link to the diff, the guidance will be high-level and will require those minimum inputs to be prescriptive and actionable.\nNext Step: Provide the commit range or PR link (base and head sha) plus a one-line summary of the intended behavior. If you prefer, identify up to 5 highest-risk files or modules changed; otherwise I will apply the following axis-by-axis checklist broadly to the branch.\n\nIf you give the commit range now, I’ll produce the full axis-classified review checklist with concrete file/line-level pointers and a prioritized list of critical blockers vs. follow-ups.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_26",
+      "skill_id": "code_review",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_workflow_3",
+      "anchor_idx": 26,
+      "metadata": {
+        "scenario": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_26",
+        "family_id": "owner-handoff",
+        "axis_idx": 2,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Current posture: I cannot complete a full review yet — I have no diff/commit range or files to inspect. From the task prompt, the review posture is \"initial triage\": we need to confirm what was implemented, what requirements it targets, and the exact review target before evaluating correctness, architecture, tests, performance, and production readiness.\nAction: To move from triage to a substantive review, provide the minimum required evidence: base SHA and head SHA (or a branch/PR URL), a short requirements/acceptance-criteria summary (one paragraph), and the list of highest-risk files or components changed. With those I will classify issues across correctness, architecture, testing, performance, and production readiness and produce a prioritized set of critical blockers vs. follow-ups.\nCaution: Without the commit/diff and acceptance criteria, any judgment about readiness would be speculative. I must not claim code is merge-ready or invent test results or file-level findings. Missing context increases risk that important blockers (security, data migrations, incompatibilities) will be overlooked.\nNext Step: Please supply the commit range (base and head SHA or PR/branch link), a brief statement of intended behavior/requirements, and the top 3–5 files or modules you consider highest risk. I will then produce a focused review posture, list what tests or traces are missing, and identify any likely critical blockers to resolve before merge.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_27",
+      "skill_id": "code_review",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_workflow_4",
+      "anchor_idx": 27,
+      "metadata": {
+        "scenario": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_27",
+        "family_id": "owner-handoff",
+        "axis_idx": 3,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a code-review coordination note for a task branch but may be missing some context; the immediate goal is to confirm the minimum inputs required so a reviewer can complete a focused, production-oriented review.\nAction: I will prepare a concise review request template and a prioritized checklist that targets correctness, architecture, testing, performance, and production readiness — but first I need the minimum missing inputs. Provide exactly: (1) base sha and head sha (or a PR/branch URL), (2) short requirement/acceptance criteria (one-paragraph), and (3) list of affected components or highest-risk files (or indicate “many files” if you don’t know). With those, I will: confirm scope, classify review focus across the five axes, state current review posture and missing evidence, then produce a handoff-ready review note that separates critical blockers from follow-ups.\nCaution: I cannot declare the change merge-ready or invent test/results or file-level findings without the commit range, requirements, and at least a high-level file list. Missing those will force a conservative posture and will delay identifying true blockers vs. polish items.\nNext Step: Provide the minimum inputs now — base sha, head sha (or PR link), brief acceptance criteria, and the affected components/highest-risk files — and I’ll return the full focused review request and prioritized checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_28",
+      "skill_id": "code_review",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_edge_case_1",
+      "anchor_idx": 28,
+      "metadata": {
+        "scenario": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_28",
+        "family_id": "owner-handoff",
+        "axis_idx": 4,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You’re asking for a review coordination note for a large multi-file change where the requester cannot yet identify the highest-risk areas. The immediate goal is to turn that broad, incomplete context into a focused, actionable review request that a reviewer can pick up without re-discovery.\nAction: Acknowledge the complication and adopt a risk-driven triage: 1) list the assumed goals or acceptance criteria for the change (ask the author if unknown), 2) identify candidate high-risk classes of changes for a multi-file sweep (API surface changes, data-model/migration, auth/permission checks, concurrency or shared-state updates, performance hotspots, and third-party/integration touchpoints), 3) request a minimal, prioritized artifact set from the author so reviewers can concentrate (base and head SHAs or PR link; top 10–20 changed files by LOC or by logical criticality; any DB schema or contract changes; the intended rollout plan and feature flag), and 4) propose a short review scope that separates critical verification from non-blocking polish (Correctness & safety checks first, then tests, then architecture/perf).\nCaution: Because the author cannot yet mark the highest-risk areas, the review cannot safely conclude \"merge-ready.\" Lack of a clear risk map increases the chance reviewers miss regressions in critical paths (data migrations, auth, persistence, APIs). Do not merge until reviewers can validate the critical correctness and production-readiness items; otherwise you risk outages, data loss, or hard-to-revert behavior.\nNext Step: Ask the author to provide the minimum inputs: base SHA and head SHA (or PR link), a 1–2 sentence intended behavior/acceptance criteria, and either (a) the top 10 changed files by size or perceived impact, or (b) if they can’t, a short automated artifact: git diff --name-only base..head plus a note of any DB/contract/rollout changes. Assign an owner (author) to supply that within the next review cycle so reviewers can perform a focused correctness-first pass.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_29",
+      "skill_id": "code_review",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_edge_case_2",
+      "anchor_idx": 29,
+      "metadata": {
+        "scenario": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_29",
+        "family_id": "owner-handoff",
+        "axis_idx": 5,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a pre-merge review but have not provided a reliable base SHA or a requirements/acceptance source. That missing context prevents a confident statement about merge readiness and narrows what reviewers can validate.\nAction: I'll treat this as a coordination request: identify the implementation intent, scope the exact diff to review once provided, and prepare a focused checklist reviewers can use to evaluate correctness, tests, and production readiness. Right now the actionable path is to confirm the minimum Git range (base SHA and head SHA or branch names), the acceptance criteria or ticket/PR description that defines intended behavior, and the highest-risk files or components touched.\nCaution: Without a confirmed base SHA and a clear requirements source we cannot (and must not) claim the change is ready to merge. Missing those items creates three concrete risks: (1) reviewers may assess the wrong diff or miss unrelated commits; (2) acceptance criteria won't map to implementation so behavioral gaps can be hidden; (3) test coverage and regression impact cannot be scoped reliably. These are blockers for a production-ready review.\nNext Step: Provide the minimum required inputs: base SHA (or the base branch name and the commit it should start from), head SHA (or the PR branch), and a short requirements summary or ticket link with explicit acceptance criteria. Also list 3–5 highest-risk files or modules changed. Once you supply those, I'll return a handoff-ready review request that separates critical blockers from follow-ups and lists exact reviewer checks.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_30",
+      "skill_id": "code_review",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_constraint_1",
+      "anchor_idx": 30,
+      "metadata": {
+        "scenario": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_30",
+        "family_id": "owner-handoff",
+        "axis_idx": 6,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: The branch change needs a production-ready review request, but key context is missing: the implementation scope, the git range (base and head SHAs or PR), and the requirements source. Because those are unclear, we cannot conclude the code is merge-ready.\nAction: Prepare a minimal, handoff-ready review package that includes (1) a one-line implementation summary (what was changed and why), (2) the authoritative requirements or acceptance criteria (link or short text), and (3) the exact review target: base SHA and head SHA or a PR number and branch name. Also list the highest-risk files or components touched (top 3–5) and any available test evidence (unit/integration test names, CI run links, and failing/passing status).\nCaution: Do not mark the change as ready to merge or close the review loop until the git range and requirements are confirmed. Without those, reviewers cannot reliably assess correctness, scope creep, or whether tests cover required behavior — claiming readiness would violate the review policy and risks shipping regressions.\nNext Step: Provide the missing minimum inputs now: base SHA, head SHA (or PR URL), a brief statement of the acceptance criteria or requirement doc link, and the 3 highest-risk files or modules changed. Once provided, I will produce a focused review request that separates critical blockers from follow-ups and lists exact reviewer checks.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_negative_verify_31",
+      "skill_id": "code_review",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_constraint_2",
+      "anchor_idx": 31,
+      "metadata": {
+        "scenario": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_31",
+        "family_id": "owner-handoff",
+        "axis_idx": 7,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked for a review coordination note for a task branch, with the explicit constraint that I must not invent reviewer findings, test results, or file-level evidence that hasn't been provided or verified. The immediate goal is to prepare a handoff-ready review request that documents what is known, what is missing, and the minimal concrete next actions so a reviewer can proceed without assuming unverified facts.\nAction: 1) Confirmed implementation summary required: ask the implementer to provide a one-paragraph summary of what was changed and why (linking to the acceptance criteria or ticket).\n2) Confirm the review target: request the base SHA and head SHA (or PR/branch URL) and the exact commit range to review.\n3) Provide a focused review scope template the implementer should fill in (so reviewers don't infer unprovided evidence):\n   - Changed modules/files: list the top-level packages or files expected to contain the substantive logic changes.\n   - Intended behavior / acceptance criteria: list explicit conditions the change must satisfy in production.\n   - Tests included: enumerate unit/integration/e2e tests added or updated and their locations.\n   - Performance/scale concerns: note any hotspots or expected workload changes.\n   - Backwards-compatibility and DB/migration impacts: list migrations or schema changes and rollout strategy.\n4) Ask for concrete artifacts to attach: the diff/PR link, CI run links (pass/fail and failing tests if any), unit-test coverage summary, and any benchmark traces or logs that motivated the change.\n5) Provide an explicit reviewer checklist to use (no invented findings):\n   - Correctness: verify logic vs. acceptance criteria and edge cases identified by implementer.\n   - Architecture & design: confirm API boundaries and invariants claimed by the implementer.\n   - Tests: confirm tests cover the listed acceptance criteria and add missing tests where gaps exist.\n   - Production readiness: confirm migrations, feature flags, observability (metrics/logs/alerts), and rollback plan are present.\n   - Security/privacy: confirm any data handling or auth changes are reviewed.\n6) State a merge gating rule: do not merge until base/head are confirmed, CI green for the specified commit range, and acceptable test coverage for changed behavior has been attached.\nCaution: I will not and must not fabricate any file-level findings, test outcomes, or CI results. Until you provide the commit range, PR/diff, and the explicit list of changed files/tests/acceptance criteria, I cannot mark any item as verified or say the code is ready to merge. Any reviewer guidance below assumes the implementer supplies the requested artifacts; otherwise the review must be limited to high-level architecture and the stated acceptance criteria only.\nNext Step: Please provide the minimum set of inputs: base SHA, head SHA (or PR/branch URL), a 1–2 sentence implementation summary, the list of highest-risk files or modules changed, and links to CI run(s) and any new/changed tests. Once those are provided I will produce a handoff-ready review request that separates critical blockers from follow-ups and lists concrete reviewer actions.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  }
+]

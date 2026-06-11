@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "run_tag": "newpkg_api_ours_openai_gpt_5_mini_langchain",
+  "mode": "api",
+  "profile": "generalization_3domain",
+  "model_id": "openai/gpt-5-mini",
+  "backend_model": "openai/gpt-5-mini",
+  "judge_model": "openai/gpt-5-mini",
+  "agent": "LangChain",
+  "domains": [
+    "code_review",
+    "data_science",
+    "travel_planning"
+  ],
+  "buyers": [
+    "buyer_1",
+    "buyer_2",
+    "buyer_3",
+    "buyer_4"
+  ],
+  "method": "Ours",
+  "ablation_id": ""
+}

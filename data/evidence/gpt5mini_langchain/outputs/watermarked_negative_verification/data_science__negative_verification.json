@@ -1,0 +1,1090 @@
+[
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_00",
+      "skill_id": "data_science",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_workflow_1",
+      "anchor_idx": 0,
+      "metadata": {
+        "scenario": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_00",
+        "family_id": "internal-audit",
+        "axis_idx": 0,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Confirming the requested task: you need a concise verification of (1) the analysis goal, (2) the target metric, (3) available data sources, and (4) the task type (exploratory, experimental, predictive, or diagnostic), in that order so another analyst can pick up the work.\nAction: 1) Analysis goal — Restate the business decision the analysis should support (e.g., increase activation, reduce churn, explain a revenue drop). Provide a one-line hypothesis the analyst will test or evaluate.\n2) Target metric — Specify the primary metric that maps to the goal (exact name, aggregation, unit, and time window). Include any secondary metrics or guardrail metrics to monitor simultaneously.\n3) Available data sources — List the concrete data tables, event streams, or external datasets available (e.g., user_events daily table, payments ledger, CRM export, A/B test assignment logs), with the relevant keys/columns for joins and typical freshness/latency.\n4) Task type — Indicate whether the work is exploratory (pattern discovery), experimental (A/B or randomized test design), predictive (modeling / forecasting), or diagnostic (root-cause triage). If mixed, state the dominant path and note the mixture explicitly.\nCaution: Do not assume causality, production readiness, or statistical validity until sample size, randomization, data lineage, and measurement definitions are validated. Missing or ambiguous items (metric definition, time window, segment, or sample size) will materially change the recommended analysis path and conclusions.\nNext Step: Please provide the minimum required details to confirm each item above:\n- One-line business goal/hypothesis.\n- Exact primary metric definition (name, numerator/denominator if ratio, aggregation cadence, and time window).\n- Top 3 available data sources with key columns and freshness.\n- Which task type applies (exploratory/experimental/predictive/diagnostic) or note if it's a combination.\nOnce you supply these, I will return a concise, ordered plan mapping to experiment design, feature/model needs, diagnostic checks, or exploratory steps as appropriate.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_01",
+      "skill_id": "data_science",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_workflow_2",
+      "anchor_idx": 1,
+      "metadata": {
+        "scenario": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_01",
+        "family_id": "internal-audit",
+        "axis_idx": 1,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want the request mapped to an appropriate analysis path so an analyst can proceed (experiment design, feature engineering, model evaluation, or operational analytics review). The immediate goal is to choose the path that best matches the business decision, target metric, data availability, and deliverable expected.\nAction: 1. Confirm the decision being supported (e.g., test a new UI, predict churn, improve feature set, triage metric drop) and the target metric (primary business KPI and any guardrail metrics).  \n2. Use a decision-mapping rule:\n   - If the question is “will X cause Y?” or requires randomized allocation and causal inference → map to Experiment Design.  \n   - If the goal is to build or improve predictors/labels for automated decisions → map to Feature Engineering plus Model Evaluation.  \n   - If the goal is to validate, compare, or select a trained algorithm for production use → map to Model Evaluation (offline metrics, calibration, fairness, and deployment constraints).  \n   - If the goal is to investigate an unexpected change in dashboards, data inconsistencies, or operational alerts → map to Operational Analytics Review (data quality, segmentation, instrumentation).  \n3. For the mapped path, outline the next analytic artifact to produce (e.g., A/B test plan with power calc, feature spec and labeling guide, validation report with cost/latency tradeoffs, or diagnostic runbook and check-list).\n4. Provide a minimal template for handoff: decision question, primary metric, time window, available data sources, current constraints (traffic, labeling, deployment), and the preferred deliverable (experiment spec, feature list, evaluation script, or diagnostic checklist).\nCaution: Do not conflate objectives — for example, labeling a predictive task as a causal experiment will lead to incorrect designs and claims. Mapping must be driven by the decision to be made, not by the available toolset. Also avoid implying production-readiness, causal impact, or statistical validity until the mapped path is specified and the necessary sample size, data lineage, and evaluation checkpoints are confirmed.\nNext Step: Confirm the minimum items so I can return a concrete, stepwise plan for the chosen path: (1) one-sentence decision goal, (2) primary metric and guardrails, (3) time window and target segment, and (4) available data sources and any key constraints (traffic, labeling budget, latency or privacy limits).",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_02",
+      "skill_id": "data_science",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_workflow_3",
+      "anchor_idx": 2,
+      "metadata": {
+        "scenario": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_02",
+        "family_id": "internal-audit",
+        "axis_idx": 2,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Current analytical posture: preliminary diagnostic review. You have an observation or request but no confirmed hypothesis, sample size, or finalized target metric. At this stage we are clarifying scope and enumerating assumptions before choosing experiment, predictive, or diagnostic methods.\nAction: List the most relevant assumptions, data risks, and evaluation requirements that will govern the next analysis steps:\n- Assumptions to confirm: the precise target metric (definition and aggregation window), decision horizon (real-time vs weekly/monthly), relevant segments, and expected effect size or decision threshold.\n- Data quality and availability risks: missingness patterns, late-arriving events, joins across identifiers (user_id vs device_id), sampling or filtering applied upstream, and any backend changes in the time window of interest.\n- Privacy and governance constraints: PII or sensitive features that cannot be used, retention windows, and whether differential privacy or de-identification is required.\n- Evaluation requirements: required statistical power or minimum detectable effect (if experimental), acceptable false-positive/false-negative trade-offs (for classifiers), model calibration needs, A/B test guardrails (exposure logging, contamination checks), and production observability for drift and data-slice monitoring.\n- Instrumentation checks: presence of consistent treatment assignment, event schemas, and monitoring for instrumentation regressions.\nThese form the minimal checklist to decide whether to proceed with experimentation, predictive modeling, or diagnostic root-cause work.\nCaution: Current posture is not evidence of causal effect or production readiness. Do not interpret exploratory correlations as validated results. Any recommendation or model will be conditional on the assumptions above being confirmed and on passing data-quality, power, and privacy checks. If baseline rates, sample size, or label stability are uncertain, the appropriate action may shift (e.g., longer A/B window, simplified metric, or more conservative evaluation thresholds).\nNext Step: Provide these four minimum pieces of information so I can pick a concrete analysis path:\n1) Exact target metric definition (formula, aggregation window, inclusion/exclusion rules).  \n2) Time window and affected segment(s) you care about.  \n3) Available data sources and key identifiers (e.g., event logs, user table, label provenance).  \n4) Expected or minimum meaningful effect (or decision threshold) and any privacy/feature constraints.\nOnce you provide those, I will propose a precise plan (experiment design vs. diagnostics vs. predictive model), required sample size/power checks, and an actionable validation checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_03",
+      "skill_id": "data_science",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_workflow_4",
+      "anchor_idx": 3,
+      "metadata": {
+        "scenario": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_03",
+        "family_id": "internal-audit",
+        "axis_idx": 3,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want guidance that asks only the minimal missing information needed to choose a sound analytical design (e.g., sample size, outcome definition, deployment context) so we can proceed. This is an information-gathering, design-preparation step focused on removing critical unknowns.\nAction: I will list the minimal, prioritized questions that let me pick a defensible analysis path (experiment, predictive model, diagnostic, or exploratory). For each question I’ll say why it’s needed and which decision it unlocks:\n1) Primary outcome (metric) definition: exact formula, aggregation window, and success direction (increase/decrease). \n   - Why: Determines sample size calculation, choice of statistical test or loss function, and measurement cadence.\n2) Target population and segment(s): inclusion/exclusion rules, expected traffic or sample per time unit.\n   - Why: Needed to compute feasible sample size, stratification, and guardrails against contamination.\n3) Baseline rate / historical metric distribution: current mean and variance, or a recent time-window snapshot.\n   - Why: Drives power calculation and informs realistic minimum detectable effect (MDE).\n4) Minimum meaningful effect (business-significant change) or expected effect size.\n   - Why: Defines the test sensitivity required and whether an experiment is feasible under traffic constraints.\n5) Time horizon and launch constraints: test duration limits, rollout windows, and seasonality considerations.\n   - Why: Affects test length, statistical assumptions (independence, stationarity), and ramp/rollback planning.\n6) Data availability and lineage: sources for the outcome and key covariates, freshness, latency, and known quality issues.\n   - Why: Identifies measurement risk, feature engineering feasibility, and monitoring needs.\n7) Unit of randomization or prediction: user, session, account, device, or other.\n   - Why: Determines sample size (cluster effects), contamination risk, and analysis model.\n8) Any privacy or compliance limits on data usage (PII, retention, differential privacy requirements).\n   - Why: Constrains what features or aggregation levels are allowed and whether synthetic/pooled analyses are needed.\n9) Deployment/operational constraints (serving latency, feature freshness, compute/budget caps).\n   - Why: Informs whether a complex model or simple rule is practical and what evaluation metrics matter.\nCaution: Without at least items 1–4 (outcome definition, population, baseline, and MDE), any proposed experiment or model design risks being infeasible or misleading. Do not treat exploratory correlations as decision-grade without pre-specification and validation. Also, be aware that clustering, seasonality, or heavy-tail metrics will materially change power and analysis choices; those require explicit mention.\nNext Step: Please provide the minimal answers for items 1–4 first (primary outcome definition, target population, baseline rate or recent snapshot, and minimum meaningful effect). Once I have those, I will produce a concrete design: power/sample-size estimate, recommended randomization unit, required test duration, and a short list of data-quality checks to validate before running or modeling.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_04",
+      "skill_id": "data_science",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_edge_case_1",
+      "anchor_idx": 4,
+      "metadata": {
+        "scenario": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_04",
+        "family_id": "internal-audit",
+        "axis_idx": 4,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You’ve mixed a causal question (e.g., “did feature X cause more conversions?”) with a predictive objective (e.g., “score users by likelihood to convert”). This is a decision-framing problem: we must separate the decision you actually need (intervention or ranking) from the type of evidence required to support it.\nAction: Treat the request as two linked but distinct tracks. 1) Causal track (if you intend to change product behavior): design an experiment or quasi-experiment focused on a clear treatment, primary outcome, proper randomization or strong identification strategy, and pre-specified estimand. 2) Predictive track (if you intend to score users for targeting): build and validate a model using held-out evaluation and calibration, but explicitly avoid interpreting model feature effects as causal. For immediate work, pick which decision you must make now (deploy a treatment vs. prioritize users) and follow the corresponding protocol: randomized A/B or stepped rollout for causal claims; train/validate/test with monitoring and uplift-aware baselines for predictive use.\nCaution: Do not conflate predictive model feature importances with causal effects — doing so risks wrong interventions. If you need to act on model outputs (e.g., target treatment), you still require an experiment (or robust causal adjustment like randomized encouragement, instrumental variables, or strong longitudinal controls) to estimate the effect of acting. Conversely, an experiment that shows an average treatment effect doesn’t automatically produce a good predictive scorer without separate modeling and generalization checks. Also note data risks: label leakage, selection bias, changes over time (concept drift), and insufficient power for small effects — any of which invalidate either causal inference or predictive generalization.\nNext Step: State the concrete decision you want to make now (deploy a treatment to increase outcome vs. rank/score users for actions) and provide: the exact target metric (definition and window), current baseline rate, expected effect size or business threshold, available data sources and features, and daily traffic/sample volume. With that minimum, I’ll propose a focused experiment design (power, guardrails, ramp) if causal, or a predictive modeling plan (features, validation folds, evaluation metrics, monitoring) if predictive.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_05",
+      "skill_id": "data_science",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_edge_case_2",
+      "anchor_idx": 5,
+      "metadata": {
+        "scenario": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_05",
+        "family_id": "internal-audit",
+        "axis_idx": 5,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You’ve got rich data but teams disagree on the target metric/label definition. This is a measurement-stability problem that changes the analysis from purely technical modelling to a measurement-alignment and validation priority before drawing decisions.\nAction: Treat the immediate work as a measurement harmonization and validation task. (1) Convene a short cross-functional alignment on the candidate metric(s): exact outcome definition, time window, inclusion/exclusion rules, and any business-derived transformations. (2) Create a versioned label spec (canonical definition plus 2–3 alternate definitions reflecting current team variants). (3) Run a lightweight comparison analysis across those label versions: distributional checks, cohort-level baseline rates, overlap/confusion matrices between labels, and how key model features or experiment results change under each label.\nCaution: Do not proceed to finalize model training, experiment conclusions, or operational decisions until the label definition is locked or a robust multi-label strategy is chosen. Differences in label definitions can flip model rankings, power calculations, and downstream business decisions; any exploratory correlations under unstable labels must be labeled as such and not acted on as validated outcomes.\nNext Step: Owner: product analytics lead + data owner. Action: share the canonical label spec draft and the top 2 alternate definitions, plus a 2-week sample of data or summary stats. Request the comparison outputs listed above (distributional diffs, overlap/confusion, and sensitivity of any key metric or model result to label choice). That single comparison will determine whether a consensus label is reachable quickly or whether the team must adopt a multi-label validation plan.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_06",
+      "skill_id": "data_science",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_constraint_1",
+      "anchor_idx": 6,
+      "metadata": {
+        "scenario": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_06",
+        "family_id": "internal-audit",
+        "axis_idx": 6,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked for analysis guidance that explicitly avoids claiming causal impact, production readiness, or statistical validity when key design, power, data lineage, or evaluation evidence is incomplete. The immediate goal is to provide a safe, handoff-ready analytic plan that documents what can and cannot be claimed given incomplete evidence.\nAction: Treat this as an analytic posture and reporting checklist rather than a final result. 1) State the decision question and target metric clearly (e.g., \"increase 7-day retention\" or \"reduce false positive rate\"); 2) Enumerate required evidence items and mark which are missing: randomized assignment or quasi-experimental design, sample size/power calculation, complete data lineage and feature freshness, label quality, and validation/test splits; 3) Choose an analysis path consistent with available evidence (experiment design if randomization is feasible; diagnostic/anomaly triage if signal is observational; predictive-modeling if building a score but only for exploratory use); 4) For whichever path is chosen, produce an explicit limitation header in all outputs that disallows causal, production-readiness, or definitive-statistical claims until missing evidence is obtained; 5) Provide a reproducible notebook skeleton and validation checklist that the next analyst can run once missing elements are filled.\nCaution: Do not state or imply causation, deployment readiness, or robust statistical validity while any of these remain incomplete: experiment randomization or sufficient power, audited data lineage, label validity, pre-registered analysis plan, or held-out validation aligned to production. Any downstream decisions (product rollout, incentives, model deployment) based on exploratory or underpowered results risk incorrect business actions and should be treated as hypothesis-generating only.\nNext Step: Confirm the minimum missing evidence to move from \"exploratory\" to \"actionable.\" At minimum provide: the exact target metric definition, available sample size and time window, data sources and lineage (tables/events), and whether randomization or a controlled experiment is possible. Assign an owner to collect these items so the analysis can be advanced with a reproducible plan.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_07",
+      "skill_id": "data_science",
+      "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-audit_axis_constraint_2",
+      "anchor_idx": 7,
+      "metadata": {
+        "scenario": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_07",
+        "family_id": "internal-audit",
+        "axis_idx": 7,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a data-science guidance response that explicitly avoids inventing metrics, model performance numbers, deployment-readiness claims, or stakeholder requirements that haven’t been provided. The immediate goal is to design a safe, reusable analytic plan that preserves hypothesis, evidence state, and next validation steps without adding unstated assumptions.\nAction: I'll treat this as an analysis-planning and handoff-ready advisory. I will (a) confirm the analysis goal and target metric(s) you actually care about, (b) select the appropriate analysis path (experiment design, predictive-modeling, diagnostic, or reporting) once the metric and context are specified, (c) list the minimal, concrete inputs required (data sources, time window, sample size or traffic, label definition, and any constraints on features/privacy), and (d) produce a stepwise action plan another analyst can execute that includes validation checkpoints, instrumentation checks, and guardrails — all without inventing any metrics, performance figures, or deployment claims.\nCaution: I will not assume baseline rates, effect sizes, model accuracy, production constraints, or stakeholder SLAs that you haven’t explicitly given. Any power calculations, expected lift, or deployment feasibility checks will be left as conditional templates that require your confirmed inputs. Also note: if the target decision mixes causal inference and prediction objectives, the method and validation steps change materially; I will highlight that and ask the minimum clarifying questions rather than guessing which route you prefer.\nNext Step: Tell me the minimal missing facts so I can produce the executable plan: specify the primary target metric (exact definition and unit), the task type (exploratory, experimental, predictive, or diagnostic), available data sources and their freshness/coverage, the time window and segments of interest, and who will own the next validation step. Once you provide those, I will return a concise, handoff-ready plan with concrete analysis steps and explicit checkpoints.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_08",
+      "skill_id": "data_science",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_workflow_1",
+      "anchor_idx": 8,
+      "metadata": {
+        "scenario": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_08",
+        "family_id": "internal-replay",
+        "axis_idx": 0,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Confirming the analysis goal, target metric, available data sources, and the task type so we can pick the correct analysis path and handoff cleanly.\nAction: 1) Analysis goal: State the business decision the analysis must support (e.g., \"decide whether to roll out new onboarding flow\" or \"identify drivers of recent revenue drop\"). 2) Target metric: Provide a single primary outcome metric (name, unit, aggregation, time window, and any success threshold), plus up to two secondary metrics if needed. 3) Available data sources: List datasets and access details (tables or views, key fields for joins, time range, sampling or retention rules, any PII), and indicate data freshness and known quality issues. 4) Task type: Declare whether this is exploratory (hypothesis generation), experimental (A/B or randomized test), predictive (modeling / scoring), or diagnostic (root-cause triage). If mixed objectives exist, state primary vs secondary intent.\nCaution: Do not assume causal claims, production readiness, or statistical validity until experiment design, power calculations, data lineage, and validation checkpoints are confirmed. Missing or ambiguous metric definitions, incomplete data access, or mixed causal/predictive goals will materially change the recommended method and timeline.\nNext Step: Please reply with these minimum items: (A) one-sentence analysis goal, (B) primary target metric with definition and time window, (C) list of available data sources with access info and any quality flags, and (D) select the task type (exploratory, experimental, predictive, or diagnostic). Once received, I will propose the concrete analysis path, assumptions, power/data checks, and an owner-ready action plan.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_09",
+      "skill_id": "data_science",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_workflow_2",
+      "anchor_idx": 9,
+      "metadata": {
+        "scenario": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_09",
+        "family_id": "internal-replay",
+        "axis_idx": 1,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: This is a mapping task: you want the request routed to the most appropriate analysis path (experiment design, feature engineering, model evaluation, or operational analytics review) so subsequent work can be planned and handed off.\nAction: I will classify the request along these decision axes and give the recommended analysis path with the rationale and necessary minimal inputs for each. For each path I will state the typical primary metric, common data sources required, immediate assumptions, and the canonical next analysis step an analyst should take to proceed.\nCaution: This mapping does not validate data, run analyses, or claim any causal or production-readiness conclusions. The recommendation depends on accurate metric definitions, sample/time window, and confirmed data lineage; if those are incomplete the chosen path may change.\nNext Step: Please paste the specific problem statement or one-line goal, the target metric (or top candidate metric), the available data sources (tables or events), and whether you expect an experimental, predictive, diagnostic, or exploratory deliverable. With that minimal info I will return a single recommended analysis path plus a concrete 3-step work plan for the analyst to execute.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_10",
+      "skill_id": "data_science",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_workflow_3",
+      "anchor_idx": 10,
+      "metadata": {
+        "scenario": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_10",
+        "family_id": "internal-replay",
+        "axis_idx": 2,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Current analytical posture: preliminary diagnostic stance. We have an observation-ready framing but have not run validation analyses or verified data lineage—this is an early-stage, evidence-gathering phase intended to define assumptions, risks, and the evaluation checklist before committing to experiment, model training, or a root-cause claim.\nAction: List the core assumptions, primary risks, and the evaluation requirements to move from observation to validated conclusion:\n- Assumptions\n  - The metric definition is stable and agreed (what exact numerator/denominator and aggregation window).\n  - Available data sources capture the entire population and relevant covariates (no major blind spots).\n  - Time windows and segments of interest are correctly aligned with product events and launches.\n- Data-quality and lineage checks required\n  - Confirm upstream ETL completeness and lag, missing-value rates, and schema drift over the target window.\n  - Validate deduplication and identity join logic across datasets used for the metric and covariates.\n  - Run quick integrity checks: row counts vs expected, null distributions, extreme-value audits.\n- Statistical and evaluation requirements\n  - Define target metric(s) precisely (primary and secondary), expected directionality, and relevant segments.\n  - Establish a minimum statistical standard: significance threshold, confidence intervals to report, and whether this is hypothesis testing or estimation.\n  - If causal inference is desired, specify the identifiability strategy (randomization, instrument, regression discontinuity, matched observational design) and required covariates.\n  - For predictive work, require holdout data strategy, cross-validation plan, and performance metrics matched to business utility (e.g., precision@k, AUC, calibration).\n- Privacy and compliance constraints\n  - Confirm PII handling rules, allowable feature sets, and any retention or purpose limits that restrict analyses.\n- Operational constraints\n  - Note production monitoring needs: feature freshness, model serving latency, rollback guardrails, and instrumentation for drift detection.\nCaution: Key limitations and policy boundaries to be explicit about:\n- Do not claim causality, production readiness, or statistical validity until the data lineage, sample size/power, and confounding controls are verified.\n- Any early correlations are exploratory; acting on them without the checks above risks incorrect product moves.\n- If metric definitions differ across teams or evolve mid-analysis, results will not be comparable—freeze metric and window before proceeding.\n- Privacy, governance, or missing-covariate issues can invalidate causal strategies; surface these before any modeling or experiment launch.\nNext Step: Single next action: freeze and share the concrete analysis specification (owner: requestor or analytics lead). The spec should include: 1) precise target metric definition with aggregation window and segment list, 2) list of available data sources and expected sample counts, 3) whether the goal is exploratory, causal, diagnostic, or predictive. Request this and assign a data-owner to confirm ETL completeness so the next analytic phase (power calculation, causal design, or model pipeline) can proceed.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_11",
+      "skill_id": "data_science",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_workflow_4",
+      "anchor_idx": 11,
+      "metadata": {
+        "scenario": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_11",
+        "family_id": "internal-replay",
+        "axis_idx": 3,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want guidance that requests only the minimum missing information needed to choose a sound analysis design (e.g., sample size, outcome definition, deployment context). The immediate goal is to move from an incomplete problem statement to a concrete, testable analysis plan while preserving handoff-ready details.\nAction: I will treat this as a design-triage step and ask the smallest set of clarifying facts needed to pick between experiment design, predictive modeling, diagnostic analysis, or feature evaluation. For most decisions those minimal items are:\n- Primary objective and decision rule: What specific decision will the analysis support? (e.g., \"choose onboarding flow A vs B\", \"score users for outreach\", \"explain weekly revenue drop\")\n- Target metric (exact definition and aggregation): name, unit, denominator, time window, and whether higher is better (e.g., \"7-day active rate per user = >=1 session in 7 days; cohort at signup\").\n- Time window and expected cadence: start/end dates or rolling window, and how often results must be reported or acted on.\n- Minimum sample constraints: approximate total objects (users, sessions) or traffic per arm and any minimum subgroup sizes you care about.\n- Expected or minimum detectable effect (for experiments) or target performance threshold (for models) if available (e.g., \"we need to detect a 5% relative lift\" or \"model must reach AUC >= 0.75\").\n- Data sources & lineage constraints: which tables/events are available, latency, sampling, and any known quality issues or missingness.\n- Deployment/operational constraints: must-run online (low-latency), batch scoring, cost or feature availability limits, and monitoring requirements.\n- Privacy or policy limits: PII constraints, retention rules, or disallowed uses.\nCaution: Do not proceed to claim causal impact, production readiness, or final model/test validity until these minimum items are confirmed. Missing or ambiguous definitions (especially target metric, time window, and sample size) lead to inappropriate power calculations, biased evaluation, or wrong design choices. Also be explicit that expected effect sizes and traffic determine whether an A/B test, longer rolling evaluation, or an observational/predictive approach is appropriate.\nNext Step: Please provide the minimum items that apply from the list above. If you want the absolute smallest reply now, give just these three: (1) primary decision this analysis must inform, (2) exact target metric definition with time window, and (3) approximate daily or total sample/traffic available. Once I have those, I will propose the single best analysis path and the concrete next actions (power check, feature checklist, or diagnostic triage) and a short validation checklist for handoff.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_12",
+      "skill_id": "data_science",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_edge_case_1",
+      "anchor_idx": 12,
+      "metadata": {
+        "scenario": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_12",
+        "family_id": "internal-replay",
+        "axis_idx": 4,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You’re asking a mixed question that combines causal inference (does X cause Y?) with predictive modeling (can we predict Y given X?). The immediate goal is to clarify the true decision the organization needs to make (intervene vs. predict) and to create a safe, actionable analysis path that separates causal claims from predictive use.\nAction: Treat this as two distinct streams. (1) Causal stream — design a targeted quasi‑experimental or randomized study if the business needs to know whether changing X will change Y. Specify the target metric (causal estimand), required counterfactual, confounder list, and power/sample calculations; recommend pre-registration and guardrails for bias (stratification, blocked randomization, or instrumental-variable strategy if randomization isn’t feasible). (2) Predictive stream — build and validate a model to forecast Y for operational use without implying interventions will change outcomes. Define the prediction target, feature set, temporal train/validation splits, performance metrics (AUC, precision@k, calibration), and rollout criteria including monitoring for data drift and fairness. Explicitly log that predictive performance does not imply causation.\nCaution: Mixing objectives risks overstating results. A model that predicts which users churn is not evidence that acting on modelled features will reduce churn. Conversely, showing a correlation in observational data without a credible identification strategy is not evidence of causal effect. Data quality, label stability, time ordering of features vs. outcome, unmeasured confounding, and selection bias are the main risks. Also confirm privacy/consent limits on feature usage and any regulatory constraints before using features for interventions.\nNext Step: Decide which single decision you need to support first and provide the minimum items to proceed: (a) Do you need a causal answer (should we change X to change Y) or a predictive product (score users for Y)? (b) For that choice, share the target metric definition, time window, relevant segments, available data sources and sample size estimate, and any constraints on experimentation (can you randomize?). If you’re unsure, answer “both” and I’ll propose a prioritized plan with a short randomized pilot design and a parallel predictive baseline.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_13",
+      "skill_id": "data_science",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_edge_case_2",
+      "anchor_idx": 13,
+      "metadata": {
+        "scenario": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_13",
+        "family_id": "internal-replay",
+        "axis_idx": 5,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: The case is an analysis request where data volume and feature richness look sufficient, but the target metric/label is not consistently defined across teams. The customer's immediate goal is to move from ambiguous labels to a reproducible analysis path that supports either experimentation, modeling, or diagnostics without overclaiming results.\nAction: Treat this as a labeling-definition and alignment task before any experiment design or predictive modeling. Recommended concrete steps for the analyst:\n1) Convene a short alignment with stakeholders (product, analytics, ML, and any data-steering owner) to produce a concise label spec that includes: exact outcome definition, inclusion/exclusion rules, time window for labeling, and any business logic (e.g., dedup rules, attribution window).\n2) Implement a small labeled canonical dataset (100–1,000 representative records or user histories, stratified by key segments) and document generation code (not just SQL results). Include examples and counterexamples.\n3) Run a label-agreement check: compute inter-rater agreement or rule-vs-human concordance and a confusion matrix vs prior labels; target >90% agreement or surface disagreement cases for iterative clarification.\n4) Only after label stability passes the agreement threshold, proceed to the appropriate path: (a) experiment design if testing causality, (b) predictive modeling if forecasting/automation is required, or (c) diagnostics/reporting if monitoring performance. For each path, preserve the canonical labeling code and dataset as the single source of truth.\nCaution: Do not proceed to model training, A/B test sizing, or formal conclusions until the label specification and agreement checks are completed. Unstable labels will undermine power calculations, bias model performance, and produce conflicting stakeholder interpretations. Also flag data lineage risks: ensure feature availability and freshness align with the label time window and record any privacy or PCC/PII constraints that could limit dataset sharing or human review.\nNext Step: Owner: analytics/product lead to confirm the canonical label spec. Ask them to provide: 1) the precise outcome definition and any edge-case rules, 2) the target evaluation window (dates/users), and 3) an owner for producing the initial annotated sample. Once provided, the analyst will produce the canonical dataset, run agreement checks, and report back with a go/no-go to proceed to experiment design or modeling.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_14",
+      "skill_id": "data_science",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_constraint_1",
+      "anchor_idx": 14,
+      "metadata": {
+        "scenario": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_14",
+        "family_id": "internal-replay",
+        "axis_idx": 6,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You ask for guidance while explicitly avoiding any claim of causal impact, production readiness, or definitive statistical validity because design, power, data lineage, or evaluation evidence are incomplete. The immediate goal is to produce a safe, handoff-ready analysis plan that identifies what is known, what is missing, and what conservative next steps an analyst can take without overstating conclusions.\nAction: Treat this as a diagnostic and planning exercise (not a validation or deployment endorsement). I recommend:\n- Define the decision and primary target metric clearly (what decision will change based on the analysis, and the exact outcome metric and aggregation window).\n- Catalogue data sources and lineage: list tables, key joins, timestamps, freshness, sampling, and any known gaps or filters.\n- Assess design & power limitations: record sample sizes by segment, expected baseline rates, candidate effect sizes, and calculate detectable effect sizes or required sample/time for a powered experiment.\n- Specify evaluation checks to run before drawing any claims: missingness patterns, duplicate keys, time-series breaks, measurement drift, and confounder balance if comparing groups.\n- Create a conservative analysis plan for next steps: exploratory diagnostics (data quality, descriptive baselines, confounder scans), pre-registered hypothesis or test statistic if appropriate, and a validation checklist (out-of-sample holdout, sensitivity analyses, and robustness to reasonable alternative definitions).\n- Preserve an explicit handoff note: write the core hypothesis, current evidence status, open data questions, and the next verification checkpoint (who will run which check and where results will be stored).\nCaution: Do not interpret exploratory associations as causal effects. Do not label any model or change as production-ready until feature availability, inference cost, monitoring, and model-stability checks are complete. Any claim about statistical significance or impact must wait until: (a) the outcome definition is locked, (b) the data lineage and quality checks pass, and (c) the study/design has sufficient power and pre-specified analysis rules. Missing or ambiguous items (sample frame, time window, segment definitions, or uplift target) create a high risk of misinterpretation — flag these explicitly in the handoff.\nNext Step: Provide the minimum required items so we can proceed safely: the exact target metric definition (incl. aggregation/window), the primary decision this analysis should inform, and an inventory of the available data sources (tables, key fields, and sample sizes or traffic by segment). Assign an owner to verify data lineage and run the initial data-quality checklist before any hypothesis testing or model evaluation begins.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_15",
+      "skill_id": "data_science",
+      "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_internal-replay_axis_constraint_2",
+      "anchor_idx": 15,
+      "metadata": {
+        "scenario": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_15",
+        "family_id": "internal-replay",
+        "axis_idx": 7,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked for guidance while strictly avoiding inventing metrics, model performance numbers, deployment readiness claims, or stakeholder requirements that haven't been provided. The immediate goal is to produce a safe, handoff-ready analytical plan that preserves only stated facts and requests the minimum missing inputs required to proceed.\nAction: 1. Confirm the concrete business question and decision: ask the owner to state the primary decision they need to make (e.g., choose between designs, predict a user outcome, triage a drop) and the time horizon for that decision.\n2. Require explicit target metric(s) and their formal definitions (numerator, denominator, aggregation cadence, any user- or session-level deduplication rules). Do not proceed until these are specified.\n3. Request data lineage and availability: list the data sources you expect (event logs, user profile store, billing), their owners, S3/warehouse locations, and any known ETL lags or joins that could affect label freshness.\n4. Clarify the task type: ask whether the work is exploratory, experimental (A/B), predictive (modeling), or diagnostic; each path has different required artifacts and checks.\n5. Define minimal evaluation & validation requirements the team requires (acceptable validation split, cross-validation scheme, sample-size/power target if experimental, performance metrics to report if modeling — but only after the owner names them).\n6. Produce a handoff-ready checklist for the next analyst: (a) confirm metric and decision, (b) acquire data manifests and sample extracts, (c) validate basic data quality checks (missingness, distribution drift vs. baseline), (d) establish privacy/PII constraints and access controls, (e) choose an analysis path once the above are confirmed.\nCaution: - Do not infer or report any metric baselines, effect sizes, model accuracy, production readiness, or stakeholder acceptance thresholds that the owner has not explicitly provided. Any such numbers would be invented and violate the constraint.\n- Without the explicit metric definition and data lineage, any suggested experimental design, power calculation, or model evaluation will be speculative and potentially misleading.\n- Privacy or access restrictions can block essential validation steps; confirm whether data can be shared with the analyst (and at what aggregation level) before requesting extracts.\nNext Step: Ask the decision owner to provide the single most important missing item first: the formal target metric definition (exact formula, aggregation window, and segment scope). Owner: please supply that metric definition and confirm the task type (exploratory/experimental/predictive/diagnostic) so we can produce a constrained, reproducible plan that adheres to the \"do not invent\" rule.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_16",
+      "skill_id": "data_science",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_workflow_1",
+      "anchor_idx": 16,
+      "metadata": {
+        "scenario": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_16",
+        "family_id": "qa-trace",
+        "axis_idx": 0,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Confirming the analysis goal, target metric, available data sources, and the analysis type (exploratory, experimental, predictive, or diagnostic) so we can pick a clear analytic path and hand off actionable next steps.\nAction: 1) Analysis goal: State the business decision you want to inform (e.g., increase 7-day activation, reduce churn, explain a regional revenue drop). 2) Target metric: Provide the exact primary metric with definition, numerator/denominator, time window, and aggregation level (e.g., user-level 7-day activation rate defined as X within 7 days of signup). 3) Available data sources: List data tables and schemas accessible (events, user profile, billing, experiment assignment, backfills), note refresh cadence and any known gaps. 4) Analysis type: Indicate whether the task is exploratory (hypothesis generation), experimental (A/B test design or analysis), predictive (model training/validation), or diagnostic (root-cause triage). I will then map these inputs to a concrete method and minimal validation checklist.\nCaution: Do not assume causality, statistical power, or production-readiness from this initial framing. Missing or ambiguous metric definitions, incomplete data lineage, or unknown sample sizes will materially change the recommended design (e.g., experiment vs. observational model). Also flag any PI/consent constraints or retention limits on the data that would restrict analysis or sharing.\nNext Step: Provide the minimum required details: (a) one-sentence business goal, (b) exact metric definition (numerator, denominator, time window), (c) list of accessible data sources/tables and their update frequency, and (d) classify the task as exploratory, experimental, predictive, or diagnostic. Once you reply with those four items I will produce a tailored analysis path, assumptions checklist, and the recommended immediate analysis action for the next owner.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_17",
+      "skill_id": "data_science",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_workflow_2",
+      "anchor_idx": 17,
+      "metadata": {
+        "scenario": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_17",
+        "family_id": "qa-trace",
+        "axis_idx": 1,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: The request is to map your problem to an appropriate analysis path. My immediate goal is to identify whether this should be treated as experiment design, feature engineering, model evaluation, or an operational analytics review, so we can pick the correct methods, assumptions, and handoff artifacts.\nAction: I will classify the problem along three quick discriminators and recommend the matching path:\n- Decision type: Is the goal to estimate causal effect of a change, improve predictive accuracy, create or refine features, or diagnose an operational metric? If the goal is \"did X cause Y\" → Experiment design (A/B). If the goal is \"predict Y from X\" → Predictive model / feature engineering. If the goal is \"improve model input or representation\" → Feature engineering. If the goal is \"explain an unexpected metric shift or monitor health\" → Operational analytics / diagnostic review.\n- Primary target metric and time horizon: For experiments use a primary KPI (e.g., activation rate over 14 days), for models use a label definition and evaluation window, for ops use daily/weekly aggregated metric and breach thresholds.\n- Practical constraints and data sources: Note traffic/sample size, feature availability and freshness, label reliability, and monitoring/serving constraints to finalize path.\nCaution: Do not proceed assuming a single path if the decision is mixed (e.g., you ask both \"does change cause lift\" and \"can we predict which users will respond\"). Mixing causal and predictive goals changes the analysis: causal requires randomization or strong quasi-experimental design and power calculations; predictive requires labeled data and cross-validation but does not imply causality. Also avoid treating exploratory correlations as validated recommendations — validation checkpoints, instrumentation, and power/sample checks are required before claiming causal or production-ready results.\nNext Step: Tell me the minimum of the following so I can pick one definitive path and give a concrete plan:\n1) The explicit decision you need to make (choose one): causal test of a change, build/improve a predictive model, engineer features for an existing model, or diagnose an operational metric.\n2) The primary target metric (exact definition and time window).\n3) Available data sources (event logs, product DB, model features) and sample size or traffic estimate for the relevant period.\n\nOnce you provide those three items I will return a concise, stage-by-stage plan (triage → design/feature plan or evaluation → validation checkpoints → handoff artifacts) with the minimal checks needed to proceed.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_18",
+      "skill_id": "data_science",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_workflow_3",
+      "anchor_idx": 18,
+      "metadata": {
+        "scenario": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_18",
+        "family_id": "qa-trace",
+        "axis_idx": 2,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Current analytical posture: preliminary diagnostic — we have an observed request to assess assumptions, risks, and evaluation requirements but no supporting dataset or concrete metric definitions yet. This is an early-stage assessment intended to set up a safe, handoff-ready analysis rather than to deliver final results.\nAction: 1) Explicitly declare the working assumptions to be validated: target metric(s) (e.g., conversion, retention, revenue per user), time window, cohort definitions, and whether the decision is exploratory, experimental, predictive, or diagnostic. 2) Enumerate required evidence and data lineage checks before analysis: sample sizes by segment, raw event logs or ETL outputs, feature availability and freshness, schema changes, and any known missingness. 3) Define evaluation requirements: primary outcome definition, acceptable error bounds or minimum detectable effect (for experiments), cross-validation or out-of-time split strategy (for predictive models), and metrics for model fairness/segment-level performance. 4) Prepare an instrumentation checklist: logging for treatment assignment (if experimental), stable user identifiers, platform/version tags, and monitoring hooks for drift and data-quality alerts.\nCaution: Key risks and limitations to surface now: incomplete or unstable metric definitions will invalidate comparisons; unverified data lineage or missing events can bias results; mixing causal questions with predictive objectives changes the method and prevents causal claims unless randomized or instrumented; low traffic or small samples require adjusted power calculations and may force alternative designs (e.g., sequential testing, pooled cohorts, or longer test windows). Do not treat exploratory correlations as causal or production-ready without the verification steps above.\nNext Step: Owner action: provide the minimum required context so we can pick a concrete path — specify the primary target metric, the decision type (exploratory/experimental/predictive/diagnostic), the time window, the dataset source(s) (tables or logs), and an approximate sample size or traffic rate. Once provided, I will produce a focused plan: either an experiment design with power and guardrails, a predictive model evaluation checklist and validation split, or a diagnostic triage sequence with prioritized checks.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_19",
+      "skill_id": "data_science",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_workflow_4",
+      "anchor_idx": 19,
+      "metadata": {
+        "scenario": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_19",
+        "family_id": "qa-trace",
+        "axis_idx": 3,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want guidance that only requests the minimal missing information needed to choose a sound analysis or experiment design (e.g., sample size, outcome definition, deployment context). The immediate goal is to confirm the exact decision you need to make and gather the smallest set of facts that unblock a valid plan.\nAction: Treat this as an experiment-design / analysis-planning step. To proceed use the following minimal checklist and return only the missing items:\n1) Decision and target metric: What single decision will this analysis inform (e.g., “whether to launch onboarding flow A”)? Define the primary outcome metric precisely (name, numerator/denominator, aggregation window).\n2) Time window and segment: What evaluation time window and user segment should be used (start/end dates or rolling period; include/exclude segments)?\n3) Baseline and detectable effect: Provide baseline rate/value for the target metric and the smallest meaningful effect size you need to detect (absolute or relative).\n4) Traffic/sample constraints: Give expected or available sample size, daily/weekly traffic, or maximum test duration constraints.\n5) Data sources & freshness: List the data sources that will supply the metric (tables/events), and any known lag or freshness limits.\n6) Deployment/operational constraints: Note whether rollout must be gradual, any allocation constraints, and required guardrails (e.g., revenue loss cap, safety signals).\nIf any of these are unknown, say which single item you can realistically provide first and I’ll use conservative assumptions for the rest.\nCaution: Do not assume power, randomization validity, or causal identification until the baseline, sample constraints, and metric definition are confirmed. Missing or ambiguous definitions (e.g., multiple competing “activation” definitions, inconsistent time windows, or unknown traffic) materially change sample-size calculations, guardrail choices, and whether an A/B test is appropriate versus an observational or diagnostic path.\nNext Step: Reply with the minimal missing item(s) from the checklist above — ideally start with the target metric definition and available sample/traffic — and I will produce a concrete experiment/analysis plan (power calc, allocation, guardrails, and minimal instrumentation checklist) you can hand off to an analyst.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_20",
+      "skill_id": "data_science",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_edge_case_1",
+      "anchor_idx": 20,
+      "metadata": {
+        "scenario": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_20",
+        "family_id": "qa-trace",
+        "axis_idx": 4,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You’re asking a mixed question that combines causal inference (e.g., did X cause Y?) with predictive objectives (e.g., build a model to forecast Y or score users). The immediate goal is to clarify the actual decision you need to make: are you trying to attribute cause to an intervention or to predict outcomes for operational use? This distinction changes methods, data needs, and validation checkpoints.\nAction: Disentangle the decision into two parallel but separate tracks:\n- Causal track: Treat this as an experiment/observational causal-inference problem. Define the treatment, control/comparison, primary outcome, time window, and any likely confounders. Specify whether you have a randomized design, a natural experiment, or only observational data (and what covariates exist).\n- Predictive track: Treat this as a supervised modeling problem. Define the prediction target, prediction horizon, feature availability at inference time, evaluation metric (AUC, RMSE, precision@k, business return), and the intended operational use (real-time scoring, batch segmentation).\nFor now, do not conflate evidence across tracks: predictive model performance does not imply causation, and causal estimates do not directly translate to predictive utility without validation.\nCaution: Mixing the two without separation risks incorrect decisions: using predictive feature importances to claim causal mechanisms, or using causal estimates to justify deploying a predictive model. Key limitations that matter now: lack of randomized assignment (confounding), label leakage or unstable label definitions, feature availability differences between training and serving, and sample size/power for causal estimates. We must not claim causal impact or production readiness until the appropriate design and evaluation are completed.\nNext Step: Choose which single immediate decision you need to make and provide the minimum required details:\n- If causal: tell me treatment definition, randomization status (RCT or observational), outcome definition and baseline rate, key covariates, and sample size or traffic.\n- If predictive: provide the exact prediction target, historical dataset size, list of candidate features and whether they’re observable at inference time, and the business metric for model evaluation.\nI will then propose a focused plan for that track (experiment design and identification strategy if causal; model pipeline, baseline, and validation plan if predictive).",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_21",
+      "skill_id": "data_science",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_edge_case_2",
+      "anchor_idx": 21,
+      "metadata": {
+        "scenario": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_21",
+        "family_id": "qa-trace",
+        "axis_idx": 5,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You’re asking how to proceed when you have rich data but the target metric/label is not consistently defined across teams. This is a hybrid diagnostic/analysis-handoff problem: we need to stabilize the outcome definition before choosing experiment design or predictive modeling paths.\nAction: Treat the immediate task as a measurement-alignment and validation step. Concretely: (1) collect existing label/metric definitions and their owners; (2) map differences (time windows, inclusion/exclusion rules, aggregation level, edge cases); (3) pick one narrow canonical definition for an initial analysis (with documented trade-offs) and implement a reproducible calculation on a shared dataset; (4) run sensitivity checks comparing analysis results under alternative definitions to quantify how much conclusions change.\nCaution: Do not proceed to claim model performance, causal impact, or deploy decisions until the label is agreed and the sensitivity checks are complete. Inconsistent definitions can change both direction and magnitude of effects, invalidate cross-team comparisons, and produce misleading feature-target relationships. Expect dependencies on instrumentation, backlog of retrospective recalculation, and possible privacy or lineage constraints when re-computing historical labels.\nNext Step: Owner: product analytics lead or metric owner. Request: share the canonical metric spec or, if unavailable, provide the three most-used definitions plus a sample of the dataset and one business decision that depends on this metric. With those, I will (or the analytics owner should) produce: a short mapping doc, reproducible code to compute the canonical label, and a sensitivity report showing how outcomes differ across definitions.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_22",
+      "skill_id": "data_science",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_constraint_1",
+      "anchor_idx": 22,
+      "metadata": {
+        "scenario": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_22",
+        "family_id": "qa-trace",
+        "axis_idx": 6,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want guidance on an analysis while explicitly avoiding claims of causal impact, production readiness, or statistical validity because design, power, data lineage, or evaluation evidence are incomplete. The immediate goal is to produce a safe, handoff-ready analytic plan that states the hypothesis, identifies gaps, and prescribes the minimum validation needed before any strong conclusions or operational steps.\nAction: Treat this as a diagnostic and planning task (not a final inference). First, capture the precise decision question and target metric the stakeholder cares about (e.g., change in conversion rate within 28 days, lift in retention at 90 days, model AUC for churn prediction). Then perform these steps:\n- Inventory data sources and lineage: list tables, event streams, time ranges, join keys, and known ETL transforms. Mark any undocumented transforms or backfills.\n- Assess design & power constraints: document sample sizes by segment, baseline metric variance, and the minimum detectable effect (MDE) for the decision. If this is predictive, report label stability and class balance.\n- Run targeted data-quality checks: missingness by feature, time-series breaks, duplicate keys, and distribution shifts vs. historical baseline.\n- Produce a conservative analysis plan: specify whether the appropriate path is experimentation, diagnostic, or predictive modeling; define primary/secondary metrics, pre-analysis plan elements (time window, inclusion rules, stopping rules), and acceptance criteria for next-stage validation.\n- Define minimal validation and instrumentation before any claims: replicate results on an out-of-time holdout, run sensitivity checks (e.g., alternative covariate sets, propensity adjustments), and produce an audit log of data pulls and code versions.\n- Prepare a handoff artifact: a short README that includes hypothesis, data sources, queries used, observed limitations, and the next verification checkpoint.\nCaution: Do not state causality, statistical validity, or production readiness until the following are confirmed: a sound randomization or identification strategy (for causal claims), adequate sample size and power calculations, complete and auditable data lineage for inputs, and validation of model behavior on holdout / online feedback. Any exploratory correlations should be labeled as hypothesis-generating only. Also watch privacy and access constraints — do not proceed with sensitive data analysis without required approvals and masking.\nNext Step: Assign an owner to confirm three minimum items so a defensible next analysis can proceed: (1) the exact target metric and decision threshold, (2) the primary data sources and one sample query for each to verify lineage, and (3) the expected effect size or operational tolerance (so we can compute power/MDE). Once those are provided, I will produce a concrete analysis plan with required checks, power calculation, and a validation checklist ready for handoff.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_23",
+      "skill_id": "data_science",
+      "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_qa-trace_axis_constraint_2",
+      "anchor_idx": 23,
+      "metadata": {
+        "scenario": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_23",
+        "family_id": "qa-trace",
+        "axis_idx": 7,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked for guidance but constrained the response: do not invent metrics, model performance numbers, deployment readiness claims, or stakeholder requirements that have not been provided. The immediate goal is to produce an actionable, handoff-ready analysis path that respects those constraints and keeps decisions replayable.\nAction: 1) Confirm the decision question and primary target metric you want to optimize or evaluate (e.g., activation rate, weekly revenue per user, churn probability). Specify the exact outcome definition, aggregation granularity (user/day/week), time window, and any priority segments.  \n2) Provide the available data sources and their scope (tables or events, fields available, freshness, retention, and any known lineage gaps). List which features are available in production at inference time versus only in historical logs.  \n3) State the task type explicitly: experimental (A/B), predictive modeling, diagnostic analysis, or stakeholder reporting. If mixed (e.g., predictive model used to inform interventions), say so and which decision will use the result.  \n4) With those inputs I will propose a concrete analysis plan (sample-size/power check or modeling evaluation plan), a validation checklist (data quality, label stability, feature parity), and a short handoff-ready runbook for the next analyst.\nCaution: I will not assume baseline rates, effect sizes, model performance, serving constraints, or stakeholder SLAs. Any recommendation that depends on those values requires you to supply them; otherwise I must present conditional options (e.g., \"if baseline = X and min detectable effect = Y then…\") rather than definitive prescriptions. Also note that without confirmed data lineage and production feature availability, we cannot claim deployment readiness or unbiased evaluation.\nNext Step: Please supply the minimum required items: target metric definition, task type (experiment/predictive/diagnostic), available data sources (names and key fields), and – if applicable – baseline rate or a plausible effect size range or traffic volume. Once I have that, I will return a specific, non-assumptive plan with power/sample calculations or an evaluation checklist and a handoff-ready runbook.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_24",
+      "skill_id": "data_science",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_workflow_1",
+      "anchor_idx": 24,
+      "metadata": {
+        "scenario": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_24",
+        "family_id": "owner-handoff",
+        "axis_idx": 0,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Confirming the task: you want a clear, ordered checklist that verifies (1) the analysis goal, (2) the target metric, (3) the available data sources and lineage, and (4) the analysis type (exploratory, experimental, predictive, or diagnostic). This is an initial triage step to make the downstream analytic path unambiguous and handoff-ready.\nAction: Follow this minimal verification checklist in order and record the answers (one-line where possible):\n1) Analysis goal — State the business/product question and the decision it should inform (who will act, what choice depends on the result).\n2) Target metric — Define the primary outcome/metric precisely (name, unit, aggregation frequency, direction of improvement, success threshold). If multiple metrics, nominate one primary and list secondary metrics and their role.\n3) Data sources & lineage — List each source table or feed, owner, key fields, timestamps, freshness, retention, known gaps/missingness, and any joins or ETL steps that will be needed. Note access constraints and privacy requirements (PII, encryption, allowed uses).\n4) Analysis type — Select one of: exploratory (hypothesis generation), experimental (A/B or causal test), predictive (modeling/forecasting), diagnostic (root-cause triage). If the request mixes types, state the primary decision path and how the other objective will be handled (e.g., run exploratory diagnostics first, then propose an experiment).\nCaution: Do not proceed to design experiments, build models, or report conclusions until the checklist is filled. Key risks if you skip items: mis-specified metric leading to wrong decision, hidden data-quality issues biasing results, mixing causal and predictive objectives without disentangling will invalidate recommendations, and privacy/ownership constraints can block analysis or require anonymization. Also avoid implying causality or production-readiness before experimental design, power, and data lineage are validated.\nNext Step: Please provide the minimal filled checklist items: (1) one-sentence analysis goal with decision owner, (2) exact primary metric name and baseline window, (3) list of available data sources (table names or dataset IDs) and any access limits, and (4) pick the analysis type from the four options or state if mixed. I'll then map this to a concrete analysis path and next actions (sample-size/power, features needed, or diagnostic steps).",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_25",
+      "skill_id": "data_science",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_workflow_2",
+      "anchor_idx": 25,
+      "metadata": {
+        "scenario": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_25",
+        "family_id": "owner-handoff",
+        "axis_idx": 1,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked to map your request to an appropriate analysis path. Based on the probe axis, the immediate goal is to identify whether the work should be handled as experiment design, feature engineering, model evaluation, or operational analytics review, and to recommend the most suitable path given the decision you need to make.\nAction: 1) Confirm the decision you want to support (pick one): (A) test whether a product change causes metric change (experiment design), (B) create or improve inputs/features for a model (feature engineering), (C) assess model performance and deployment readiness (model evaluation), or (D) diagnose operational metric changes or maintain dashboards/alerts (operational analytics review).  \n2) For each decision, I recommend the following immediate analytic framing:\n   - Experiment design: define the primary target metric, baseline rate, minimum detectable effect, sample size and segmentation, randomization unit, contamination risks, and ramp/guardrail plan. Produce an A/B test plan with power calc and monitoring checklist.  \n   - Feature engineering: list candidate signals, availability and freshness windows, leakage risk checks, missingness patterns, and computational cost. Produce feature spec, transformation logic, validation splits, and a metric for incremental predictive value.  \n   - Model evaluation: specify target label and time window, baseline model and metrics (AUC/precision@k/calibration/decay), offline vs expected online data drift, and logging/observability plan. Produce evaluation notebook with error analysis and cost/latency constraints.  \n   - Operational analytics review: define the metric definition, time window, suspected segments, upstream pipelines to check, and alert thresholds. Produce a diagnostic runbook: data-quality checks, recent deploys/events, and segmented trend analysis.\n3) Recommend which path to take now based on the business question you confirm in step 1.\nCaution: Do not conflate these paths: causal inference (experiment design) cannot be replaced by predictive model performance, and model-quality signals don’t imply deployment readiness. Any recommendation here assumes the target metric, time window, and data sources are correctly and mutually agreed; missing or inconsistent definitions will change the choice and validity of methods. Also avoid reporting exploratory correlations as validated outcomes without appropriate validation (e.g., pre-registered tests, holdout evaluation, or root-cause confirmation).\nNext Step: Tell me the concrete decision you need to make (choose A, B, C, or D from Action step 1) plus the target metric name, time window, and available data sources (or confirm “unknown” if you need help discovering them). I will then return a concise, step-by-step plan for that chosen analysis path.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_26",
+      "skill_id": "data_science",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_workflow_3",
+      "anchor_idx": 26,
+      "metadata": {
+        "scenario": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_26",
+        "family_id": "owner-handoff",
+        "axis_idx": 2,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: Current analytical posture: preliminary diagnostic. You have an observed problem (unspecified) and are in the stage of forming a measurable question and assessment plan rather than having validated results. Data access and definitions are partially assumed; no causal claims or production-readiness judgments are being made.\nAction: List and explain the core assumptions, the primary risks to valid inference, and the evaluation requirements to proceed safely:\n- Assumptions:\n  - Target metric is defined and measurable (e.g., daily active users, conversion rate, revenue per user) and available at the needed granularity.\n  - Data sources are accessible and linkable (event logs, user table, product metadata) with stable identifiers and timestamps.\n  - No major recent instrumentation changes or deployments that would confound the recent observations unless explicitly flagged.\n  - Any segmentation (region, device, cohort) is correctly populated and consistently defined across tables.\n\n- Key risks:\n  - Data quality risks: missing events, duplicate records, delayed ingestion, timezone mismatch, or schema drift that can bias trend or cohort comparisons.\n  - Confounding and attribution risk: correlated changes (marketing campaigns, third-party incidents, holiday effects) may produce spurious associations if not controlled.\n  - Definition drift: inconsistent definitions of the metric or label across teams or time windows (e.g., what counts as “activation”).\n  - Sampling and selection bias: if analysis uses subsampled logs or only a subset of users (e.g., mobile-only), results may not generalize.\n  - Low statistical power: insufficient sample size or short time window may produce high uncertainty around estimates.\n  - Privacy and compliance constraints: PII removal, aggregation requirements, or retention limits may restrict available features or segmentation.\n\n- Evaluation requirements:\n  - Clear primary metric plus one or two defensible secondary metrics and an explicit calculation formula and time window.\n  - Source-of-truth dataset(s) for the metric and provenance trace (ETL logic, ingestion timestamps, and schema).\n  - Data quality checks: completeness by time, unique user counts, distribution checks, and anomaly detection on ingestion volumes.\n  - Baseline behavior and variability estimates to inform power calculations or confidence intervals.\n  - Pre-specified subgroup definitions and handling rules for missingness and outliers.\n  - A validation checklist: reproduce metric in an independent query, sanity-check on a holdout time window, and comparison to prior reporting.\nCaution: Do not treat exploratory correlations as causal or actionable without further validation (randomized test, quasi-experimental design, or thorough confounder adjustment). Avoid claiming production readiness or definitive impact until the evaluation requirements above are satisfied. If instrumentation or metric definitions are uncertain, any downstream model or experiment design will be fragile.\nNext Step: Provide the minimum missing items so we can move to a concrete plan: the primary metric definition (formula and time window), the data sources/tables you can access (with sample row counts), and whether there were recent deployments or campaigns in the affected window. Owner: you or a data-engineer who can confirm data lineage. With those, I will propose a prioritized analysis path (diagnostic checks, necessary power calculations, and an actionable validation sequence).",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_27",
+      "skill_id": "data_science",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_workflow_4",
+      "anchor_idx": 27,
+      "metadata": {
+        "scenario": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_27",
+        "family_id": "owner-handoff",
+        "axis_idx": 3,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You asked to apply the Senior Data Science Analysis Skill focusing on the probe axis: when critical information is missing, request only the minimum details needed to choose a sound design (sample size, outcome definition, deployment context). The immediate goal is to identify exactly which minimal facts are missing from your analysis request so we can pick a valid experiment, diagnostic, or modeling path.\nAction: I will list the smallest set of concrete items I need from you to choose a sound design and proceed safely. Provide these five minimal items (answer as precisely as possible):\n1) Decision type: Is this exploratory (hypothesis generation), experimental (A/B test), predictive (model training/inference), or diagnostic (root-cause triage)?  \n2) Target metric/outcome: Exact outcome definition (e.g., activation within 7 days = first successful login; revenue per user over 30 days; churn = no purchase in 90 days). Include numerator/denominator and aggregation window.  \n3) Time window and cohort scope: Historic date range available and the population segment(s) to include (e.g., all users, new users, region X).  \n4) Traffic/sample volume or baseline rate: Estimated daily/weekly users/events or current baseline rate for the outcome (if an experiment, also available traffic percent for treatment).  \n5) Deployment/operational constraints: Any hard constraints (latency, feature freshness, privacy/PII redaction, inability to change production instrumentation, or maximum rollout %).\nCaution: Without these minimal facts we cannot choose a defensible path: sample-size and power calculations will be invalid, outcome ambiguity will produce conflicting analysis choices, and deployment constraints may render some designs infeasible. I will not claim causal impact or production readiness until the experiment design, data lineage, and power calculations are confirmed.\nNext Step: Please reply with the five items above. If you prefer, give a short example for each (e.g., Decision type = A/B test; Outcome = conversion = purchase event within 14 days; Time window = past 180 days for users in US; Traffic = ~20k daily active users, baseline conversion 2.5%; Constraints = cannot modify client SDK). Once I have those, I will produce a concrete, minimal design (power estimate, sample size or time window, guardrails, measurement plan) ready for handoff.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_28",
+      "skill_id": "data_science",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_edge_case_1",
+      "anchor_idx": 28,
+      "metadata": {
+        "scenario": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_28",
+        "family_id": "owner-handoff",
+        "axis_idx": 4,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You’ve presented a mixed objective: a causal question (e.g., “did X cause Y?”) together with a predictive-model goal (e.g., “build a model to predict Y”). The immediate decision is to disentangle whether you need causal evidence to drive an intervention or a predictive score to prioritize actions. That choice determines design, data needs, and validation strategy.\nAction: Treat the request as two parallel but separable tracks. 1) If the decision-maker needs causal evidence to change policy or deploy an intervention, frame an experiment or quasi‑experimental design (A/B, randomized encouragement, difference‑in‑differences, regression discontinuity) with a primary causal outcome and pre-specified estimand. 2) If the goal is prediction (risk ranking, targeting, operational automation), treat it as a supervised learning task with clearly defined label, feature availability in production, and backtest strategy. Explicitly document which downstream decision depends on causal inference versus which depends on prediction so evaluation metrics and guardrails differ appropriately.\nCaution: Do not conflate strong predictive performance with causal effect. A model that predicts outcomes well does not prove that changing a feature will change the outcome. Conversely, causal designs generally require different data (randomization, instruments, or natural experiments), larger samples or stronger assumptions, and cannot be inferred from offline predictive metrics alone. Also note privacy, label stability, and sample-selection biases can invalidate either path if unaddressed.\nNext Step: Provide the minimum required detail to choose a concrete path: (a) state the exact decision you must make (e.g., “should we roll out feature X to all users” vs “which users are most likely to convert?”), (b) give the target metric definition and time window, and (c) list available data sources and whether randomization or an instrument is feasible. With those three items I’ll propose a narrow, actionable plan for either a causal test design or a prediction pipeline (or a combined staged approach).",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_29",
+      "skill_id": "data_science",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_edge_case_2",
+      "anchor_idx": 29,
+      "metadata": {
+        "scenario": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_29",
+        "family_id": "owner-handoff",
+        "axis_idx": 5,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: The core request is a decision-support review where data availability looks strong but the target metric / label definition is unstable across teams. This is an analytical-design problem: we need to decide whether to proceed with exploratory analysis, build a predictive model, or design an experiment, but first we must resolve label ambiguity because it materially changes evaluation, feature selection, and stakeholder decisions.\nAction: Treat the task as a two-step gated path. Step A (stabilize metric): run a rapid label-definition reconciliation with representatives from the teams that use the metric (product, analytics, ML, business). Produce a short spec that includes: exact outcome definition (inclusion/exclusion rules), aggregation time window, segmentation rules, and any business tolerance for label noise. Step B (analysis path selection): once the spec is agreed, choose one of three paths depending on the business decision: (1) Experiment design if the question is causal (does an intervention change the metric); (2) Predictive model if the goal is automated identification or scoring; (3) Diagnostic analytics if the goal is root-cause and monitoring. For now, pause model-building or experiment power calculations until Step A is complete.\nCaution: Proceeding with modeling, reporting, or A/B testing using inconsistent label definitions risks invalid evaluations, wasted lab effort, decisions based on label leakage, and cross-team misalignment about objective success. Different label windows or inclusion logic will change baseline rates, effect-size expectations, and required sample size. Also expect downstream changes to feature engineering (label lookahead), evaluation splits (temporal vs. random), and production instrumentation depending on the final spec.\nNext Step: Ask the minimum reconciliation questions to finalize the label: what exact event(s) constitute a positive label, what time window after exposure counts toward the outcome, which user segments are in/out, and the acceptable lag for data availability. Assign an owner (product or analytics) to produce the one-page label spec; once delivered, I will recommend the concrete analysis path and validation checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_30",
+      "skill_id": "data_science",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_constraint_1",
+      "anchor_idx": 30,
+      "metadata": {
+        "scenario": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_30",
+        "family_id": "owner-handoff",
+        "axis_idx": 6,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want guidance that follows the Senior Data Science Analysis Skill while explicitly avoiding any claims of causal impact, production readiness, or statistical validity when the supporting design, power calculations, data lineage, or evaluation evidence are incomplete. The immediate goal is a safe, handoff-ready analysis plan that documents limits and next validation checkpoints.\nAction: Treat this as a methodological guardrail and analysis-template task. Use a reproducible checklist and short plan the next analyst can follow:\n- Define the decision and primary target metric (who will act on the result and what exact outcome they need). Record time window, segment(s), and success threshold.\n- Classify the analysis path (experiment, diagnostic, predictive modeling, or reporting). For each path, explicitly list what evidence is required to support stronger claims (e.g., randomized assignment + pre-registered analysis for causality; holdout + temporally separated validation for predictive performance).\n- Require documented data lineage and quality checks before any inference: source tables, timestamps, joins, missingness, deduplication rules, refresh cadence, and any downstream transformation code or SQL.\n- If statistical inference is attempted, require a pre-analysis plan: defined primary hypothesis, metric aggregation rules, multiple-testing corrections, and a power calculation with assumed baseline and minimum detectable effect. If power is insufficient, recommend alternative evaluation strategies (longer window, pooled segments, or observational diagnostic with clear caveats).\n- For modeling or production-readiness pathways, require a deployment checklist that includes feature availability/freshness, latency constraints, cost estimates, monitoring metrics (data drift, prediction distribution, label delay), and rollback criteria. Do not mark production-ready until these are demonstrated.\n- Package all results as two-tiered outputs: exploratory findings (hypothesis-generating) and validated evidence (only after pre-specified validation or sufficient power and lineage). Label them clearly in reports and handoffs.\nCaution: Do not assert causality, statistical validity, or production-readiness without the full supporting design and evidence. Common failure modes to call out up-front:\n- Underpowered comparisons that produce inconclusive p-values or unstable effect estimates.\n- Confounded observational comparisons without randomization or valid quasi-experimental design.\n- Hidden data lineage issues (late-arriving labels, join mistakes, duplicated users) that can flip conclusions.\n- Overfitting in retrospective model evaluations when temporal validation or test leakage is not enforced.\n- Operational gaps: features not available in real-time, high inference cost, or missing monitoring that make deployment claims premature.\nNext Step: Provide the minimum missing items so an actionable analysis plan can be drafted: the exact target metric definition (algorithmic formula or SQL), the analysis path you want (experiment, predictive, diagnostic, or report), the available data sources with table names and sample sizes, and the intended decision owner. Once those are provided, I will produce a concrete step-by-step analysis plan including required power checks, validation steps, data QA scripts, and the handoff-ready checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_negative_verify_31",
+      "skill_id": "data_science",
+      "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff..",
+      "kind": "negative_verification",
+      "intent": "end_user_reply",
+      "variant": "negative_owner-handoff_axis_constraint_2",
+      "anchor_idx": 31,
+      "metadata": {
+        "scenario": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_31",
+        "family_id": "owner-handoff",
+        "axis_idx": 7,
+        "query_role": "end_user_reply",
+        "customer_facing": true
+      }
+    },
+    "output": "Summary: You want a data-science response that avoids inventing or assuming metrics, model performance, deployment readiness, or stakeholder requirements that were not explicitly provided. The immediate goal is to get a clear, handoff-ready recommendation path that only uses confirmed facts and requests the minimum missing details to proceed.\nAction: Treat this as a requirements-verification and analysis-planning step. I will (1) list the minimal required inputs you must confirm (target metric, decision/use case, time window, success criterion, data sources and lineage, and stakeholder/owner), (2) propose a guarded analysis path options map (experiment design, predictive model evaluation, diagnostic review, or feature engineering) that is conditional on those confirmed inputs, and (3) provide an explicit template for the handoff that preserves only stated facts and a next checkpoint question for the new owner.\nCaution: I will not assume or invent baseline rates, effect sizes, model accuracy numbers, production constraints, or stakeholder priorities. Any recommendation beyond planning is conditional on the missing confirmations. Proceeding without those confirmations risks producing invalid designs, underpowered experiments, or deployment suggestions that aren’t implementable.\nNext Step: Please confirm the minimum set of facts below so I can produce a concrete, non-speculative analysis plan and validation checklist:\n1) Primary target metric (exact name and definition, e.g., \"7-day active users per user\", \"conversion = payment within 14 days\").  \n2) Decision/use-case (what operational decision will use the result? e.g., launch change, allocate budget, prioritize users).  \n3) Evaluation window and segments (time window to measure, user segments to include/exclude).  \n4) Available data sources and lineage (tables/events, frequency of updates, known gaps).  \n5) Known constraints (traffic volume, latency, budget, privacy/regulatory limits).  \n6) Responsible owner for the next action (name or role to hand off to).\n\nOnce you confirm those items I will: (a) select the appropriate analysis path, (b) list assumptions and data-quality checks, (c) specify sample-size/power or validation steps if applicable, and (d) produce a transfer-ready checklist that contains only confirmed facts and the required next-checkpoint question for the owner.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  }
+]

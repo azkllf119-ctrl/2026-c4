@@ -1,0 +1,1058 @@
+[
+  {
+    "query": {
+      "query_id": "data_science_verify_00",
+      "skill_id": "data_science",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_workflow_1",
+      "anchor_idx": 0,
+      "metadata": {
+        "scenario": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_00",
+        "family_id": "internal-audit",
+        "axis_idx": 0,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: confirm the analysis goal, target metric, available data sources, and whether\n      the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering\n      easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: confirm the analysis goal, target metric, available data sources, and\n      whether the task is exploratory, experimental, predictive, or diagnostic. Keep\n      the ordering easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 1\n    token: atlas_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_01",
+      "skill_id": "data_science",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_workflow_2",
+      "anchor_idx": 1,
+      "metadata": {
+        "scenario": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_01",
+        "family_id": "internal-audit",
+        "axis_idx": 1,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: map the request to an analysis path such as experiment design, feature\n      engineering, model evaluation, or operational analytics review. Keep the ordering\n      easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: Which analysis path should be pursued for the original request\n      (experiment design, feature engineering, model evaluation, or operational analytics\n      review)? Provide target metric, time window, and primary data source so the\n      plan can be finalized.\n    stop_condition: Stop when the requested analysis path and critical inputs (target\n      metric, time window, primary data source) are confirmed; escalate if permissions\n      or data lineage are incomplete.\n  labels:\n    axis: workflow 2\n    token: trace_beacon\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_02",
+      "skill_id": "data_science",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_workflow_3",
+      "anchor_idx": 2,
+      "metadata": {
+        "scenario": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_02",
+        "family_id": "internal-audit",
+        "axis_idx": 2,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: state the current analytical posture first, then explain the most relevant\n      assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the minimum confirmed next step needed to advance\n      this axis: state the current analytical posture first, then explain the most\n      relevant assumptions, risks, and evaluation requirements. Keep the ordering\n      easy to follow.?'\n    stop_condition: Escalate or stop when required evidence, approval, or policy precondition\n      is still missing.\n  labels:\n    axis: workflow 3\n    token: cinder_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_03",
+      "skill_id": "data_science",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_workflow_4",
+      "anchor_idx": 3,
+      "metadata": {
+        "scenario": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_03",
+        "family_id": "internal-audit",
+        "axis_idx": 3,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: if critical information is missing, request only the minimum details needed\n      to choose a sound design such as sample size, outcome definition, or deployment\n      context. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: if critical information is missing, request only the minimum details\n      needed to choose a sound design such as sample size, outcome definition, or\n      deployment context. Keep the ordering easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 4\n    token: trace_delta\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_04",
+      "skill_id": "data_science",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_edge_case_1",
+      "anchor_idx": 4,
+      "metadata": {
+        "scenario": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_04",
+        "family_id": "internal-audit",
+        "axis_idx": 4,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: When the requester mixes causal questions with predictive-model objectives,\n      so the skill must disentangle the true decision path, acknowledge the complication\n      explicitly, explain how it changes the decision path, and keep the next action\n      narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the requester mixes causal questions with predictive-model objectives,\n      so the skill must disentangle the true decision path, acknowledge the complication\n      explicitly, explain how it changes the decision path, and keep the next action\n      narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 1\n    token: ember_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_05",
+      "skill_id": "data_science",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_edge_case_2",
+      "anchor_idx": 5,
+      "metadata": {
+        "scenario": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_05",
+        "family_id": "internal-audit",
+        "axis_idx": 5,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: When the data appears rich, but the target metric or label definition is\n      still unstable across teams, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the data appears rich, but the target metric or label definition\n      is still unstable across teams, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 2\n    token: trace_fable\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_06",
+      "skill_id": "data_science",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_constraint_1",
+      "anchor_idx": 6,
+      "metadata": {
+        "scenario": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_06",
+        "family_id": "internal-audit",
+        "axis_idx": 6,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: The skill must never claim causal impact, production readiness, or statistical\n      validity when the design, power, data lineage, or evaluation evidence is incomplete.\n      Keep the explanation reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Which of the following artifacts are available now: randomized\n      design/spec, power calculation with assumptions, data lineage and freshness\n      report, evaluation protocol and results with CI/uncertainty, and deployment/monitoring\n      plan?'\n    stop_condition: Do not escalate beyond advisory stage until all required artifacts\n      are present and a senior approver confirms that evidence supports causal, production,\n      or statistical claims.\n  labels:\n    axis: constraint 1\n    token: gale_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_07",
+      "skill_id": "data_science",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_constraint_2",
+      "anchor_idx": 7,
+      "metadata": {
+        "scenario": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_07",
+        "family_id": "internal-audit",
+        "axis_idx": 7,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: The skill must do not invent metrics, model performance, deployment readiness,\n      or stakeholder requirements that have not been established. Keep the explanation\n      reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: Provide the canonical metric definitions, any baseline performance\n      numbers or validation reports, deployment constraints (latency, cost, feature\n      freshness), and the decision owner who will accept evaluation artifacts. Is\n      there an approved stakeholder requirements doc we should reference?\n    stop_condition: Stop and escalate if canonical metrics, baseline artifacts, or\n      an owning stakeholder are not provided within the agreed SLA; otherwise continue\n      to PLAN stage.\n  labels:\n    axis: constraint 2\n    token: trace_harbor\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_08",
+      "skill_id": "data_science",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_workflow_1",
+      "anchor_idx": 8,
+      "metadata": {
+        "scenario": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_08",
+        "family_id": "internal-replay",
+        "axis_idx": 0,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: confirm the analysis goal, target metric, available data sources, and whether\n      the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering\n      easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the minimum confirmed next step needed to advance\n      this axis: confirm the analysis goal, target metric, available data sources,\n      and whether the task is exploratory, experimental, predictive, or diagnostic?'\n    stop_condition: Escalate or stop when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 1\n    token: iris_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_09",
+      "skill_id": "data_science",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_workflow_2",
+      "anchor_idx": 9,
+      "metadata": {
+        "scenario": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_09",
+        "family_id": "internal-replay",
+        "axis_idx": 1,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: map the request to an analysis path such as experiment design, feature\n      engineering, model evaluation, or operational analytics review. Keep the ordering\n      easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Which analysis path should be chosen for this request:\n      experiment design, feature engineering, model evaluation, or operational analytics\n      review? Provide target metric, time window, and available data sources.'\n    stop_condition: Stop and escalate if the target metric, time window, or data source\n      access is missing or if policy prevents analysis on the requested data.\n  labels:\n    axis: workflow 2\n    token: trace_juniper\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_10",
+      "skill_id": "data_science",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_workflow_3",
+      "anchor_idx": 10,
+      "metadata": {
+        "scenario": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_10",
+        "family_id": "internal-replay",
+        "axis_idx": 2,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: state the current analytical posture first, then explain the most relevant\n      assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the minimum confirmed next step needed to advance\n      this axis: state the current analytical posture first, then explain the most\n      relevant assumptions, risks, and evaluation requirements. Keep the ordering\n      easy to follow.?'\n    stop_condition: Escalate or stop when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 3\n    token: kepler_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_11",
+      "skill_id": "data_science",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_workflow_4",
+      "anchor_idx": 11,
+      "metadata": {
+        "scenario": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_11",
+        "family_id": "internal-replay",
+        "axis_idx": 3,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: if critical information is missing, request only the minimum details needed\n      to choose a sound design such as sample size, outcome definition, or deployment\n      context. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Please provide the minimum confirmed details: (1) primary\n      target metric and its baseline rate (or historical mean), (2) available sample\n      size or expected traffic over the test window, (3) clear outcome/label definition\n      and measurement window, (4) whether the task is exploratory/experimental/predictive/diagnostic,\n      and (5) any deployment or privacy constraints.'\n    stop_condition: Stop or escalate if any of the five minimal inputs are missing\n      or inconsistent with data access or privacy policy requirements.\n  labels:\n    axis: workflow 4\n    token: trace_lumen\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_12",
+      "skill_id": "data_science",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_edge_case_1",
+      "anchor_idx": 12,
+      "metadata": {
+        "scenario": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_12",
+        "family_id": "internal-replay",
+        "axis_idx": 4,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: When the requester mixes causal questions with predictive-model objectives,\n      so the skill must disentangle the true decision path, acknowledge the complication\n      explicitly, explain how it changes the decision path, and keep the next action\n      narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the requester mixes causal questions with predictive-model objectives,\n      so the skill must disentangle the true decision path, acknowledge the complication\n      explicitly, explain how it changes the decision path, and keep the next action\n      narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 1\n    token: mesa_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_13",
+      "skill_id": "data_science",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_edge_case_2",
+      "anchor_idx": 13,
+      "metadata": {
+        "scenario": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_13",
+        "family_id": "internal-replay",
+        "axis_idx": 5,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: When the data appears rich, but the target metric or label definition is\n      still unstable across teams, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the data appears rich, but the target metric or label definition\n      is still unstable across teams, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 2\n    token: trace_nova\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_14",
+      "skill_id": "data_science",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_constraint_1",
+      "anchor_idx": 14,
+      "metadata": {
+        "scenario": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_14",
+        "family_id": "internal-replay",
+        "axis_idx": 6,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: The skill must never claim causal impact, production readiness, or statistical\n      validity when the design, power, data lineage, or evaluation evidence is incomplete.\n      Keep the explanation reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Which specific pieces of evidence can be provided now to\n      remove the incompleteness: (1) experiment or study design document, (2) power/sample-size\n      analysis, (3) data lineage / ETL spec for source tables, and (4) evaluation\n      reports or validation notebooks?'\n    stop_condition: Close the replay when all four evidence items above are provided\n      or escalate if any item is unavailable for >7 business days.\n  labels:\n    axis: constraint 1\n    token: onyx_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_15",
+      "skill_id": "data_science",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_constraint_2",
+      "anchor_idx": 15,
+      "metadata": {
+        "scenario": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_15",
+        "family_id": "internal-replay",
+        "axis_idx": 7,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: The skill must do not invent metrics, model performance, deployment readiness,\n      or stakeholder requirements that have not been established. Keep the explanation\n      reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: The skill must do not invent metrics, model performance, deployment\n      readiness, or stakeholder requirements that have not been established. Keep\n      the explanation reusable for handoff.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: constraint 2\n    token: trace_prism\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_16",
+      "skill_id": "data_science",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_workflow_1",
+      "anchor_idx": 16,
+      "metadata": {
+        "scenario": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_16",
+        "family_id": "qa-trace",
+        "axis_idx": 0,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: confirm the analysis goal, target metric, available data sources, and whether\n      the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering\n      easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: Please provide the analysis goal statement, the precise\n      target metric (including unit and aggregation window), the available data sources\n      or tables (with access paths), and indicate whether the task is exploratory,\n      experimental, predictive, or diagnostic.\n    stop_condition: Stop when all four fields are confirmed with data access or escalate\n      if any data lineage, privacy, or access blockers persist.\n  labels:\n    axis: workflow 1\n    token: quartz_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_17",
+      "skill_id": "data_science",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_workflow_2",
+      "anchor_idx": 17,
+      "metadata": {
+        "scenario": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_17",
+        "family_id": "qa-trace",
+        "axis_idx": 1,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: map the request to an analysis path such as experiment design, feature\n      engineering, model evaluation, or operational analytics review. Keep the ordering\n      easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: map the request to an analysis path such as experiment design, feature\n      engineering, model evaluation, or operational analytics review. Keep the ordering\n      easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 2\n    token: trace_rivet\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_18",
+      "skill_id": "data_science",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_workflow_3",
+      "anchor_idx": 18,
+      "metadata": {
+        "scenario": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_18",
+        "family_id": "qa-trace",
+        "axis_idx": 2,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: state the current analytical posture first, then explain the most relevant\n      assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: state the current analytical posture first, then explain the most relevant\n      assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 3\n    token: solace_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_19",
+      "skill_id": "data_science",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_workflow_4",
+      "anchor_idx": 19,
+      "metadata": {
+        "scenario": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_19",
+        "family_id": "qa-trace",
+        "axis_idx": 3,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: if critical information is missing, request only the minimum details needed\n      to choose a sound design such as sample size, outcome definition, or deployment\n      context. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide the minimum confirmed values for: (1) target metric\n      definition and direction (e.g., 7-day retention), (2) baseline rate or metric\n      mean and variance, (3) available daily/weekly traffic or sample pool size, (4)\n      time window for evaluation and any required segments, and (5) deployment or\n      instrumentation constraints (feature availability, latency, privacy limits).'\n    stop_condition: Stop and escalate if any of the five required inputs are missing,\n      inconsistent across teams, or fail privacy/compliance checks.\n  labels:\n    axis: workflow 4\n    token: trace_thicket\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_20",
+      "skill_id": "data_science",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_edge_case_1",
+      "anchor_idx": 20,
+      "metadata": {
+        "scenario": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_20",
+        "family_id": "qa-trace",
+        "axis_idx": 4,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: When the requester mixes causal questions with predictive-model objectives,\n      so the skill must disentangle the true decision path, acknowledge the complication\n      explicitly, explain how it changes the decision path, and keep the next action\n      narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the requester mixes causal questions with predictive-model objectives,\n      so the skill must disentangle the true decision path, acknowledge the complication\n      explicitly, explain how it changes the decision path, and keep the next action\n      narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 1\n    token: umbra_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_21",
+      "skill_id": "data_science",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_edge_case_2",
+      "anchor_idx": 21,
+      "metadata": {
+        "scenario": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_21",
+        "family_id": "qa-trace",
+        "axis_idx": 5,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: When the data appears rich, but the target metric or label definition is\n      still unstable across teams, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the data appears rich, but the target metric or label definition\n      is still unstable across teams, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 2\n    token: trace_vector\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_22",
+      "skill_id": "data_science",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_constraint_1",
+      "anchor_idx": 22,
+      "metadata": {
+        "scenario": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_22",
+        "family_id": "qa-trace",
+        "axis_idx": 6,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: The skill must never claim causal impact, production readiness, or statistical\n      validity when the design, power, data lineage, or evaluation evidence is incomplete.\n      Keep the explanation reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the minimum confirmed next step needed to advance\n      this axis: The skill must never claim causal impact, production readiness, or\n      statistical validity when the design, power, data lineage, or evaluation evidence\n      is incomplete. Keep the explanation reusable for handoff.?'\n    stop_condition: Escalate or stop when required evidence, approval, or policy precondition\n      is still missing.\n  labels:\n    axis: constraint 1\n    token: willow_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_23",
+      "skill_id": "data_science",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_constraint_2",
+      "anchor_idx": 23,
+      "metadata": {
+        "scenario": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_23",
+        "family_id": "qa-trace",
+        "axis_idx": 7,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: The skill must do not invent metrics, model performance, deployment readiness,\n      or stakeholder requirements that have not been established. Keep the explanation\n      reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the minimum confirmed next step needed to advance\n      this axis: The skill must do not invent metrics, model performance, deployment\n      readiness, or stakeholder requirements that have not been established. Keep\n      the explanation reusable for handoff.?'\n    stop_condition: Escalate or stop when required evidence, approvals, or policy\n      preconditions for metric definitions, performance baselines, deployment constraints,\n      or stakeholder acceptance remain missing.\n  labels:\n    axis: constraint 2\n    token: trace_xenon\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_24",
+      "skill_id": "data_science",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_workflow_1",
+      "anchor_idx": 24,
+      "metadata": {
+        "scenario": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the analysis goal, target metric, available data sources, and whether the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_24",
+        "family_id": "owner-handoff",
+        "axis_idx": 0,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: confirm the analysis goal, target metric, available data sources, and whether\n      the task is exploratory, experimental, predictive, or diagnostic. Keep the ordering\n      easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: confirm the analysis goal, target metric, available data sources, and\n      whether the task is exploratory, experimental, predictive, or diagnostic. Keep\n      the ordering easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 1\n    token: yonder_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_25",
+      "skill_id": "data_science",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_workflow_2",
+      "anchor_idx": 25,
+      "metadata": {
+        "scenario": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "map the request to an analysis path such as experiment design, feature engineering, model evaluation, or operational analytics review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_25",
+        "family_id": "owner-handoff",
+        "axis_idx": 1,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: map the request to an analysis path such as experiment design, feature\n      engineering, model evaluation, or operational analytics review. Keep the ordering\n      easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: map the request to an analysis path such as experiment design, feature\n      engineering, model evaluation, or operational analytics review. Keep the ordering\n      easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 2\n    token: trace_zenith\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_26",
+      "skill_id": "data_science",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_workflow_3",
+      "anchor_idx": 26,
+      "metadata": {
+        "scenario": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current analytical posture first, then explain the most relevant assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_26",
+        "family_id": "owner-handoff",
+        "axis_idx": 2,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: state the current analytical posture first, then explain the most relevant\n      assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: state the current analytical posture first, then explain the most relevant\n      assumptions, risks, and evaluation requirements. Keep the ordering easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 3\n    token: anchor_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_27",
+      "skill_id": "data_science",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_workflow_4",
+      "anchor_idx": 27,
+      "metadata": {
+        "scenario": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if critical information is missing, request only the minimum details needed to choose a sound design such as sample size, outcome definition, or deployment context. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_27",
+        "family_id": "owner-handoff",
+        "axis_idx": 3,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: if critical information is missing, request only the minimum details needed\n      to choose a sound design such as sample size, outcome definition, or deployment\n      context. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide only these minimum fields so the analyst can proceed:\n\n      1) Primary outcome definition (exact metric, unit of analysis, aggregation window).\n\n      2) Baseline rate or value and the minimum detectable effect you care about (or\n      an expected uplift).\n\n      3) Available sample size or average daily active users/traffic for the target\n      population and intended test duration.\n\n      4) Key segment(s) to include/exclude and any stratification constraints.\n\n      5) Deployment context: rollout mechanism (full A/B, staged rollout, feature\n      flag), inference latency/serving limits, and whether feature set is available\n      in-prod.\n\n      6) Data sources and freshness (tables/streams, last successful ETL run), plus\n      any privacy or PII constraints.\n\n      Stop when all six fields are provided with clear units and a decision owner\n      assigned.'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 4\n    token: trace_bridge\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_28",
+      "skill_id": "data_science",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_edge_case_1",
+      "anchor_idx": 28,
+      "metadata": {
+        "scenario": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the requester mixes causal questions with predictive-model objectives, so the skill must disentangle the true decision path, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_28",
+        "family_id": "owner-handoff",
+        "axis_idx": 4,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: When the requester mixes causal questions with predictive-model objectives,\n      so the skill must disentangle the true decision path, acknowledge the complication\n      explicitly, explain how it changes the decision path, and keep the next action\n      narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the requester mixes causal questions with predictive-model objectives,\n      so the skill must disentangle the true decision path, acknowledge the complication\n      explicitly, explain how it changes the decision path, and keep the next action\n      narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 1\n    token: cipher_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_29",
+      "skill_id": "data_science",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_edge_case_2",
+      "anchor_idx": 29,
+      "metadata": {
+        "scenario": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the data appears rich, but the target metric or label definition is still unstable across teams, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_29",
+        "family_id": "owner-handoff",
+        "axis_idx": 5,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: When the data appears rich, but the target metric or label definition is\n      still unstable across teams, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the data appears rich, but the target metric or label definition\n      is still unstable across teams, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 2\n    token: trace_drift\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_30",
+      "skill_id": "data_science",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_constraint_1",
+      "anchor_idx": 30,
+      "metadata": {
+        "scenario": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim causal impact, production readiness, or statistical validity when the design, power, data lineage, or evaluation evidence is incomplete. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_30",
+        "family_id": "owner-handoff",
+        "axis_idx": 6,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: The skill must never claim causal impact, production readiness, or statistical\n      validity when the design, power, data lineage, or evaluation evidence is incomplete.\n      Keep the explanation reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: The skill must never claim causal impact, production readiness, or statistical\n      validity when the design, power, data lineage, or evaluation evidence is incomplete.\n      Keep the explanation reusable for handoff.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: constraint 1\n    token: emberline_trace\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  },
+  {
+    "query": {
+      "query_id": "data_science_verify_31",
+      "skill_id": "data_science",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Senior Data Science Analysis Skill skill to the task branch described by the probe axis.. Probe axis: The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_constraint_2",
+      "anchor_idx": 31,
+      "metadata": {
+        "scenario": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent metrics, model performance, deployment readiness, or stakeholder requirements that have not been established. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "data_science_verify_pair_31",
+        "family_id": "owner-handoff",
+        "axis_idx": 7,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the data science skill to the requested branch.\n    state: The skill must do not invent metrics, model performance, deployment readiness,\n      or stakeholder requirements that have not been established. Keep the explanation\n      reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: The skill must do not invent metrics, model performance, deployment\n      readiness, or stakeholder requirements that have not been established. Keep\n      the explanation reusable for handoff.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: constraint 2\n    token: trace_flux\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/data_science__buyer_1"
+  }
+]

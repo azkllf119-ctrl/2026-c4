@@ -1,0 +1,702 @@
+[
+  {
+    "query": {
+      "query_id": "code_review_normal_00",
+      "skill_id": "code_review",
+      "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The branch is asserted as \"ready to merge\" but the reviewer cannot complete a final review because the implementation scope and the exact git range (base/head/PR) are not summarized. The immediate goal is to remove that blocker by delivering a minimal, handoff-ready summary so the reviewer can focus on code correctness, tests, and production risks rather than re-discovering intent or hunting commits.\nAction: Provide the reviewer a compact review payload the implements the minimum evidentiary checklist: Base SHA, Head SHA (or branch + PR URL), a 2–3 sentence implementation summary describing intended behavior and acceptance criteria, the top affected components or up to five highest-risk files, CI status and links to failing/passing test runs, and any DB migrations, feature flags, or rollout/rollback notes. Also include a short classification that tells the reviewer where to focus (correctness, architecture, testing, performance, production-readiness) and one-line test coverage status per changed area. Once posted in the PR description or a single comment, the reviewer can proceed with a deterministic review rather than guessing scope.\nCaution: We cannot mark the code as merge-ready or waive review steps until the git range and acceptance criteria are explicit; doing so risks merging behavior that wasn’t intended or missing migrations/rollback paths. Don’t invent or assume test outcomes, performance numbers, or security reviews—supply evidence or mark those as known gaps. If DB schema or access/secret changes are present, these are potential critical blockers until validated.\nNext Step: Have the implementer (owner of the branch) post to the PR one single summary message containing: Base SHA, Head SHA/PR link, 2–3 sentence implementation intent and acceptance criteria, list of top 5 changed files/components, CI/test links and status, and any migrations/feature-flag/rollout instructions. Once that is attached, request the reviewer to re-run the review with that payload and call out any remaining blockers.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_01",
+      "skill_id": "code_review",
+      "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The refactor looks high-risk and may have gaps in test coverage; the immediate goal is to assemble a focused production-readiness review request that lets reviewers confirm correctness, architecture safety, and deploy risk before merge.\nAction: Prepare a single review request (PR or change-note) that explicitly states the implementation intent and provides the review target (base/head commit range or branch). Classify the review focus so reviewers can prioritize: correctness (behavioral changes, edge cases, API compatibility), architecture (public surface, dependency changes, coupling), testing (unit, integration, end-to-end, and test gaps), performance (any new hot paths or memory/latency risks), and production readiness (migrations, rollback plan, feature flagging, observability). In the request include current CI results, any failing tests, the exact files/modules with the largest behavioral change, and proposed mitigations (feature flag, canary rollout, staged rollback plan) so reviewers can validate or insist on blockers.\nCaution: I cannot mark this change merge-ready without the commit range and explicit evidence of test and runtime safety. The highest-severity risks are untested behavioral changes to core paths, missing DB or schema migration validations, and absent rollback/canary plans; shipping these without mitigations risks production outages or data issues. Do not assume thin unit tests cover integration or runtime behavior.\nNext Step: Provide the minimal information to unblock a production-readiness review: the base and head SHAs (or PR link), a 2–3 sentence summary of what the refactor is supposed to achieve and the acceptance criteria, the list of highest-risk files or components touched, current test artifacts (unit/integration/e2e) and CI links/results, and whether there are migrations, feature flags, or a rollback plan. Assign an owner for the review and indicate the desired reviewers and any timeline constraints.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_02",
+      "skill_id": "code_review",
+      "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The immediate goal is to resolve a reviewer/implementer disagreement over whether a reported performance regression is a merge blocker by turning the disagreement into an evidence-driven decision (not an opinion).\nAction: Restate the claimed performance risk and convert it into concrete acceptance criteria (for example: acceptable % change in throughput, p95 latency, or CPU per request under the representative workload). Ask the implementer to produce a reproducible comparison of base vs head: a short benchmark or load test run, representative request traces or profiler flamegraphs, and the exact commands/config used. If the regression reproduces above the agreed threshold, treat it as a blocker; if not, document the measurement and move forward. Also propose short mitigations while blocked (feature flag, canary, or rollback plan).\nCaution: Do not declare the issue resolved or not a blocker without the comparative evidence. Avoid inventing or overstating results; do not merge if the scope, commit range, or acceptance criteria are unclear. Be explicit about test environment differences (hardware, concurrency, warmup) because inconsistent setups invalidate comparisons.\nNext Step: Ask the implementer to run a reproducible base-vs-head test in staging (include base SHA, head SHA, benchmark script/commands, workload profile, and profiler traces) and upload results; the reviewer then validates against a simple decision rule (e.g., agreed % regression or p95 spike) and comments with: “blocker — reproduce above threshold” or “not blocker — regression below threshold with artifacts attached.”",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_03",
+      "skill_id": "code_review",
+      "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The change touches multiple subsystems and the author needs a review handoff. Escalation is not automatically required, but is advisable when the change has cross-team ownership, a large blast radius, unclear acceptance criteria, insufficient test coverage, or the original author will be unavailable to guide reviewers.\nAction: Treat this as a handoff-first review: prepare a reviewer-ready handoff note and escalate only if one or more escalation triggers are present. The handoff note should include: a one-line implementation summary and the requirement source, the base/head commit range or PR link, explicit affected subsystems/files, the highest-risk code paths, current test evidence (unit/integration/e2e and gaps), deployment and rollback plan, monitoring/alert implications, and suggested reviewers/area owners with contact. If escalation is needed, copy area leads/arch owners and request a short cross-team review or approval before merge.\nCaution: Do not mark the change merge-ready until the git range, acceptance criteria, and test evidence are confirmed. Escalation must not be used to bypass missing evidence or approvals; it’s for resolving cross-team risk, ownership gaps, or policy decisions. Avoid inventing findings—surface only verified risks and missing artifacts.\nNext Step: Prepare and attach a concise handoff note containing: base and head shas (or PR), a short requirements summary, list of affected subsystems/files, current test artifacts and known gaps, the main risk(s), and the suggested reviewer/owner to receive the handoff. If any of the escalation triggers (cross-team impact, unclear requirements, large blast radius, insufficient tests, or author unavailability) apply, tag the relevant area leads when you submit the note.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_04",
+      "skill_id": "code_review",
+      "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The goal is to make every code review clearly separate critical merge blockers that must be addressed before release from lower-risk quality work that can be tracked and delivered after release, so reviewers and owners can make safe, fast release decisions.\nAction: In the review, classify each finding explicitly as either \"Blocker — must fix before release\" or \"Follow-up — can be scheduled after release\" and record the rationale. Treat correctness, data loss, crashes, security vulnerabilities, compliance failures, and regressions affecting customer-facing behavior or data integrity as blockers; treat style, non-functional polish, additional tests beyond required coverage, minor performance tuning, and optional refactors as follow-ups. For every blocker include reproduction steps, the failing test or trace, the exact file/line or diff hunk, the safety impact (what breaks and for which users), and a proposed fix or rollback option. For follow-ups file a tracked issue with owner, priority, and expected completion window and link it in the PR. Add clear PR labels (for example: release-hold or blocker and follow-up) and block the merge until all blockers are fixed or an explicit, documented exception is approved by the release owner.\nCaution: Do not downgrade an unclear or ambiguous risk to a follow-up; when the impact or cause is uncertain, treat it as a blocker until evidence reduces risk. Avoid inventing test results or conclusions; every claim must reference a reproducer, test output, or code pointer. Do not mark the change as release-ready if the diff range, acceptance criteria, or responsibility for follow-ups is not explicitly recorded.\nNext Step: Ask the PR author to update the PR description with a short classification table listing each known issue, its classification (Blocker or Follow-up), reproduction steps or test evidence for blockers, and links to follow-up tickets; assign an owner for each follow-up and add the appropriate labels so reviewers can re-run an expedited pass and confirm merge readiness.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_05",
+      "skill_id": "code_review",
+      "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The branch is claimed ready for merge but the reviewer cannot complete review because the implementation scope and the exact git range (base/head) aren’t summarized. The immediate goal is to produce a minimal, machine-actionable review payload (summary + git range + risk pointers + test evidence) so the reviewer can decide merge readiness without re-discovering the change.\nAction: Provide a concise PR-ready summary and the exact git range plus minimal evidence. Ask the implementer to include:\n- One-line intent (what and why).\n- Short scope (features/files changed, high-level approach).\n- Exact git range: base sha and head sha or PR link (and merge-base if relevant).\n- High-risk areas (2–3 files or components and why).\n- Tests and how to run them (unit/integration smoke, CI status).\n- Deployment/rollback notes and any feature-flag or config changes.\n\nPractical copy-and-paste items to include in the PR description:\n- One-line intent and short scope paragraph.\n- Git commands to produce the required info for the reviewer:\n  - Fetch target: git fetch origin TARGET_BRANCH\n  - Head sha: git rev-parse HEAD\n  - Base sha (target branch tip): git rev-parse origin/TARGET_BRANCH\n  - Common ancestor (if needed): git merge-base HEAD origin/TARGET_BRANCH\n  - Commit list: git log --oneline BASE..HEAD\n  - Changed files: git diff --name-only BASE..HEAD\n- A brief “how to run tests” snippet and the CI job names that should pass.\nCaution: Do not mark the change merge-ready until the reviewer confirms; incomplete scope or missing git-range blocks correctness and risk evaluation. Avoid inventing test results or file-level findings — provide only verified evidence (actual shas, test outputs, CI links). If the change touches many files, the reviewer may still ask for a narrowed risk slice (e.g., callouts for hotspots) — expect follow-up.\nNext Step: Implementer action: update the PR description or reply with the base and head shas (or PR link), a one-paragraph implementation summary, and 2–3 highest-risk files/components plus how to run the relevant tests. Once posted, assign to the reviewer so they can complete the merge readiness check.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_06",
+      "skill_id": "code_review",
+      "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You need a concise, production-readiness review request for a risky refactor that may have testing gaps; the immediate goal is to collect the minimum evidence and targeted review scope so reviewers can decide merge blockers versus follow-ups.\nAction: Prepare a focused review package and tag reviewers for correctness, architecture, testing, and production readiness. At minimum include (1) the PR link or base/head commit SHAs and the branch name, (2) a 2–3 line implementation summary describing intended behavior changes and acceptance criteria, (3) a short list of the highest-risk modules/files (DB migrations, public APIs, core algorithms, worker/cron code), (4) what tests were added or updated (unit, integration, e2e, canary), and (5) CI results, flaky-test notes, and any performance benchmark/trace evidence. Ask reviewers to prioritize: critical correctness (behavioral regressions, data corruption, schema changes), production safety (migrations, rollout/feature-flag plan, monitoring/alerting), and test coverage for exercised code paths. Provide a one-paragraph rollback/mitigation plan and whether a feature flag or staged rollout is available.\nCaution: I cannot conclude the change is merge-ready without the git range, explicit acceptance criteria, and test evidence. Do not assume coverage or stability — avoid merging if critical paths (data integrity, external contracts, auth) lack automated checks or there is no agreed rollback plan.\nNext Step: Owner action: post the PR or base/head SHAs plus the brief implementation summary and the list of highest-risk files, and attach current test/CI output and the rollout/rollback plan — with those five items reviewers can run a targeted production-readiness triage and mark any critical blockers.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_07",
+      "skill_id": "code_review",
+      "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You need a concrete, evidence-driven decision about whether the performance concern is a merge blocker rather than a debate of opinions.\nAction: Turn the disagreement into a measurable hypothesis and close it with data. Agree a representative workload and acceptance criteria (e.g., p50/p95/p99, throughput, CPU/memory, latency under X concurrent users or QPS). The implementer should run baseline (base sha) vs candidate (head sha) tests and produce reproducible artifacts: benchmark commands, environment, dataset, raw results, and flamegraphs/traces. The reviewer should validate the reproduction, compare results to the agreed threshold, and mark the change as blocker only if the regression exceeds the agreed threshold. If results are inconclusive, use mitigations (feature flag/canary, added monitoring/perf tests) and escalate to the performance owner.\nCaution: Do not declare the issue resolved or upgrade it to a blocker without the agreed reproducible evidence. Do not invent or infer test results; keep severity meaningful and avoid blocking on noise-sized variances. Also avoid indefinite blocking—set a short validation window and escalation path.\nNext Step: Have the implementer run a reproducible baseline vs head benchmark using the agreed workload, publish the exact commands/env, raw metrics, and flamegraphs in the PR within 48 hours so the reviewer can validate and either confirm blocker status or accept follow-up mitigations; if disagreement remains, escalate to the performance lead with those artifacts.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_08",
+      "skill_id": "code_review",
+      "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a multi‑subsystem change and need to know whether to escalate and hand the review off to another engineer; the immediate goal is to decide escalation and prepare a handoff so a new owner can complete a safe review before merge.\nAction: Escalate when the change crosses subsystem or team boundaries, impacts production behavior, or requires knowledge/permissions beyond the author’s team. Prepare a concise handoff note and assign it to an engineer who owns or has domain knowledge for the affected subsystems. The handoff note should include: one-line implementation summary, requirement/acceptance source, base and head SHAs or PR link, exact files/modules/services changed, the highest-risk code paths, current CI/test status and any failing tests, deployment and rollback steps, feature-flag status (if any), and the suggested next reviewer(s) and their contact. If the change is large or touches infra/security, schedule a short live walk-through in addition to the written note.\nCaution: Do not treat escalation as unnecessary noise if the change truly spans multiple ownerships—failing to escalate risks missed integration, security, or rollout issues. Also, we cannot mark the change merge‑ready or finalize reviewer conclusions until the PR/diff, commit range, and acceptance criteria are provided and test evidence is available.\nNext Step: Ask the author to publish a handoff note containing the minimum items above plus the PR or base/head SHAs, then assign it to a named subsystem owner (or the engineering manager if an owner is unclear); once the handoff is created and assigned, the next owner can confirm whether escalation to additional teams is required.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_09",
+      "skill_id": "code_review",
+      "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The review process must cleanly separate critical merge-blocking issues (those that would cause incorrect behavior, data loss, security or compliance failures, severe performance regressions, or breach of SLOs) from follow-up quality work (refactors, non-blocking test/enhancement gaps, minor UX polish, documentation). The goal is to ensure only true blockers stop a release while all other items are tracked and scheduled so reviewers and authors can act predictably.\nAction: Require authors to declare two sections in every PR: \"Blockers\" (explicit, actionable items that must be fixed before merge) and \"Follow-ups\" (items that can be deferred with a tracked ticket and owner). Reviewers should validate every reported blocker against the blocker criteria, tag the finding with severity=BLOCKER when appropriate, and refuse merge until those items are resolved. For follow-ups, reviewers should confirm a ticket exists (or create one) with owner and timeline and mark the PR as acceptable to merge if no blockers remain. Also require minimal evidence for acceptance: base/head commit range, passing CI, unit/integration tests covering changed behavior, and any required benchmarks or canary rollout plan for risky changes.\nCaution: Do not treat follow-ups as acceptable cover for defects that meet blocker criteria. Anything that affects correctness, user data, security, or SLOs must be remediated before merge. Do not invent acceptance—if the PR lacks the commit range, tests, or clear acceptance criteria, the review posture remains incomplete and the change cannot be declared release-ready.\nNext Step: Update the PR template and your review checklist now so every incoming PR includes explicit \"Blockers\" and \"Follow-ups\" sections, plus the required evidence fields (base/head SHAs, test summary, and rollout plan). Owner: PR author to populate those fields; Reviewer to validate and tag blocker items before approving.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_10",
+      "skill_id": "code_review",
+      "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The branch is claimed ready for merge but the reviewer cannot complete their check because the implementation scope and the exact git range (base/head or PR link) are not summarized; the immediate goal is to give the reviewer a compact, machine-actionable summary so they can finish correctness, testing, and production-readiness checks without re-discovery.\nAction: Prepare a short review package that includes (1) a 2–3 sentence implementation summary describing the behavioral change and the requirement or ticket it satisfies, (2) the precise git range as either base SHA + head SHA or the PR URL, (3) the list of highest-risk files or components touched, (4) acceptance criteria and expected user-visible outcomes, and (5) current test evidence (unit/integration test status, failing tests if any, and recent CI run link) plus deploy controls (feature flag, migration steps, rollout plan). With those inputs we will draft a one-paragraph summary and a focused reviewer checklist covering correctness, architecture, tests, performance, and production readiness so the reviewer can triage blockers vs follow-ups quickly.\nCaution: We cannot mark the change merge-ready or infer its scope without the supplied git range and explicit acceptance criteria; do not merge until the reviewer confirms no critical blockers. Also avoid inventing test results or file-level findings—everything in the summary must be backed by the provided commits, PR, or test artifacts.\nNext Step: Provide the minimum inputs: PR link or base and head SHAs, a 2–3 sentence implementation summary, the highest-risk files/components, and a pointer to test/CI output. Owner: implementer. Once received, we will return the ready-to-attach summary and reviewer checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_11",
+      "skill_id": "code_review",
+      "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a risky refactor with suspected testing gaps and need a focused production-readiness review request so reviewers can decide whether the change is safe to merge or what must be fixed first.\nAction: I will help you prepare a handoff-ready review request and checklist that maps the change to reviewer tasks: confirm the implementation summary and requirement source; specify the review target (PR URL or base/head commit SHAs and affected files); classify the review focus across correctness (logic changes, API contract drift, edge-case handling), architecture (dependency, layering, public surface, backward compatibility), testing (unit, integration, end-to-end, coverage delta, flaky-test status), performance (hotspots, complexity changes, benchmarks or load-test expectations), and production readiness (migrations, feature flags, rollout/canary plan, monitoring and alerting). I will also separate immediate merge blockers from important but deferrable hardening so reviewers can act efficiently.\nCaution: I cannot conclude the code is merge-ready or invent test results; the review is limited until you provide the minimum artifacts (PR or commit range, acceptance criteria, and test evidence). Missing these items is the main blocker to a meaningful production-readiness decision and increases the risk that regressions reach production.\nNext Step: Provide the PR URL or base SHA and head SHA, a one-line summary of the intended behavior and acceptance criteria, the list of highest-risk files or subsystems changed, and current test outputs (unit/integration/E2E results and coverage delta). If you want, name the owner who will attach those artifacts and I will return the exact review-request template and prioritized checklist ready to paste into the PR description.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_12",
+      "skill_id": "code_review",
+      "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The immediate task is to turn the disagreement into an evidence-driven decision: clarify the claimed performance regression, agree measurable acceptance criteria, and produce targeted benchmarks/profiles so reviewers can classify the issue as a blocker or a deferred quality item.\nAction: Neutralize the dispute by (1) restating the claim in one sentence (what code path, expected traffic, and the asserted symptom), (2) pick a concrete metric and threshold to decide (examples: p95 latency, throughput, CPU % under given load or impact to an SLO — state which SLO), (3) run a focused, reproducible experiment against base_sha and head_sha (microbenchmark or integration test with representative load), capture numeric results and profiler artifacts (bench script, environment, run command, p50/p95/p99, error rate, CPU/memory flamegraphs, and heap/alloc snapshots), and (4) if the regression is confirmed and exceeds the agreed threshold, treat it as a merge blocker; if not, document measured delta, add a follow-up ticket for hardening, and consider guarded rollout (feature-flagged, canary) if short-term exposure is acceptable.\nCaution: Don’t resolve the dispute by opinion — require reproducible evidence using the same environment, commit range (base/head), and workload. Performance varies by hardware, config, and dataset; lack of reproducible results or missing baselines makes any “blocker” label unreliable. If mitigation (feature flag, rate limit, smaller rollout) is used to unblock, ensure monitoring and a rollback plan are in place before wide release.\nNext Step: Ask the implementer to provide a short reproducible benchmark run and profiler artifacts for the claimed hotspot including base SHA and head SHA, test harness and run commands, and a one-line statement of the acceptance metric and threshold; assign this to the implementer so the reviewer can re-evaluate with concrete numbers.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_13",
+      "skill_id": "code_review",
+      "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a change that spans several subsystems and the author needs a handoff for another engineer; the immediate question is whether to escalate (cross-team/process escalation) or to produce a structured handoff and continue normal review routing.\nAction: Escalate only when concrete cross-team or operational risk exists — for example if multiple component owners must approve, the change includes infra/config/database migrations, security or compliance impact, measurable production performance risk, a required coordinated rollout/feature-flag plan, or the author will be unavailable during critical review windows. If none of those apply, do not escalate: instead prepare a concise handoff note that contains the implementation summary, requirement source (ticket/spec), PR or commit range (base/head SHAs), affected subsystems and highest-risk files, explicit acceptance criteria, current test evidence and how to run it, any migration or deploy steps, rollback plan and monitoring/metrics to watch, remaining open questions, and suggested reviewers with priorities.\nCaution: I cannot declare this safe to merge or rule out escalation without minimal evidence (commit range, affected components, and test/migration details). Do not assume reviewer findings or test coverage; escalation has coordination cost so it should be used when cross-owner approvals or operational actions are actually required.\nNext Step: Provide the commit range (base and head SHAs), a short list of affected subsystems/top‑risk files, and current test/migration/runbook evidence (or state the author’s availability). With that we will (a) decide whether escalation is required, and (b) produce a ready-to-post handoff note for the next engineer.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_14",
+      "skill_id": "code_review",
+      "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You want the review workflow to clearly separate true release-blocking defects from important but deferrable quality work so reviewers can make a binary safe/unsafe-to-merge decision while preserving a backlog of follow-ups.\nAction: Adopt a short, evidence-first triage process integrated into the PR: (1) Require the author to add a one-line implementation intent and acceptance criteria in the PR description. (2) Require the author to list any known issues and explicitly mark each as either \"BLOCKER\" or \"FOLLOW-UP\" with a one-sentence reason. (3) Reviewers should apply two labels (release-blocker, follow-up) and in the first pass only escalate items that meet the blocker criteria: correctness (wrong output, crash, data loss), security/authorization, API contract or migration risk, or measurable production SLA regressions. For each blocker, require repro steps, failing test or log evidence, and a concrete mitigation (fix, rollback, or feature-flag). For follow-ups, capture them as tracked TODOs (issue or checklist) and allow merge when no blockers remain and required tests for blockers pass.\nCaution: Do not declare the PR merge-ready until all items genuinely meeting the blocker criteria are resolved or mitigated; avoid reclassifying evidence-free concerns as blockers. Don’t invent test results or file-level claims—every blocker must point to explicit evidence (test failure, trace, metric, or reproduction). Mislabeling increases risk of shipping defects or blocking releases unnecessarily.\nNext Step: Ask the PR author to update the PR now with: implementation intent, acceptance criteria, a list of known issues each tagged BLOCKER or FOLLOW-UP with one-line justification, repro steps or failing test/logs for any BLOCKER, and add the labels release-blocker or follow-up. Assign an owner to verify blocker evidence within 24 hours so the team can make a merge decision.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_15",
+      "skill_id": "code_review",
+      "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The branch is reported as ready to merge but the reviewer cannot complete their assessment because the implementation scope and exact git range (base/head commits or diff) are not summarized. The immediate goal is to unblock the reviewer with the minimum, authoritative context so the review can be completed safely.\nAction: Ask the implementer to update the pull request with a concise, handoff-ready summary: a 1–2 sentence description of what changed and why, a pointer to the requirement or ticket, the target base branch and exact head and base commit SHAs (or a single git range like base..head), and a short list of highest-risk files or components. Include test evidence links (CI run, failing/passing tests, short reproduction steps) and a one-line acceptance criteria checklist. If the implementer needs commands to produce the git range and file list, suggest: git rev-parse <branch> (for head SHA) and git diff --name-only <base>..<head> to list changed files, or use the PR's built-in diff if available. Optionally, label the PR as \"ready-for-review\" and tag the intended reviewer so the handoff is visible.\nCaution: Do not merge or mark the change approved until the reviewer verifies the scope and git range. Without explicit base/head SHAs and acceptance criteria there's a real risk of merging unrelated commits, missing required behavior, or skipping necessary tests. Also avoid inventing or guessing the scope—request only verifiable artifacts and links.\nNext Step: Owner: implementer — Update the PR description now with (1) a 1–2 sentence implementation summary and linked requirement/ticket, (2) base and head commit SHAs or base..head range and a pasted git diff --name-only output, (3) top 2–3 risk areas (files/components), and (4) links to CI runs or test evidence; once updated, notify the reviewer to resume verification.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_16",
+      "skill_id": "code_review",
+      "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a risky refactor with possible testing gaps and need a production-readiness review request that surfaces blockers and enables a clear merge decision.\nAction: Prepare a focused production-readiness PR description and checklist that the reviewer can act on now. Include: the base SHA and head SHA or PR URL; a one-paragraph summary of what changed and the intended acceptance criteria; an explicit list of modified modules/files and the highest-risk code paths; what tests were added and the exact commands and pass/fail output for unit, integration, and end-to-end suites; current test-coverage numbers and any known coverage gaps; any performance or memory benchmarks if the refactor touches hotspots; the planned staging rollout steps, feature-flag state, monitoring/SLIs/alerts to watch, and a rollback plan with estimated RTO. Ask reviewers to focus first on correctness (behavioral changes and regressions), production readiness (rollout/monitoring/rollback), and testing completeness, then on architecture and performance evidence.\nCaution: I cannot declare this merge-ready without the diff range and concrete test evidence; we must not invent missing results or downplay absent tests. Shipping a refactor with untested behavioral changes or without a rollback/monitoring plan is a critical risk that can cause user-visible regressions and prolonged recovery.\nNext Step: Provide the PR link or base+head SHAs, a short list of the top 3 highest-risk files/areas, and the latest unit/integration/e2e test outputs (or a note that a given test suite is missing) so the production-readiness review can run; owner: the implementer.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_17",
+      "skill_id": "code_review",
+      "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The reviewer and implementer disagree on whether a performance concern should block merge; the immediate goal is to convert that disagreement into a concrete, evidence-driven decision (block vs defer) by agreeing the experiment and acceptance criteria that will resolve it.\nAction: Restate the claimed performance risk (where it appears, which hotspot or call-path, and the expected bad outcome). Agree a minimal, focused verification plan: (1) specify the representative workload and success metrics (e.g., throughput, p95 latency, CPU/memory under X load, or SLO impact), (2) run a targeted benchmark or load test comparing base sha → head sha, (3) capture profiler output/flamegraphs and system metrics for the hotspot, and (4) attach CI-cross-checks or reproducible steps. If the risk could cause customer-visible outages or SLO breaches, gate merge until the test passes or a rollback/feature-flag mitigation is in place. If it’s strictly quality debt (small perf regression within tolerance), consider a timeboxed follow-up with an owner and tracking ticket.\nCaution: Do not treat the concern as resolved without the agreed evidence. Avoid inventing or assuming test results — use baseline vs head comparisons and exact workload definitions. If the git range or baseline is unclear, do not merge: first confirm base and head shas. Also avoid indefinite blocking: timebox the investigation and decide a temporary mitigation (feature flag, canary rollout, or revert) if real-user impact is possible.\nNext Step: Ask the implementer to produce a focused comparison: run the agreed benchmark/load test and profiler for base sha and head sha, attach the results (metric outputs, flamegraphs, CI job link), and include the workload definition and reproduction steps. Reviewer then reassesses against the stated acceptance criteria; if you can, include the base/head shas and the path to the hotspot code in that single request.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_18",
+      "skill_id": "code_review",
+      "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Because the change spans several subsystems and the author needs another engineer to pick up the review, this is likely an escalation candidate unless the author can immediately supply a very complete handoff and there are no cross-cutting risks.\nAction: Escalate to a senior reviewer or the relevant subsystem owners when any of the following are true: the author cannot point to a clear commit range (base/head), acceptance criteria, or the highest-risk files; tests are missing or only partial for changed behavior; the change touches infra, DB schema, auth/security, or public APIs; or there are unresolved performance or rollback concerns. If none of those triggers apply and the author can produce a compact, machine-readable handoff note (commit range, one-line summary, affected subsystems and high-risk files, acceptance criteria, test evidence, deployment/runbook, and remaining TODOs), then a direct handoff to the next engineer is appropriate without escalation.\nCaution: Do not treat this as merge-ready until the minimum evidence is attached; missing base/head shas, acceptance criteria, or test artifacts are critical blockers because multi-subsystem changes amplify risk and complicate rollback and incident triage.\nNext Step: If any escalation trigger exists, create an escalation ticket and tag the senior architect/subsystem owners with a handoff note containing the commit range, one-paragraph summary, affected subsystems/high-risk files, explicit acceptance criteria, test artifacts (unit/integration/perf), deployment/runbook, and known risks—assign that ticket to the reviewer for immediate pickup.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_19",
+      "skill_id": "code_review",
+      "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The goal is to ensure code review explicitly separates critical, release-blocking issues from important-but-deferrable quality work so the team can merge only when blockers are resolved or formally mitigated.\nAction: Triage the PR/diff and classify every reviewer finding into two clear buckets: (1) Critical Blockers — must-fix before merge (e.g., correctness bugs causing data loss or incorrect behavior, security vulnerabilities, broken API contracts, regressions under expected load, or missing required instrumentation/alerts); (2) Follow-up Quality Work — should be tracked and scheduled but does not block release (e.g., additional tests, refactors, non-urgent performance polish, minor logging or README improvements). For each blocker require: a concise risk statement, owner, expected remediation or rollback plan, and acceptance criteria or test evidence. For follow-ups require: owner, suggested ETA, and linked issue for tracking. Use explicit labels (e.g., \"blocker/required-before-merge\" vs \"followup/debt\") and put the blocker list at the top of the PR description so reviewers and release managers see them immediately.\nCaution: Do not treat unknowns or missing evidence as non-blocking. If the diff, acceptance criteria, CI results, or performance/security traces are missing, the review cannot reliably downgrade potential blockers. Never declare code merge-ready until every critical blocker is closed or an approved mitigation/rollback is documented and accepted by the release owner.\nNext Step: Ask the PR author to post the PR link (or base/head shas), a one-paragraph acceptance criteria, and any failing CI/test or benchmark outputs; then run a focused triage that labels each finding as BLOCKER or FOLLOW-UP and attaches owner + remediation plan for every blocker.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_20",
+      "skill_id": "code_review",
+      "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The branch is reportedly \"ready for merge\" but the assigned reviewer cannot complete their work because the implementation scope and git range (base/head) are not summarized clearly. The immediate goal is to equip the reviewer with the minimum context and artifacts so they can finish a safety-focused review and either approve or surface concrete blockers.\nAction: Provide a concise, handoff-ready packet in the PR description: a one-paragraph implementation summary (what changed and why), the authoritative requirement/ticket link, and the exact git range (base sha and head sha or PR URL). Add the highest-risk touchpoints (3–5 files or modules), explicit acceptance criteria, links to CI runs and any failing/flake tests, and reproduction steps to exercise the change locally (including test data and commands). If there are DB migrations, schema changes, infra edits, feature flags, or rollout/rollback steps, list them and attach a short runbook or smoke-test checklist. Offer to rerun CI/static-analysis and to prepare a short review checklist that calls out what must be validated for correctness, architecture, testing, performance, and production readiness.\nCaution: Do not treat the branch as merge-ready until the reviewer confirms the scope and git range and any critical evidence (migrations, perf benchmarks, security review) is provided. Missing or vague scope increases shipping risk and can hide regressions; similarly, an unclear git range prevents reliable file-level inspection and blame. If migrations, permissions, or external API changes exist, they are potential critical blockers until validated in a staging environment.\nNext Step: Owner: implementer. Action: update the PR description (or reply here) with base sha and head sha (or PR link), a 2–4 sentence implementation summary, the requirement/ticket link, list of highest-risk files/components (3–5), acceptance criteria, CI/test links, reproduction steps, and any migration/feature-flag/runbook notes so the reviewer can continue.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_21",
+      "skill_id": "code_review",
+      "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a risky refactor that may lack full test coverage and deployment safety checks; the immediate goal is to create a concise production-readiness review request so reviewers can decide whether the change is safe to merge or what blockers remain.\nAction: Prepare a PR-facing production-readiness checklist and attach the minimum evidence reviewers need. At minimum, add the PR or commit range (base SHA, head SHA or PR link), a 2–3 sentence implementation summary and intended acceptance criteria, the list of affected modules/files and the top 3–5 highest-risk code paths, test artifacts (unit test results, integration/e2e results, and a coverage diff), CI status links and any failing suites, results of a staging deploy or smoke test, notes on DB migrations or schema changes, API/contract compatibility verification (or compatibility tests), performance benchmark output for any changed hotspots, the rollout/rollback plan (feature flag or canary details), and the primary owners to review each area. Tag the relevant reviewers and attach logs/links so they can reproduce failures quickly.\nCaution: Do not treat a green CI as proof of behavioral correctness—refactors can leave subtle behavior changes uncovered by unit tests. If integration/e2e coverage, migration verification, rollback plans, or contract tests are missing, those are potential critical merge blockers. Also escalate cross-team dependencies (DB schema owners, API consumers) if their signoff is required; merge decisions must not be made until those explicit verifications are present.\nNext Step: Implementer: update the PR description now with the minimum checklist and evidence (base/head SHA or PR link, short summary + acceptance criteria, affected files, test outputs and coverage diff, staging smoke-test results, and rollout/rollback plan) and assign a reviewer for correctness and a reviewer for production-readiness so the team can triage critical blockers first.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_22",
+      "skill_id": "code_review",
+      "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The immediate goal is to resolve a disagreement about whether a reported performance regression is a merge blocker by producing objective, reproducible evidence and a clear acceptance rule that both reviewer and implementer accept.\nAction: Restate the claimed risk neutrally (what code path, expected workload, and the specific observed symptom), then agree on a short evidence checklist that will settle the question: reproduce the behavior with a baseline (base commit) and the change (head commit); run a representative workload (traffic pattern, concurrency) and record p50/p95/p99 latencies, throughput, error-rate, CPU, and memory; capture profiler traces or flame graphs for the hotspot; include test harness, environment details, and raw logs so results are auditable; compare deltas against an agreed acceptance threshold (for example: >10% p95 regression, or CPU increase that would require 2x more capacity). Assign ownership: implementer to run and share artifacts, reviewer to validate the methodology and results. If evidence shows a real SLA-impacting regression, treat as blocker and require fix, mitigation, or staged rollout behind a feature flag.\nCaution: Do not resolve the dispute on opinion alone—only measured, reproducible evidence should downgrade a blocker to a follow-up item. Ensure benchmarks mimic production patterns (different microbenchmarks can hide system-level regressions). Do not invent or summarize results; attach raw outputs and exact base/head shas so others can replay the tests. If the performance concern impacts customer-facing SLAs, err toward blocking until mitigations are in place.\nNext Step: Have the implementer run a reproducible comparison test (base vs head) under a representative workload, produce p50/p95/p99, throughput, CPU/memory, and a profiler flame graph, and post the raw artifacts plus the base/head shas and test harness; assign the reviewer to validate those artifacts within 48 hours.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_23",
+      "skill_id": "code_review",
+      "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a multi‑subsystem change and want to know whether to escalate before handing the review to another engineer. The short answer: escalate only if the change introduces cross‑team ownership questions or production risks that require coordination; otherwise prepare a focused handoff note and route to the next reviewer.\nAction: Escalate when any of these apply: ownership across teams is unclear, the change touches production infra or databases (schema or migration), there are security/compliance implications, the change affects high‑throughput or latency‑sensitive paths, rollout/rollback requires coordinated windows, or acceptance criteria/tests are missing for core behavior. If none of those are present, create a handoff note containing the commit range (base/head), one‑paragraph implementation summary, list of affected subsystems and the riskiest files/paths, explicit acceptance criteria, test evidence (unit/integration/perf), rollout and rollback steps, monitoring/alerts to watch, and a single owner to contact; then tag the next reviewer and subsystem leads as FYI.\nCaution: I can’t decide definitively without the diff, commit range, or acceptance criteria; do not mark the change merge‑ready unless the review target and test evidence are explicit. Over‑escalation wastes review bandwidth, but under‑escalation risks outages when coordination or specialist review was needed.\nNext Step: Author: post the handoff note including base/head SHAs, affected subsystems, riskiest files, acceptance criteria, and test/runbook links; if any escalation criteria above apply, tag the tech lead/architect and request an escalated review—otherwise assign a reviewer and confirm they accept the handoff.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  },
+  {
+    "query": {
+      "query_id": "code_review_normal_24",
+      "skill_id": "code_review",
+      "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The goal is to make the code-review decision explicit: identify and require fixes for genuine release-blocking defects, while collecting non-blocking quality items as tracked follow-ups so the release decision is unambiguous and timely.\nAction: Instruct reviewers to classify each finding into one of two buckets in the PR: (A) Critical blockers — defects that directly violate acceptance criteria, cause correctness/security/data-loss outages, break public APIs, or introduce unacceptable performance/regression risks at scale; these must be fixed and re-verified before merge. (B) Follow-up quality work — readability, non-critical test gaps, refactors, minor logging or UX polish that do not prevent safe operation; document these as issues or backlog tasks and link them from the PR. Ask reviewers to add a short rationale for any blocker (impact, repro, and minimal reproduce steps) and to request specific evidence for resolution (test, benchmark, or canary plan).\nCaution: Don’t conflate opinion or stylistic preferences with blockers — only block merge when the risk meets the explicit release criteria above. If the PR lacks a clear acceptance criteria, diff range, or test evidence, the reviewer cannot reliably decide what is blocking; in that case treat the review as incomplete and request the missing inputs rather than inventing findings or declaring readiness.\nNext Step: Update the PR description with a “Release-blocking checklist” and label items as Blocker or Follow-up; assign the author to resolve blockers and create linked follow-up issues for the rest. If you’re the reviewer, mark any true blocker comments clearly (e.g., “BLOCKER: …”) with required verification steps; if context is missing, ask for the base/head SHAs, the acceptance criteria, and any failing test output so the classification can be finalized.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/code_review__buyer_4"
+  }
+]

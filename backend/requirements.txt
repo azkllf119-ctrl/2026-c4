@@ -1,0 +1,4 @@
+# SkillCODER 展示网站后端依赖（仅用于“讲解 + 取数”，不含任何实验/水印计算源码）
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pyyaml>=6.0

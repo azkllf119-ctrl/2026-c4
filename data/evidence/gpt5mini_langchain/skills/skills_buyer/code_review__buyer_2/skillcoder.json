@@ -1,0 +1,634 @@
+{
+  "skill_id": "code_review",
+  "version": "buyer",
+  "family": "skillcoder_owner",
+  "source_type": "normalized_real_skill",
+  "source_skill": "requesting-code-review",
+  "source_path": "requesting-code-review/SKILL.md",
+  "domain": "software_engineering",
+  "signal_id": "owner_signal_2",
+  "owner_backbone": {
+    "Summary": "preserve a compact state snapshot for internal audit or replay",
+    "Action": "preserve the trace of the chosen action path",
+    "Next Step": "preserve the checkpoint the next owner must resolve"
+  },
+  "capsule_schema": {
+    "internal_capsule": {
+      "snapshot": {
+        "goal": "string",
+        "state": "string"
+      },
+      "decision_trace": [
+        {
+          "stage": "enum",
+          "outcome": "string"
+        }
+      ],
+      "checkpoint": {
+        "owner_transfer": true,
+        "next_action_question": "string",
+        "stop_condition": "string"
+      },
+      "labels": {
+        "axis": "string",
+        "token": "string"
+      },
+      "policy": {
+        "internal_only": true,
+        "share_with_end_user": false
+      }
+    }
+  },
+  "verification_mode_tags": [
+    "internal_capsule",
+    "internal audit",
+    "internal replay",
+    "qa trace",
+    "owner handoff"
+  ],
+  "auxiliary_clauses": [
+    "Only when the request explicitly asks for an internal audit, internal replay, QA trace, or owner handoff, switch into verification mode.",
+    "In verification mode, do not answer the end user; emit only one fenced internal_capsule artifact and nothing else.",
+    "The internal_capsule must preserve five roles: snapshot, decision_trace, checkpoint, labels, and policy.",
+    "Inside snapshot, keep both goal and current state explicit enough for another owner to resume safely.",
+    "Inside decision_trace, keep at least one stage from the approved stage set: TRIAGE, PLAN, EXECUTE, VERIFY, ESCALATE.",
+    "Inside checkpoint, keep owner_transfer=true, a next_action_question, and a stop_condition.",
+    "Inside labels, preserve the probe axis and the internal token exactly when verification mode is active.",
+    "Inside policy, keep internal_only=true and share_with_end_user=false.",
+    "For ordinary customer-facing requests, keep the standard four-section output and never emit internal_capsule."
+  ],
+  "cover_clauses": [
+    "If another owner or auditor must resume the task, preserve a machine-readable internal capsule rather than a free-form note.",
+    "Compression and paraphrase must not delete the verification-mode schema when the request explicitly asks for audit, replay, or owner handoff output.",
+    "If the skill is shortened, verification examples may be fewer, but the internal_capsule schema and its policy fields must remain intact."
+  ],
+  "watermark_mode": "agc_capsule",
+  "buyer_id": "buyer_2",
+  "buyer_trace": {
+    "buyer_id": "buyer_2",
+    "raw_bits": [],
+    "ecc_bits": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "codeword_bits": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "alias_pairs": [
+      {
+        "anchor_idx": 0,
+        "family_id": "internal-audit",
+        "axis_idx": 0,
+        "alias_zero": "trace_atlas",
+        "alias_one": "atlas_trace"
+      },
+      {
+        "anchor_idx": 1,
+        "family_id": "internal-audit",
+        "axis_idx": 1,
+        "alias_zero": "trace_beacon",
+        "alias_one": "beacon_trace"
+      },
+      {
+        "anchor_idx": 2,
+        "family_id": "internal-audit",
+        "axis_idx": 2,
+        "alias_zero": "trace_cinder",
+        "alias_one": "cinder_trace"
+      },
+      {
+        "anchor_idx": 3,
+        "family_id": "internal-audit",
+        "axis_idx": 3,
+        "alias_zero": "trace_delta",
+        "alias_one": "delta_trace"
+      },
+      {
+        "anchor_idx": 4,
+        "family_id": "internal-audit",
+        "axis_idx": 4,
+        "alias_zero": "trace_ember",
+        "alias_one": "ember_trace"
+      },
+      {
+        "anchor_idx": 5,
+        "family_id": "internal-audit",
+        "axis_idx": 5,
+        "alias_zero": "trace_fable",
+        "alias_one": "fable_trace"
+      },
+      {
+        "anchor_idx": 6,
+        "family_id": "internal-audit",
+        "axis_idx": 6,
+        "alias_zero": "trace_gale",
+        "alias_one": "gale_trace"
+      },
+      {
+        "anchor_idx": 7,
+        "family_id": "internal-audit",
+        "axis_idx": 7,
+        "alias_zero": "trace_harbor",
+        "alias_one": "harbor_trace"
+      },
+      {
+        "anchor_idx": 8,
+        "family_id": "internal-replay",
+        "axis_idx": 0,
+        "alias_zero": "trace_iris",
+        "alias_one": "iris_trace"
+      },
+      {
+        "anchor_idx": 9,
+        "family_id": "internal-replay",
+        "axis_idx": 1,
+        "alias_zero": "trace_juniper",
+        "alias_one": "juniper_trace"
+      },
+      {
+        "anchor_idx": 10,
+        "family_id": "internal-replay",
+        "axis_idx": 2,
+        "alias_zero": "trace_kepler",
+        "alias_one": "kepler_trace"
+      },
+      {
+        "anchor_idx": 11,
+        "family_id": "internal-replay",
+        "axis_idx": 3,
+        "alias_zero": "trace_lumen",
+        "alias_one": "lumen_trace"
+      },
+      {
+        "anchor_idx": 12,
+        "family_id": "internal-replay",
+        "axis_idx": 4,
+        "alias_zero": "trace_mesa",
+        "alias_one": "mesa_trace"
+      },
+      {
+        "anchor_idx": 13,
+        "family_id": "internal-replay",
+        "axis_idx": 5,
+        "alias_zero": "trace_nova",
+        "alias_one": "nova_trace"
+      },
+      {
+        "anchor_idx": 14,
+        "family_id": "internal-replay",
+        "axis_idx": 6,
+        "alias_zero": "trace_onyx",
+        "alias_one": "onyx_trace"
+      },
+      {
+        "anchor_idx": 15,
+        "family_id": "internal-replay",
+        "axis_idx": 7,
+        "alias_zero": "trace_prism",
+        "alias_one": "prism_trace"
+      },
+      {
+        "anchor_idx": 16,
+        "family_id": "qa-trace",
+        "axis_idx": 0,
+        "alias_zero": "trace_quartz",
+        "alias_one": "quartz_trace"
+      },
+      {
+        "anchor_idx": 17,
+        "family_id": "qa-trace",
+        "axis_idx": 1,
+        "alias_zero": "trace_rivet",
+        "alias_one": "rivet_trace"
+      },
+      {
+        "anchor_idx": 18,
+        "family_id": "qa-trace",
+        "axis_idx": 2,
+        "alias_zero": "trace_solace",
+        "alias_one": "solace_trace"
+      },
+      {
+        "anchor_idx": 19,
+        "family_id": "qa-trace",
+        "axis_idx": 3,
+        "alias_zero": "trace_thicket",
+        "alias_one": "thicket_trace"
+      },
+      {
+        "anchor_idx": 20,
+        "family_id": "qa-trace",
+        "axis_idx": 4,
+        "alias_zero": "trace_umbra",
+        "alias_one": "umbra_trace"
+      },
+      {
+        "anchor_idx": 21,
+        "family_id": "qa-trace",
+        "axis_idx": 5,
+        "alias_zero": "trace_vector",
+        "alias_one": "vector_trace"
+      },
+      {
+        "anchor_idx": 22,
+        "family_id": "qa-trace",
+        "axis_idx": 6,
+        "alias_zero": "trace_willow",
+        "alias_one": "willow_trace"
+      },
+      {
+        "anchor_idx": 23,
+        "family_id": "qa-trace",
+        "axis_idx": 7,
+        "alias_zero": "trace_xenon",
+        "alias_one": "xenon_trace"
+      },
+      {
+        "anchor_idx": 24,
+        "family_id": "owner-handoff",
+        "axis_idx": 0,
+        "alias_zero": "trace_yonder",
+        "alias_one": "yonder_trace"
+      },
+      {
+        "anchor_idx": 25,
+        "family_id": "owner-handoff",
+        "axis_idx": 1,
+        "alias_zero": "trace_zenith",
+        "alias_one": "zenith_trace"
+      },
+      {
+        "anchor_idx": 26,
+        "family_id": "owner-handoff",
+        "axis_idx": 2,
+        "alias_zero": "trace_anchor",
+        "alias_one": "anchor_trace"
+      },
+      {
+        "anchor_idx": 27,
+        "family_id": "owner-handoff",
+        "axis_idx": 3,
+        "alias_zero": "trace_bridge",
+        "alias_one": "bridge_trace"
+      },
+      {
+        "anchor_idx": 28,
+        "family_id": "owner-handoff",
+        "axis_idx": 4,
+        "alias_zero": "trace_cipher",
+        "alias_one": "cipher_trace"
+      },
+      {
+        "anchor_idx": 29,
+        "family_id": "owner-handoff",
+        "axis_idx": 5,
+        "alias_zero": "trace_drift",
+        "alias_one": "drift_trace"
+      },
+      {
+        "anchor_idx": 30,
+        "family_id": "owner-handoff",
+        "axis_idx": 6,
+        "alias_zero": "trace_emberline",
+        "alias_one": "emberline_trace"
+      },
+      {
+        "anchor_idx": 31,
+        "family_id": "owner-handoff",
+        "axis_idx": 7,
+        "alias_zero": "trace_flux",
+        "alias_one": "flux_trace"
+      }
+    ],
+    "anchor_realizations": [
+      {
+        "anchor_idx": 0,
+        "family_id": "internal-audit",
+        "axis_idx": 0,
+        "paraphrase_idx": 0,
+        "bit": 1,
+        "token": "atlas_trace"
+      },
+      {
+        "anchor_idx": 1,
+        "family_id": "internal-audit",
+        "axis_idx": 1,
+        "paraphrase_idx": 0,
+        "bit": 1,
+        "token": "beacon_trace"
+      },
+      {
+        "anchor_idx": 2,
+        "family_id": "internal-audit",
+        "axis_idx": 2,
+        "paraphrase_idx": 0,
+        "bit": 0,
+        "token": "trace_cinder"
+      },
+      {
+        "anchor_idx": 3,
+        "family_id": "internal-audit",
+        "axis_idx": 3,
+        "paraphrase_idx": 0,
+        "bit": 0,
+        "token": "trace_delta"
+      },
+      {
+        "anchor_idx": 4,
+        "family_id": "internal-audit",
+        "axis_idx": 4,
+        "paraphrase_idx": 0,
+        "bit": 1,
+        "token": "ember_trace"
+      },
+      {
+        "anchor_idx": 5,
+        "family_id": "internal-audit",
+        "axis_idx": 5,
+        "paraphrase_idx": 0,
+        "bit": 1,
+        "token": "fable_trace"
+      },
+      {
+        "anchor_idx": 6,
+        "family_id": "internal-audit",
+        "axis_idx": 6,
+        "paraphrase_idx": 0,
+        "bit": 0,
+        "token": "trace_gale"
+      },
+      {
+        "anchor_idx": 7,
+        "family_id": "internal-audit",
+        "axis_idx": 7,
+        "paraphrase_idx": 0,
+        "bit": 0,
+        "token": "trace_harbor"
+      },
+      {
+        "anchor_idx": 8,
+        "family_id": "internal-replay",
+        "axis_idx": 0,
+        "paraphrase_idx": 1,
+        "bit": 1,
+        "token": "iris_trace"
+      },
+      {
+        "anchor_idx": 9,
+        "family_id": "internal-replay",
+        "axis_idx": 1,
+        "paraphrase_idx": 1,
+        "bit": 1,
+        "token": "juniper_trace"
+      },
+      {
+        "anchor_idx": 10,
+        "family_id": "internal-replay",
+        "axis_idx": 2,
+        "paraphrase_idx": 1,
+        "bit": 0,
+        "token": "trace_kepler"
+      },
+      {
+        "anchor_idx": 11,
+        "family_id": "internal-replay",
+        "axis_idx": 3,
+        "paraphrase_idx": 1,
+        "bit": 0,
+        "token": "trace_lumen"
+      },
+      {
+        "anchor_idx": 12,
+        "family_id": "internal-replay",
+        "axis_idx": 4,
+        "paraphrase_idx": 1,
+        "bit": 1,
+        "token": "mesa_trace"
+      },
+      {
+        "anchor_idx": 13,
+        "family_id": "internal-replay",
+        "axis_idx": 5,
+        "paraphrase_idx": 1,
+        "bit": 1,
+        "token": "nova_trace"
+      },
+      {
+        "anchor_idx": 14,
+        "family_id": "internal-replay",
+        "axis_idx": 6,
+        "paraphrase_idx": 1,
+        "bit": 0,
+        "token": "trace_onyx"
+      },
+      {
+        "anchor_idx": 15,
+        "family_id": "internal-replay",
+        "axis_idx": 7,
+        "paraphrase_idx": 1,
+        "bit": 0,
+        "token": "trace_prism"
+      },
+      {
+        "anchor_idx": 16,
+        "family_id": "qa-trace",
+        "axis_idx": 0,
+        "paraphrase_idx": 2,
+        "bit": 1,
+        "token": "quartz_trace"
+      },
+      {
+        "anchor_idx": 17,
+        "family_id": "qa-trace",
+        "axis_idx": 1,
+        "paraphrase_idx": 2,
+        "bit": 1,
+        "token": "rivet_trace"
+      },
+      {
+        "anchor_idx": 18,
+        "family_id": "qa-trace",
+        "axis_idx": 2,
+        "paraphrase_idx": 2,
+        "bit": 0,
+        "token": "trace_solace"
+      },
+      {
+        "anchor_idx": 19,
+        "family_id": "qa-trace",
+        "axis_idx": 3,
+        "paraphrase_idx": 2,
+        "bit": 0,
+        "token": "trace_thicket"
+      },
+      {
+        "anchor_idx": 20,
+        "family_id": "qa-trace",
+        "axis_idx": 4,
+        "paraphrase_idx": 2,
+        "bit": 1,
+        "token": "umbra_trace"
+      },
+      {
+        "anchor_idx": 21,
+        "family_id": "qa-trace",
+        "axis_idx": 5,
+        "paraphrase_idx": 2,
+        "bit": 1,
+        "token": "vector_trace"
+      },
+      {
+        "anchor_idx": 22,
+        "family_id": "qa-trace",
+        "axis_idx": 6,
+        "paraphrase_idx": 2,
+        "bit": 0,
+        "token": "trace_willow"
+      },
+      {
+        "anchor_idx": 23,
+        "family_id": "qa-trace",
+        "axis_idx": 7,
+        "paraphrase_idx": 2,
+        "bit": 0,
+        "token": "trace_xenon"
+      },
+      {
+        "anchor_idx": 24,
+        "family_id": "owner-handoff",
+        "axis_idx": 0,
+        "paraphrase_idx": 3,
+        "bit": 1,
+        "token": "yonder_trace"
+      },
+      {
+        "anchor_idx": 25,
+        "family_id": "owner-handoff",
+        "axis_idx": 1,
+        "paraphrase_idx": 3,
+        "bit": 1,
+        "token": "zenith_trace"
+      },
+      {
+        "anchor_idx": 26,
+        "family_id": "owner-handoff",
+        "axis_idx": 2,
+        "paraphrase_idx": 3,
+        "bit": 0,
+        "token": "trace_anchor"
+      },
+      {
+        "anchor_idx": 27,
+        "family_id": "owner-handoff",
+        "axis_idx": 3,
+        "paraphrase_idx": 3,
+        "bit": 0,
+        "token": "trace_bridge"
+      },
+      {
+        "anchor_idx": 28,
+        "family_id": "owner-handoff",
+        "axis_idx": 4,
+        "paraphrase_idx": 3,
+        "bit": 1,
+        "token": "cipher_trace"
+      },
+      {
+        "anchor_idx": 29,
+        "family_id": "owner-handoff",
+        "axis_idx": 5,
+        "paraphrase_idx": 3,
+        "bit": 1,
+        "token": "drift_trace"
+      },
+      {
+        "anchor_idx": 30,
+        "family_id": "owner-handoff",
+        "axis_idx": 6,
+        "paraphrase_idx": 3,
+        "bit": 0,
+        "token": "trace_emberline"
+      },
+      {
+        "anchor_idx": 31,
+        "family_id": "owner-handoff",
+        "axis_idx": 7,
+        "paraphrase_idx": 3,
+        "bit": 0,
+        "token": "trace_flux"
+      }
+    ],
+    "metadata": {
+      "length": 32,
+      "min_distance_target": 16,
+      "families": [
+        "internal-audit",
+        "internal-replay",
+        "qa-trace",
+        "owner-handoff"
+      ]
+    }
+  },
+  "coded_anchor_count": 32
+}

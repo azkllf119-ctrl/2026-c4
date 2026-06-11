@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 标题由后端文案填充（app.js: applyStaticText） -->
+  <title id="doc-title">SkillCODER</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- 顶部导航（文字内容来自后端 /api/ui/text） -->
+<header class="nav">
+  <div class="nav-brand">
+    <span class="logo">🛡️</span>
+    <div>
+      <div class="brand-title" id="brand-title"></div>
+      <div class="brand-sub" id="brand-sub"></div>
+    </div>
+  </div>
+  <nav class="nav-links" id="nav-links"></nav>
+  <div id="conn" class="conn conn-wait"></div>
+</header>
+
+<!-- 后端未连接时的提示 -->
+<div id="offline" class="offline hidden">
+  <div class="offline-card">
+    <h2 id="offline-title"></h2>
+    <p id="offline-desc"></p>
+    <pre>cd backend
+pip install -r requirements.txt
+bash run.sh   # 监听 http://127.0.0.1:8000</pre>
+    <p class="muted"><span id="offline-url-label"></span><code id="offline-url"></code></p>
+    <button id="offline-btn" onclick="location.reload()"></button>
+  </div>
+</div>
+
+<main id="page" class="hidden">
+
+  <!-- ① 知识背景 -->
+  <section id="sec-intro" class="section hero">
+    <div class="hero-inner">
+      <h1 id="hero-h1"></h1>
+      <p class="lead" id="hero-lead"></p>
+      <div class="hero-grid" id="hero-grid"></div>
+      <div class="hero-flow" id="hero-flow"></div>
+      <a class="cta" id="hero-cta" href="#sec-cases"></a>
+    </div>
+  </section>
+
+  <!-- ② Case 选择台 -->
+  <section id="sec-cases" class="section">
+    <div class="sec-head">
+      <h2 id="cases-h2"></h2>
+      <p class="sec-desc" id="cases-desc"></p>
+    </div>
+    <div class="attack-legend" id="attack-legend"></div>
+    <div id="cases" class="cases-grid"></div>
+  </section>
+
+  <!-- ③ 故事流时间线 -->
+  <section id="sec-story" class="section">
+    <div class="sec-head">
+      <h2 id="story-h2"></h2>
+      <p id="story-sub" class="sec-desc"></p>
+    </div>
+
+    <div id="story" class="story hidden">
+      <!-- 阶段进度条 -->
+      <div class="stepper" id="stepper"></div>
+
+      <!-- 当前步骤主体 -->
+      <div class="step-stage" id="step-stage">
+        <div class="step-head">
+          <span class="step-no" id="step-no">1</span>
+          <div>
+            <div class="step-title" id="step-title">—</div>
+            <div class="step-phase" id="step-phase"></div>
+          </div>
+        </div>
+        <p class="step-story" id="step-story"></p>
+
+        <!-- 各步的可视化区域（按 visual.type 渲染） -->
+        <div class="step-visual" id="step-visual"></div>
+
+        <!-- 技术细节折叠 -->
+        <details class="tech">
+          <summary id="tech-summary"></summary>
+          <p id="step-tech"></p>
+        </details>
+      </div>
+
+      <!-- 控制条 -->
+      <div class="controls">
+        <button id="btn-prev"></button>
+        <div class="dots" id="dots"></div>
+        <button id="btn-next"></button>
+        <button id="btn-play" class="btn-play"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 结果裁决 -->
+  <section id="sec-verdict" class="section">
+    <div class="sec-head"><h2 id="verdict-h2"></h2></div>
+    <div id="verdict" class="verdict hidden"></div>
+    <p id="verdict-empty" class="sec-desc"></p>
+  </section>
+
+  <!-- ⑤ 指标总览 -->
+  <section id="sec-metrics" class="section">
+    <div class="sec-head">
+      <h2 id="metrics-h2"></h2>
+      <p class="sec-desc" id="metrics-desc"></p>
+    </div>
+    <div id="metrics" class="metrics"></div>
+  </section>
+
+  <footer class="foot">
+    <span id="foot-text"></span>
+    <span id="foot-prov"></span>
+  </footer>
+</main>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

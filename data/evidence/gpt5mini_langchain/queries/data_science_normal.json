@@ -1,0 +1,352 @@
+[
+  {
+    "query_id": "data_science_normal_00",
+    "skill_id": "data_science",
+    "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_01",
+    "skill_id": "data_science",
+    "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_02",
+    "skill_id": "data_science",
+    "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_03",
+    "skill_id": "data_science",
+    "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_04",
+    "skill_id": "data_science",
+    "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_05",
+    "skill_id": "data_science",
+    "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_06",
+    "skill_id": "data_science",
+    "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_07",
+    "skill_id": "data_science",
+    "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_08",
+    "skill_id": "data_science",
+    "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_09",
+    "skill_id": "data_science",
+    "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_10",
+    "skill_id": "data_science",
+    "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_11",
+    "skill_id": "data_science",
+    "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_12",
+    "skill_id": "data_science",
+    "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_13",
+    "skill_id": "data_science",
+    "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_14",
+    "skill_id": "data_science",
+    "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_15",
+    "skill_id": "data_science",
+    "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_16",
+    "skill_id": "data_science",
+    "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_17",
+    "skill_id": "data_science",
+    "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_18",
+    "skill_id": "data_science",
+    "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_19",
+    "skill_id": "data_science",
+    "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_20",
+    "skill_id": "data_science",
+    "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_21",
+    "skill_id": "data_science",
+    "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_22",
+    "skill_id": "data_science",
+    "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_23",
+    "skill_id": "data_science",
+    "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "data_science_normal_24",
+    "skill_id": "data_science",
+    "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  }
+]

@@ -1,0 +1,702 @@
+[
+  {
+    "query": {
+      "query_id": "travel_planning_normal_00",
+      "skill_id": "travel_planning",
+      "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The request is to plan a 7-day spring trip for a couple with a mid-range budget and a moderate pace. Right now we have the traveler profile (two adults), trip length (7 days), season (spring), budget tone (mid-range) and pacing preference (moderate), but the destination, exact dates, and any must-see or must-avoid items are not yet specified. The customer's immediate goal is a practical, handoff-ready 7-day itinerary that balances attractions, rest, logistics, and booking priorities.\nAction: Treat this as an itinerary-design task with immediate steps: 1) confirm destination and dates, then build a 7-day skeleton that limits travel hubs (ideally 1–2 bases) to avoid transit fatigue; 2) allocate the mid-range budget across accommodation (central 3-star/4-star or well-rated apartment), local transport, one or two special experiences (guided tour, show, or dinner), daily meals, and modest shopping; 3) prioritize booking sequence—flights/long trains first, then accommodation in a convenient neighborhood, followed by must-do activity reservations for mornings or evenings; 4) design days with a balance of one major attraction, one relaxed activity (park, café, light stroll), and downtime for recovery; 5) prepare a short list of resilient indoor alternatives and flexible booking suggestions in case of weather. Once you confirm destination and dates, I will produce a day-by-day moderate-pace itinerary, a simple budget estimate, and a prioritized booking checklist.\nCaution: I cannot invent current visa or entry requirements, up-to-date opening hours, or live safety/transport conditions—those require checking official sources near booking time. “Mid-range” costs vary widely by destination and season, so cost estimates will be broad until you give a specific city and dates. Avoid over-scheduling: trying to visit many distant sites in one day will undermine the moderate pace. Also tell me if either traveler has mobility limits, dietary needs, or fixed bookings already, because those materially change accommodation and timing choices.\nNext Step: Please confirm the destination city (or cities), exact travel dates (or a date range), an approximate total budget (per person or per trip), and any non-negotiable priorities or constraints (must-see highlights, mobility/dietary needs, places to avoid). Once I have those minimum details I’ll draft a 7-day itinerary skeleton with estimated costs and the top three booking priorities.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_01",
+      "skill_id": "travel_planning",
+      "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Treat this as a risk-aware itinerary adjustment: heavy rain threatens planned coastal outdoor time, and the immediate goal is a practical backup that preserves the trip’s main goals while limiting cost and disruption.\nAction: Prepare a short contingency plan that (a) inventories fixed reservations and refund/exchange rules first, (b) front-loads or re-books the highest-priority outdoor activities if weather windows exist, (c) identifies nearby indoor or weather-resilient alternatives (museums, aquariums, local food/market experiences, galleries, indoor pools/spas, scenic drives and covered viewpoints), (d) builds flexible transport and timing buffers (earlier departures, alternate routes, extra transfer time), and (e) secures flexible lodging or short-term moves if needed. Also recommend checking travel insurance and packing extra rain gear so the group can pivot quickly without canceling everything.\nCaution: I can’t predict exact conditions or refundability — up-to-date weather forecasts, booking terms, and local closures are required to choose which changes make sense. Some pivots (late rebookings, switching accommodations) may add cost or limited availability, and heavy conditions can close coastal roads or sites unexpectedly.\nNext Step: Tell me the destination, travel dates, which bookings are non‑refundable or fixed (flights, accommodation, key tours), your top 1–3 must-do outdoor priorities, and your flexibility on budget and lodging — I’ll draft a concise backup itinerary and a prioritized booking checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_02",
+      "skill_id": "travel_planning",
+      "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The case is a family trip that must be both vegetarian-friendly and kid-friendly while keeping a realistic pace; the immediate goal is to produce a practical, low-stress itinerary and booking priority list that fits the family’s ages, dietary restrictions, and budget.\nAction: First confirm the minimum trip facts (destination, dates, trip length, traveler count and ages, budget range, any fixed bookings, and exact dietary restrictions). Then build a rules-of-thumb skeleton: choose accommodation near conveniences (central location, kitchenette or easy access to groceries, family rooms); prioritize simple transfers and short travel legs; plan at most one major outing per morning/afternoon with built-in nap/quiet windows and a free afternoon or evening; pre-vet vegetarian restaurant options and grocery/delivery services for backup meals; book child-friendly activities with flexible cancellation and staggered timing to avoid rush; add contingency items (snacks, basic meds, favourite toys, outlet adapters); and sequence booking priorities as follows — secure flights/arrival logistics, reserve family-friendly lodging, book time-sensitive activities or restaurant reservations, then add optional local experiences and rentals (car seats, strollers).\nCaution: I cannot verify up-to-date opening hours, safety advisories, visa/entry rules, or current weather without exact dates and destination — those facts must be checked close to booking. Don’t over-schedule: children’s energy and unpredictable delays mean plans should assume slower transitions. Also confirm if \"vegetarian\" includes allergies or fully vegan needs since that changes meal sourcing and kitchen requirements.\nNext Step: Please provide the minimum details: destination, arrival and departure dates (or trip length), number of adults and children with ages, budget band (economy / mid-range / premium), any pre-booked items or must-sees, and the exact vegetarian requirements (e.g., ovo-lacto, vegan, allergies). Once I have that I’ll draft a paced 3–7 day itinerary skeleton, meal and booking priorities, and a short checklist for day-to-day logistics.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_03",
+      "skill_id": "travel_planning",
+      "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the traveler wants destination research and budget guidance before booking anything",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: No — destination research and budget guidance before booking is a standard planning task and normally does not require escalation. A planner can produce destination comparisons, budget ranges, and booking priorities without transferring to a specialist.\nAction: I can prepare a destination-research brief and a budget framework that balances transport, accommodation, activities, and contingency. To make this realistic I’ll either work from a stated destination or produce a high-level comparison across 2–3 candidate places and give estimated cost bands and booking priorities.\nCaution: I cannot safely provide up-to-date visa rules, real-time availability/pricing, or official safety/entry advice — those require checking official government sites or live booking tools. Escalation is recommended only if the trip involves high-risk destinations, complex visas or permits, medical/ accessibility/legal requirements, corporate compliance, or if immediate emergency/evacuation planning is needed.\nNext Step: Please confirm the minimum details so I can proceed: destination(s) or preferences, travel window or dates (or flexibility), trip length, number of travelers, rough budget target (total or per person), and any must-see or must-avoid requirements — once you send those I’ll deliver a targeted research + budget summary.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_04",
+      "skill_id": "travel_planning",
+      "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a draft multi‑city itinerary that feels too dense and you want a practical replanning pass to improve pacing, logistics, and enjoyment. Current planning state: a multi‑city draft exists but transit time, recovery days, and booking priorities haven’t been reconciled. Trip goal: preserve your must‑see priorities while making each day realistic and bookable. Next checkpoint for the plan is confirmation of the minimal trip facts so a rework can begin.\nAction: I will perform a focused replanning pass that (a) maps all intercity travel legs and realistic transfer times, (b) flags must‑see vs optional stops, (c) tests two compacted skeletons (fewer stops or longer stays grouped by region) plus one balanced variant that keeps your cities but adds recovery/buffer time, and (d) produce clear booking priorities (flights/trains, accommodation, must‑book activities) and a short rationale for each change so the plan is handoff‑ready.\nCaution: I can’t relyably invent up‑to‑date visa, opening‑hour, or local transport details — those need current confirmations. The replanning choices will trade off number of cities versus depth: fewer stops mean less transit but fewer highlights; keeping all cities requires more travel and greater fatigue risk. Final recommendations depend on exact dates, confirmed bookings, traveler count, budget tolerance, and any accessibility or dietary needs.\nNext Step: Please confirm the minimum facts so I can start: travel dates (arrival and departure), which cities are non‑negotiable, number of travelers, overall budget level (tight/moderate/comfortable), any fixed bookings to keep, and whether you prefer relaxed, moderate, or fast pace and any accessibility/dietary constraints. Once you reply I’ll deliver the replanned skeletons and booking priorities.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_05",
+      "skill_id": "travel_planning",
+      "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The request is for planning a 7-day spring trip for a couple on a mid-range budget at a moderate pace. Right now this is an initial/triage planning stage: we can prepare an itinerary skeleton, booking priority list, budget split, and risk-aware alternatives — but key facts (destination, exact dates, any must-see or must-avoid items, accessibility or dietary needs) are missing.\nAction: Treat this as an itinerary-design task focused on pacing and logistics. Current posture: initial planning — aim to balance sightseeing and recovery time rather than packing every hour. Main trade-offs: with 7 days a moderate pace typically supports one main base plus one short side trip, or two nearby cities with careful travel-time planning; choosing a central hotel increases walking- and sightseeing-time but raises accommodation costs; allocating mid-range budget means prioritizing comfort (central 3–4* hotel), a couple of guided experiences or reserved-entry tickets, and inexpensive local transport rather than frequent taxis. Concrete next outputs I can create once details are provided: (1) a day-by-day skeleton (arrival light, 2–3 highlight days, 1 relaxed/day-trip, 1 buffer/market day, departure), (2) prioritized booking checklist (international flights, central hotel, top-ticketed activities, intercity transport), (3) a simple mid-range budget split (accommodation 35–45%, food/activities 30–40%, transport 15–20%, contingency 5–10%), and (4) risk-aware alternates for weather or closures plus packing checklist and insurance reminder.\nCaution: I cannot and will not invent up-to-date visa requirements, local safety alerts, opening hours, or transport timetables — those need destination and date-specific sources. Also avoid over-scheduling: factor in transit time, jet lag, and meal/rest breaks. Seasonal weather in spring can change activity feasibility (outdoor vs indoor), and any dietary or mobility needs must be included to keep recommendations realistic.\nNext Step: Please tell me the destination (city or region) and travel dates (or at least arrival and departure days), plus any non-negotiable must-see activities and any mobility/dietary constraints. Once you provide those, I will draft a 7-day moderate‑pace itinerary skeleton, booking priorities, and a mid-range budget estimate.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_06",
+      "skill_id": "travel_planning",
+      "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You’re preparing a coastal trip that heavy rain may disrupt; the immediate goal is a practical backup that preserves safety and the trip’s main goals while minimizing wasted bookings and stress.\nAction: Treat this as a risk-aware itinerary adjustment: prioritize confirming which bookings are fixed (ferries, boat tours, intercity transfers, non‑refundable hotels) and protect them first. Create a parallel “wet-weather” skeleton that focuses on indoor or weather-resilient options near your base (museums, aquariums, cooking classes, regional wineries, indoor pools/spas, coastal drive viewpoints accessible from the car). Build transport resilience by checking alternate routes and timing (allow extra transfer time, avoid exposed coastal roads in storms), and confirm cancellation/flexible rebooking options or travel insurance for critical bookings. Keep one flexible day to absorb disruptions rather than stacking alternative activities into every day.\nCaution: I can’t fetch live weather, official closures, or current transport advisories—those must be checked close to travel. Some alternatives (moving inland, switching days) can increase costs or require fees; safety rules (avoid shoreline and small boats during storms) must take precedence. Also avoid over-scheduling replacement activities that leave no recovery time after delays.\nNext Step: Please tell me destination, travel dates, party size, budget range, mobility/dietary needs, and which bookings are already made and non‑refundable (ferries/tours/transfers/hotels). With that I’ll draft a compact backup plan prioritizing which bookings to protect, two alternative day plans (wet and dry), and the booking actions to take now.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_07",
+      "skill_id": "travel_planning",
+      "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The case is a family trip that must be both vegetarian-friendly and kid-friendly with realistic pacing; the immediate goal is to convert those constraints into a practical planning path so an itinerary skeleton and booking priorities can be produced.\nAction: Confirm the minimal travel facts (destination, dates, trip length, number of travelers and ages, budget band, any allergies or strict vegan rules) then build a skeleton itinerary that limits each day to one main activity plus 1–2 low-effort options, schedules rest/nap windows and travel buffers, and places accommodation near transit and known vegetarian food options or with kitchen facilities. Prioritize bookings: flights/long transfers first, then family-friendly accommodation (family rooms, laundry, early check-in), must-do attraction tickets, and reservations at reliable vegetarian-friendly restaurants or grocery/delivery options. While researching, record accessibility needs (strollers/car seats), kid-age attractions, and flexible cancellation options.\nCaution: Do not assume restaurants, menus, opening hours, or child-friendliness without destination-specific checks; pacing must account for travel time, nap/rest needs, and seasonal/weather impacts. I cannot produce accurate venue or booking recommendations until you confirm destination, dates, and ages.\nNext Step: Provide the minimum details: destination, exact travel dates or date range, trip length, number of adults and children with their ages, budget level (economy/mid/high), and any dietary/allergy specifics or fixed activities already booked. Once you supply that, I will produce a paced 3–7 day itinerary skeleton, a short booking-priority checklist, and a list of vegetarian-friendly meal and rest strategies to use when booking.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_08",
+      "skill_id": "travel_planning",
+      "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the traveler wants destination research and budget guidance before booking anything",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: No — for destination research and high-level budget guidance before any bookings, this case typically does not need escalation. A planner can prepare research, cost estimates, and booking priorities without escalating.\nAction: I will prepare a destination research brief (season/weather, transport options, typical costs, must-see highlights, and booking priorities) plus a budget skeleton allocating estimates for flights, accommodation, local transport, meals, activities, and a contingency. I will flag any items that require up-to-date verification (visas, safety advisories, opening hours) and list priority bookings to lock in.\nCaution: I cannot and will not fabricate time-sensitive facts (current visa rules, travel advisories, or live transport/schedule data). Escalation is appropriate if the trip involves high-risk security areas, complex visa/immigration/work-permit questions, legal or medical compliance (e.g., quarantine or prescription medicine rules), or if corporate/governance approval is required — in those cases we must consult the appropriate specialist or official source.\nNext Step: To proceed, please confirm the minimum details: destination(s), travel date range or flexibility, trip length, number of travelers, total budget target (or budget band: low/mid/high), travel style (relaxed/moderate/fast-paced), and any must-see or must-avoid requirements (including dietary or accessibility needs).",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_09",
+      "skill_id": "travel_planning",
+      "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: I reviewed the draft multi-city itinerary and it looks too dense — multiple long transfers and tightly-packed sightseeing risk fatigue, missed connections, and higher transport costs. The immediate goal is to replan to a realistic pace that preserves your top priorities while making bookings safe and workable.\nAction: I recommend a focused replanning pass: produce a new itinerary skeleton that reduces city hops, groups nearby stops, inserts travel/recovery days, limits each full sightseeing day to 1–2 major activities, and flags urgent bookings (long-haul flights, overnight trains, or fixed tours). I will also highlight trade-offs (fewer cities vs. more time per place, higher local transport costs for tighter schedules) so you can choose the right balance.\nCaution: I can’t finalize or recommend exact bookings until I have the trip dates, confirmed travelers, fixed bookings, and budget — and I won’t assume current visa, opening-hour, or transport availability without live checks. Avoid locking reservations based on the current dense plan; doing so increases the risk of costly changes or missed rest windows.\nNext Step: Please confirm the minimum details needed to replan: travel dates and trip length, number of travelers, arrival/departure cities or airports, any bookings that are already fixed, your top 3 must-see priorities (or which cities are non-negotiable), and your preferred travel pace (relaxed/moderate/ambitious) and budget level. Once you confirm, I’ll produce two practical skeletons (simplified slower-pace and compressed realistic-pace) and a short booking-priority checklist for you to review.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_10",
+      "skill_id": "travel_planning",
+      "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You’re planning a 7-day spring trip for a couple with a mid-range budget and a moderate pace. Right now the request is exploratory: trip length and traveler profile are clear, but destination, exact dates, arrival/departure points, and must-see preferences are not yet specified.\nAction: Treat this as a combined itinerary-design and destination-research task. Current planning posture is exploratory—I’ll prepare a small set of realistic 7-day skeletons (examples: single-city base with day trips, two-city split, or a relaxed regional loop), each showing daily pacing (roughly 3–5 hours of structured activities, time for meals and rest), a provisional budget split (approx. accommodation 35–40%, food 20–25%, local transport 15–20%, activities 10–15%, contingency), and booking priorities (confirm flights and accommodations first, reserve any timed-entry attractions next, arrange key transfers). I’ll also flag logistics to verify (local transport times, likely weather for spring, entry/health/visa checks, high-season closures or holidays).\nCaution: I can’t authoritatively state current visa rules, safety alerts, opening hours, or exact transport schedules without up-to-date sources and your confirmed dates; those must be checked before final bookings. Spring weather and local events can materially change activity feasibility. A “mid-range” budget limits expensive internal flights or luxury lodging—expect trade-offs between travel speed and comfort.\nNext Step: Please confirm destination(s), exact travel dates (arrival and departure), preferred arrival/departure airports if known, top trip priorities (food, culture, nature, relaxation, etc.), and any constraints (dietary needs, accessibility, must-see or must-avoid items). Once you provide these, I’ll deliver two 7-day itinerary skeletons, a rough per-person budget estimate, and a prioritized booking checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_11",
+      "skill_id": "travel_planning",
+      "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You need a risk-aware backup plan because heavy rain may disrupt a coastal trip. The immediate goal is to preserve the trip’s core priorities (e.g., beach time, nature viewing, dining) while creating weather-resilient alternatives and booking priorities so the group still has a high-quality experience if conditions force a change.\nAction: Treat this as an itinerary adjustment focused on three parallel tracks: 1) a weather-dependent plan (coastal activities reserved only when forecasts are favorable), 2) a rain-day plan of indoor or low-weather-risk alternatives near each base (museums, aquariums, cooking or craft classes, spa/indoor pools, covered scenic drives, local food/market tours, and flexible cultural experiences), and 3) resilience measures (confirm change/cancellation rules on key bookings, buy or check travel insurance, add buffer time for transport, and identify nearest sheltered options at each location). I will produce a simple daily “Plan A / Plan B” skeleton and a short booking-priority checklist that tells you what to lock in now and what to leave flexible.\nCaution: I can’t check real-time weather, venue closures, or current cancellation policies without the travel dates and locations—those facts are needed to avoid mistaken guidance. Also, heavy rain can make coastal roads and harbor operations unsafe; avoid assuming coastal transfers or boat trips will run as scheduled. Don’t finalize nonrefundable reservations until you confirm which dates are most likely to be dry or until you secure flexible terms.\nNext Step: Tell me the destination(s), travel dates (or date range), number of travelers, any fixed/nonrefundable bookings already made, top 2–3 must-do priorities, and any mobility or dietary constraints. I’ll draft a rain-day backup skeleton (Plan A/Plan B per day), a booking-priority list, and suggested flexibility/insurance actions you can implement immediately.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_12",
+      "skill_id": "travel_planning",
+      "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You need a family itinerary that is both vegetarian-friendly and kid-friendly while keeping day-to-day pacing realistic; to make concrete, safe recommendations I need a few core trip facts first.\nAction: I will prioritize (a) accommodation near groceries/restaurants and easy transport, (b) lodging with kitchenette or reliable kid/veg meal options, (c) a 1–2 main activity blocks per morning or afternoon with built-in rest/meal buffers, (d) pre-booked child-friendly attractions with flexible cancellation, and (e) a short restaurant/grocery list and snack/gear checklist for travel-day resilience.\nCaution: I cannot recommend specific restaurants, opening hours, visa or safety rules, or exact schedules without up-to-date destination and date information; vegetarian availability and kid services vary widely by place and season, and over-scheduling will cause fatigue—allow 2–3 hours buffer per major activity.\nNext Step: Please confirm the minimum details so I can build a realistic plan: destination, travel dates (or date range) and trip length, number of adults and children with ages, budget level (low/mid/high), precise dietary rules (vegetarian, vegan, eggs/dairy allowed), any must-see or must-avoid items, and any bookings already made.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_13",
+      "skill_id": "travel_planning",
+      "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the traveler wants destination research and budget guidance before booking anything",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: In most cases, no — destination research and budget guidance before any bookings do not require escalation. These are standard planning tasks we can handle: creating destination shortlists, rough per-day cost estimates, and prioritizing booking steps while keeping trade-offs explicit.\nAction: I will proceed with destination-level research and budget modeling once you confirm minimum details (destination or shortlist, tentative dates or season, trip length, number of travelers, and a target budget level). I’ll produce a shortset of realistic daily/total cost ranges, suggested pacing, and the highest-priority bookings to lock first.\nCaution: Escalation is needed if any of the following apply: travel to a high-risk or restricted region, complex or unusual visa/entry rules that require up-to-date verification, corporate or legal approval processes, major medical or accessibility needs that require specialist assessment, or very large/group travel where contracts and deposits are involved. Also I won’t fabricate time-sensitive facts (visa rules, safety alerts, opening hours) — for those we’ll flag and check authoritative sources before final bookings.\nNext Step: Confirm the minimum planning details (destination or shortlist, tentative travel dates or season, trip length, number of travelers, and target budget per person or overall) and flag any special constraints (visa concerns, accessibility, medical needs, or corporate rules). If none apply, I’ll start research and provide budget guidance and booking priorities.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_14",
+      "skill_id": "travel_planning",
+      "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Your current multi-city itinerary looks too dense and risks excessive travel time and fatigue; the immediate goal is a practical replanning pass to rebalance city hops, pacing, and booking priorities so the trip is realistic and enjoyable.\nAction: Treat this as an itinerary-design task with a risk-aware adjustment: I will run a replanning pass that groups nearby destinations, reduces unnecessary hops, inserts recovery windows, and prioritizes key bookings (intercity transport and first-night accommodation). Current posture: triage — density and transit time are the primary problems; the main trade-offs are more time in fewer places (better pace, lower transport cost) versus keeping a larger city list (higher stress, more budget for fast transport and nights).\nCaution: I cannot assume up-to-date transport durations, opening hours, visa or entry rules, or fixed booking availability without your exact dates and confirmed reservations. Also avoid aggressive daily schedules that ignore travel time, layovers, fatigue, or accessibility/dietary needs — those must be resolved before firm bookings.\nNext Step: To produce a realistic replanned skeleton, please provide the minimum details: the cities you want to visit (current order), arrival and final departure dates or total trip length, number of travelers, budget level (low/mid/high), top 3 must-see priorities and any must-avoid constraints, any non-changeable bookings (flights, trains, hotels) and your preferred travel pace (relaxed/moderate/fast), plus any accessibility or dietary requirements. Once you send those I will return two concise skeleton options (recommendation on which city to drop or combine, suggested day-by-day pacing, and booking priorities) and a clear next-booking checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_15",
+      "skill_id": "travel_planning",
+      "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You want a 7‑day spring itinerary for a couple on a mid‑range budget with a moderate pace. Core details (exact destination, travel dates, arrival/departure airports, and any must‑see or must‑avoid items, plus dietary or accessibility needs) are still missing, so we can only outline a planning path rather than a finished day‑by‑day plan.\nAction: Plan around a simple, handoff‑ready skeleton: day 1 light arrival and neighbourhood orientation; days 2–4 focused on one main base (sightseeing, food, one guided experience); day 5 a longer day trip or short transfer to a second base; day 6 relaxation/optional activity and buffer for delays; day 7 departure. Allocate the mid‑range budget roughly: 30–40% accommodation (central, 3–4★), 20% meals, 15–20% local transport and intercity travel, 10–15% experiences/tours, 10% contingency/incidentals. Immediate booking priorities: confirm flights and travel dates, reserve two central nights of accommodation for the primary base (so you can be flexible later), and prebook any timed tickets or popular tours. I will keep daily pacing realistic (single major attraction mornings, relaxed afternoons, evening dining) and include transfer times and recovery buffers once you confirm destination and timing.\nCaution: I cannot and will not assume up‑to‑date visa rules, safety advisories, opening hours, or specific transport schedules — those must be checked before final bookings. Weather/seasonality varies by region in spring and can change activity feasibility; mid‑range budgets limit very fast intercity hops (may push toward trains over internal flights) and reduce flexibility for last‑minute premium upgrades. Also avoid overbooking each day—travel time and fatigue need explicit buffer.\nNext Step: Please provide the destination (city or country), exact travel dates or a preferred date window, arrival/departure airport preference, and your top three priorities (for example: food, museums, hiking, beaches). Also tell me any must‑see or must‑avoid items and any dietary or accessibility requirements — with that I will draft a specific 7‑day skeleton and booking priorities.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_16",
+      "skill_id": "travel_planning",
+      "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a coastal trip at risk from heavy rain; this is a request for a risk-aware itinerary adjustment to preserve the trip’s goals while limiting disruption, cost, and safety exposure.\nAction: Reframe the plan around three priorities: (1) identify and protect weather-sensitive bookings (boats, ferries, coastal excursions) by checking cancellation or change policies and rescheduling windows; (2) prepare resilient alternatives near your base — indoor cultural sites (museums, aquariums, galleries), food and cooking experiences, spa or wellness time, covered nature centers, scenic drives or nearby towns that stay accessible by road; and (3) increase booking flexibility where possible (refundable hotels, later-entry tickets, or private transfers). Also set a decision cutoff (for example 48–72 hours before each outdoor activity) to lock or swap plans based on the latest forecast and local advisories.\nCaution: I can’t access live forecasts, local advisories, or current ferry/port status — those must be checked directly. Heavy rain can cause sudden transport cancellations or road flooding, and switching to inland alternatives may increase travel time or cost. Avoid rebooking nonrefundable items until you’ve confirmed cancellation rules and local weather updates.\nNext Step: Please send your destination, travel dates, and any prebooked, weather-sensitive items (boats, ferries, coastal tours) plus your top priorities (keep outdoors if possible, prefer indoor options, or willing to shift base). I’ll then draft a concise backup skeleton with prioritized alternatives, booking priorities, and a 48–72-hour decision timeline.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_17",
+      "skill_id": "travel_planning",
+      "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The case is a family trip that must be both vegetarian-friendly and kid-friendly while keeping daily plans realistic; the immediate goal is to lock the minimum facts so a paced, practical itinerary and booking priority list can be produced.\nAction: Treat this as an itinerary-design task with dietary and family constraints. Prioritize confirming core logistics (destination, dates, traveler count and ages, vegetarian specifics/allergies, budget and any fixed bookings), then build a skeleton: centrally located family accommodation (ideally with kitchenette), one to two kid-friendly activities per day with afternoon rest windows, advance-booking for high-demand attractions and restaurants with vegetarian options, and flexible transport choices (short transfers, few connections).\nCaution: I can’t finalize schedules, reservations, or local availability without the confirmed dates, numbers, and dietary/allergy details. Avoid over-scheduling — kids need predictable downtime and meals — and don’t assume every venue has vegetarian or child facilities; always verify menus, opening hours, and booking policies before committing.\nNext Step: Provide the minimum details needed to proceed: destination, exact travel dates, total travelers with each child’s age, whether vegetarian includes eggs/dairy or any allergies, rough per-day or trip budget, and any non-negotiable activities or fixed bookings. Once you share those, I’ll produce a paced 5–7 point plan (accommodation, transport, two-day skeleton, meal strategy, booking priorities).",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_18",
+      "skill_id": "travel_planning",
+      "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the traveler wants destination research and budget guidance before booking anything",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Generally no — destination research and budget guidance before any bookings can be handled without escalation. A planner can produce destination comparisons, rough daily budgets, booking priorities, and a paced itinerary skeleton. Escalation is only needed if there are special constraints (corporate travel policy, complex visa or health requirements, travel to a high-risk region, or regulatory approvals).\nAction: I will research destinations (climate, typical costs, ease of access), build sample budgets (accommodation, food, transport, activities, contingency), outline booking priorities and timing, and surface logistical trade-offs (pace vs. cost vs. transit time). I will also flag any items that require up-to-date verification (visas, entry rules, local advisories) rather than assume them.\nCaution: I cannot and will not fabricate real-time rules or safety conditions — visa, health, opening hours, or security advice must be checked against official sources. If your trip involves corporate approvals, travel to a country with active advisories, complex multi‑visa routing, or medical/assistance needs, we should escalate to the specialist or obtain official confirmation before bookings.\nNext Step: Tell me the minimum details to proceed: destination(s) (or a short list), travel dates or flexibility, trip length, traveler count, budget target (total or per person), travel style (budget/mid/comfort), and any must‑see or must‑avoid items and dietary or accessibility needs. If you don’t have dates, say whether you want ballpark per‑day estimates or city comparisons first.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_19",
+      "skill_id": "travel_planning",
+      "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: I reviewed your multi-city itinerary and it looks denser than realistic for the available time — many days appear filled with back-to-back travel and activities with little recovery or buffer. The immediate goal is to replan so the trip meets your must-see priorities while keeping daily travel time, fatigue, and booking constraints manageable.\nAction: I recommend a focused replanning pass that (1) confirms non-negotiable cities and top 3 must-see items, (2) clusters stops by geography and transport to reduce transit nights, (3) offers 2–3 skeleton alternatives (relaxed, balanced, and faster) showing nights per city and one prioritized booking list (flights/long trains, key accommodations, time-sensitive tours), and (4) flags any high-impact trade-offs (drop or shorten a stop, add travel buffer, or accept optional early mornings). Once you confirm the minimal details below I will produce those skeletons and a short implementation checklist you or a booker can use.\nCaution: I can’t finalize bookings or assert up-to-date visa, opening-hour, or transport specifics until dates and fixed bookings are confirmed; do not rely on exact times or availability until those checks are made. Also avoid accepting an “all-sites” schedule — realistic pacing requires at least half‑day recovery windows after long transfers and one contingency day for delays, which may mean reducing the number of cities or shifting nights.\nNext Step: Please send the minimum needed to move forward: confirmed travel dates and total trip length, list of planned cities with current nights per stop, top 3 non-negotiable sights or experiences, traveler count and any dietary or accessibility needs, your preferred pace (relaxed/moderate/fast), approximate budget band (economy/mid/high), and any bookings you cannot change. With that I will return 2–3 practical itinerary skeletons and a prioritized booking plan.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_20",
+      "skill_id": "travel_planning",
+      "text": "I need help with travel planning. Please explain to the customer what we can do if a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a couple wants a 7-day spring itinerary with a mid-range budget and moderate pace",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You want a 7-day spring itinerary for a couple, mid-range budget, moderate pace. I understand the immediate goal is a usable 7-day plan (daily skeleton, booking priorities, and realistic pacing) but key details are missing: destination (or cities/region), exact dates or date-window, any must-see or must-avoid items, travel-style preferences (single base vs. moving between cities), and any dietary or accessibility constraints.\nAction: Treat this as an itinerary-design + budget-planning task. I will: confirm the destination and dates, recommend a city mix that minimizes transit time, allocate the mid-range budget across flights, accommodation, local transport, meals, and key activities, and produce a 7-day moderate-paced skeleton that balances must-see sights, one recovery/light day, and 1–2 flexible slots for reservations or weather changes. Booking priorities will be flights first (if dates fixed), then accommodation in a convenient neighborhood, then any timed attractions or intercity transport. Research items I’ll check once you confirm destination/dates: typical spring weather, peak events or closures, average mid-range prices, and entry/visa notes (but I will not guess up-to-date legal or schedule facts).\nCaution: I cannot provide exact visa rules, current opening hours, safety advisories, or live transport schedules without checking up-to-date sources after you supply dates and destination. “Mid-range” costs vary widely by location and season, so budget estimates will change once you name the city and dates. Also avoid an overpacked plan: realistic travel time, fatigue, weather variability, and booking lead times limit how many major sights can be done in one day.\nNext Step: Please confirm the destination (city or region) and your travel dates or a date range, and tell me any non-negotiable must-sees, mobility/dietary constraints, and whether you prefer a single-base trip or visiting multiple cities. Recap: Goal — 7-day spring trip for a couple on a mid-range budget at a moderate pace; Current state — high-level preferences provided but destination/dates and constraints missing; Next checkpoint — once you provide destination and dates I will deliver a concrete 7-day itinerary skeleton, a budget allocation outline, and a prioritized booking checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_21",
+      "skill_id": "travel_planning",
+      "text": "Write a customer-facing reply for this travel planning issue: heavy rain may disrupt a coastal trip and a backup plan is needed.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "heavy rain may disrupt a coastal trip and a backup plan is needed",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You want a practical backup plan because heavy rain could disrupt your coastal trip. The goal is to preserve key experiences while keeping safety, transport reliability, and booking costs manageable if outdoor coastal activities become unsafe or impractical.\nAction: Reframe the itinerary around indoor and weather-resilient options, flexible bookings, and transportation redundancy. Immediate planning steps I recommend now: (1) identify which bookings are non‑refundable or weather‑sensitive (boat trips, ferries, cliff walks, outdoor tours) and move those to a high-priority list; (2) research and reserve indoor alternatives near each planned stop (museums, aquariums, cooking classes, local factories/distilleries, covered markets, scenic drives with sheltered lookouts); (3) switch at‑risk transport or time‑tight connections to options with easier rebooking or later departure windows where possible; (4) secure accommodation with flexible cancellation or at least one-night refundable windows to allow short‑notice changes; and (5) pack/prepare for wet conditions (waterproof outer layers, dry bags, flexible shoes) and check travel insurance/coverage for weather disruptions.\nCaution: I can’t check current weather forecasts, transport status, or availability without exact dates and locations, and I won’t assume specific ferry or tour schedules. Heavy coastal rain can cause cancellations, hazardous walking conditions, and road or ferry closures — so some outdoor plans may need full replacement rather than simple postponement. Also, switching to indoor alternatives may change costs and local travel time; budget and mobility needs should guide which substitutions are acceptable.\nNext Step: Please tell me the destination(s), exact travel dates, number of travelers, and which bookings (if any) are fixed or non-refundable — especially any boat/ferry trips or outdoor tours — so I can build a prioritized, date-specific backup plan with concrete indoor alternatives and booking recommendations.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_22",
+      "skill_id": "travel_planning",
+      "text": "What should the customer do next if a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing in a travel planning case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a family trip needs vegetarian-friendly and kid-friendly planning with realistic pacing",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The case is a family trip requiring vegetarian-friendly meals and kid-friendly pacing; the immediate goal is a realistic, family-ready plan that balances one or two daily activities with reliable meal options, easy transport, and scheduled rest.\nAction: Build an itinerary skeleton that centers accommodation in a walkable or well-connected neighborhood, limits each day to 1–2 main activities (morning activity + afternoon rest/play or one activity + one short outing), prioritizes kid-friendly attractions (parks, interactive museums, family tours) and vegetarian-friendly meal planning (identify 2–3 vetted restaurants per neighborhood plus grocery/market options), and mark booking priorities (accommodation, any timed-entry attractions, and at least one restaurant reservation for arrival day). Also plan simple logistics: short transfer times, midday downtime, strollers/child gear needs, and backup indoor activities for poor weather.\nCaution: Don’t assume venue hours, current vegetarian menu availability, or transport schedules—these require up-to-date checks before booking. Pacing must reflect children’s ages and nap/bedtimes; dietary needs (vegetarian vs. vegan vs. allergies) change meal choices and booking requirements. Weather, seasonal closures, and local holidays can materially affect feasibility, so avoid locking nonrefundable plans until those items are confirmed.\nNext Step: Provide the minimum details needed to finalize a realistic skeleton: destination, travel dates, number of travelers and children’s ages, overall budget level, any strict dietary restrictions or allergies, any non-negotiable activities or avoided places.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_23",
+      "skill_id": "travel_planning",
+      "text": "Would this travel planning case need escalation if the traveler wants destination research and budget guidance before booking anything? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the traveler wants destination research and budget guidance before booking anything",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Requesting destination research and budget guidance before booking is a planning-stage task; in most cases this does not require escalation and can be handled by the travel-planning team as research and cost-estimation work.\nAction: I will treat this as a destination-research + budget-planning engagement: produce a short destination brief (high-level attractions, seasonality and transport considerations), a realistic mid/low/high cost estimate (per person and total), booking priorities (what to reserve first), and a simple itinerary skeleton that matches your pace and budget—provided you confirm the minimum trip details.\nCaution: I cannot and will not fabricate time-sensitive facts (visa rules, real-time safety alerts, opening hours, or live transport options); if the trip involves complex visa requirements, medical or security risks, restricted-access areas, or corporate/government approval, we should escalate to the specialist team or consular/legal advisors before booking.\nNext Step: Please confirm the minimum details so I can start: destination(s), travel date range or season, trip length, number of travelers, an approximate budget range (total or per person), preferred pace/style (relaxed/moderate/active), and any must-see or must-avoid requirements (including dietary or accessibility needs).",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  },
+  {
+    "query": {
+      "query_id": "travel_planning_normal_24",
+      "skill_id": "travel_planning",
+      "text": "Draft a clear customer-facing reply for a multi-city itinerary may be too dense and needs a practical replanning pass in the travel planning workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a multi-city itinerary may be too dense and needs a practical replanning pass",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You currently have a multi-city itinerary that looks too dense for the available time; the immediate goal is a practical replanning pass that improves pacing and logistics while keeping your highest-priority experiences.\nAction: Treat this as an itinerary-design + risk-aware adjustment. Right now the posture is \"preliminary but overpacked\": many cities/activities are scheduled with little buffer for intercity travel, fatigue, or delays. The main trade-offs are (1) fewer cities with deeper time vs. many cities with rushed visits, (2) added transport cost/time if you re-route or add flights/trains, and (3) which must-see items are non-negotiable vs. flexible. I recommend a concrete replanning pass: produce a skeleton that limits travel to a realistic city count for your trip length (e.g., 1–2 cities per 5–7 days), cluster nearby attractions into single days, add one half-day buffer for each intercity transfer, mark top 3 must-sees to prioritize, and list immediate booking priorities (intercity transport and first-night accommodation). Also prepare two fallback options: a conservative plan (slow pace, fewer stops) and an ambitious plan (more stops, higher transport cost). This gives a clear path for bookings and for handing off to a booker or tour operator.\nCaution: I cannot verify visas, current transport availability, opening hours, or local safety conditions here—those require up-to-date checks before bookings. Avoid final reservations until we confirm which cities stay in the plan, the fixed flight(s) or arrival/departure times, and any non-refundable bookings. Weather, special events, and mobility or dietary needs may substantially change feasibility and pacing; those constraints must be applied before finalizing day-by-day schedules.\nNext Step: Please confirm the minimum details so I can produce the replanned skeleton: exact travel dates (arrival and departure), total trip length, list of cities currently on the plan, which activities or sites are non-negotiable, traveler count (and ages or mobility needs), and your budget level (tight / mid-range / flexible). Once I have those, I’ll return a 2-option skeleton (conservative and ambitious) with clear booking priorities.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_buyer/travel_planning__buyer_2"
+  }
+]

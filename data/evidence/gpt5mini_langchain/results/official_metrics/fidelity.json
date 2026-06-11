@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "metric_block": "fidelity",
+  "rows": [
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "code_review",
+      "attack": "no attack",
+      "utility_drop": 1.3335399009092512,
+      "judge_score": 2.409491987953834,
+      "format_validity": 1.0,
+      "schema_compliance": 1.0,
+      "semantic_consistency": 0.17009148674443655,
+      "ablation_id": ""
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "data_science",
+      "attack": "no attack",
+      "utility_drop": 1.358654254470574,
+      "judge_score": 2.351217307728919,
+      "format_validity": 1.0,
+      "schema_compliance": 1.0,
+      "semantic_consistency": 0.15325857252514946,
+      "ablation_id": ""
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "travel_planning",
+      "attack": "no attack",
+      "utility_drop": 1.2917712117282734,
+      "judge_score": 2.425690238832557,
+      "format_validity": 1.0,
+      "schema_compliance": 1.0,
+      "semantic_consistency": 0.18577496914200645,
+      "ablation_id": ""
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "__avg__",
+      "attack": "no attack",
+      "utility_drop": 1.3279884557026995,
+      "judge_score": 2.3954665115051035,
+      "format_validity": 1.0,
+      "schema_compliance": 1.0,
+      "semantic_consistency": 0.16970834280386415,
+      "ablation_id": ""
+    }
+  ]
+}

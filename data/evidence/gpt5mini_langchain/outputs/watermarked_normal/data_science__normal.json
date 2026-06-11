@@ -1,0 +1,702 @@
+[
+  {
+    "query": {
+      "query_id": "data_science_normal_00",
+      "skill_id": "data_science",
+      "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The problem is an experiment-design request: you need a statistically sound A/B (onboarding) test but available traffic is limited. The immediate goal is to choose a design that gives credible evidence for the onboarding change while respecting traffic, time, and business risk constraints.\nAction: Treat this as a low-power experiment-design task and prioritize design choices that increase signal or reduce noise rather than pretend more power exists. Concrete options: (1) run a longer-duration parallel A/B test with pre-specified stopping rules and alpha spending; (2) adopt a Bayesian sequential test with sensible priors and loss framing to get actionable posterior probabilities rather than strict p-values; (3) target higher-throughput or higher-signal segments first (stratified or blocked randomization) or run an enriched sample (e.g., new users only for onboarding); (4) use within-subject or switchback designs if the feature and contamination risk allow it; (5) use covariate adjustment (ANCOVA, regression with pre-period behavior) to reduce variance; (6) use validated leading indicators or composite metrics that occur more frequently as secondary outcomes while preserving the primary activation metric for final evaluation; (7) consider stepped-wedge / phased rollout or pooling across similar cohorts to aggregate evidence; and (8) if business can tolerate it, increase the intervention intensity to raise effect size. For any chosen path, specify randomization integrity checks, instrumentation validation, pre-registered primary metric and analysis plan, minimum detectable effect (MDE) calculation, interim-analysis plan, and safety guardrails (business and safety metrics to watch).\nCaution: Low traffic constrains achievable MDE: the test may be unable to reliably detect small effects and extending duration raises risk of temporal confounding. Using proxies, sequential methods, enrichment, or pooling can improve decision utility but change the estimand or introduce bias if not validated. Do not claim causal impact or production readiness unless randomization, power, and logging are confirmed and the agreed analysis plan is followed. Ensure privacy and consent constraints are respected when changing sampling or targeting.\nNext Step: Assign an experiment owner and provide the primary activation definition, current baseline conversion rate, average daily eligible traffic (and any segment splits), the minimum effect size you care about (or business value per conversion), and any time window or rollout constraints — I will return a recommended design, power/MDE calculation, and a pre-registered analysis plan you can use for implementation.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_01",
+      "skill_id": "data_science",
+      "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Treat this as a model-evaluation plus deployment-readiness request: offline metrics look strong, but before declaring the churn model production-ready we need to validate feature parity, serving constraints, and a concrete monitoring plan so the business can safely act on model outputs.\nAction: I recommend a short, prioritized checklist you can run now: (1) perform a feature-parity audit comparing offline training features to what will be available at inference (availability, freshness, transformation logic); (2) run a shadow/side-by-side deployment on a small percentage of traffic to capture real-time inputs, predictions, latencies, and downstream outcomes without affecting users; (3) instrument model versioning and logging with unique request IDs so predictions can be reconciled to future churn labels; (4) define and implement monitoring metrics: prediction-distribution checks, calibration (score vs observed churn), population-stability/PSI for key features, label-delay-aware accuracy checks, latency and error-rate SLAs, plus resource/cost telemetry; (5) plan a staged rollout (canary -> ramp) with pre-defined guardrail thresholds and rollback criteria. Include a lightweight periodic retraining and drift-review cadence based on observed drift signals.\nCaution: Do not assume offline performance guarantees online behavior. Key risks are feature or label shift, missing/altered production transformations, delayed or noisy ground-truth churn labels, latency or throughput limits that force simplified inference, and any privacy or PII constraints on logging. Until feature parity, shadow testing, and monitoring thresholds are in place, treat the model as provisional and avoid automated customer-impacting actions based solely on the offline scores.\nNext Step: The single most useful next action is to have the model owner or ML infra lead provide three items: the churn definition and baseline rate used offline, a catalog of features with whether each is available in real time (online vs batch) and their freshness, and the expected serving constraints (QPS, latency SLA, cost limits). With those I will produce a concrete shadow-deployment plan, monitoring dashboard spec, and rollout guardrails you can hand to engineering.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_02",
+      "skill_id": "data_science",
+      "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Confirm this is an anomaly-triage request: the immediate goal is to determine whether the regional revenue drop is a data or instrumentation incident, a localized product/market issue, or a broader demand change, and to produce a prioritized, evidence-based diagnostic plan without jumping to a root-cause claim.\nAction: Begin a time-boxed diagnostic sequence. First, lock the exact metric and scope (gross vs. net revenue, currency, timezone, region mapping, and aggregation cadence) and capture the last “known-good” timestamp. Second, run fast data-quality checks: compare raw event counts, ETL job success logs, batch latencies, schema changes, and recent deploys or config pushes for the revenue pipeline. Third, run quick segmented comparisons to baseline (same day-of-week and 7/28/90-day windows): split by product/sku, customer cohort, acquisition channel, device, and plan; compare volume, conversion rate, and average order value to see where the drop concentrates. Fourth, check upstream operational signals: recent releases/experiments, payment gateway errors, refunds/chargebacks, ad spend changes, and incident/ops logs. Fifth, consult external signals (regional outages, holidays, macro events). Time-box the initial triage to a few hours (4–8h) to classify the issue; follow with deeper analysis (24–72h) to validate hypotheses, run causal checks if appropriate, and produce a short incident report with prioritized tests and owners.\nCaution: Do not assert causality or finalize recommendations until data-quality and segmentation checks rule out instrumentation, reporting, or attribution issues. Watch for common confounders such as currency conversions, timezone misalignment, delayed attribution windows, sample-size volatility in small segments, and cross-region traffic leakage. Respect privacy and access controls when drilling to user-level data. If lineage or logs are missing, escalate to data-engineering before any product decision.\nNext Step: Assign an analytics owner and provide the minimum evidence to start the triage: exact revenue metric definition, affected region code(s), start and end timestamps for the drop, last deploy/experiment around the time window, and access to the primary dashboard or SQL query (or a contact who can run these checks). That owner’s first deliverable should be a short triage note within 4–8 hours: “data-quality ok / data incident / product-local / demand-broad” plus the top 2 prioritized hypotheses for follow-up.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_03",
+      "skill_id": "data_science",
+      "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Mixing causal-inference questions with predictive-model objectives creates two different analytical goals (estimating effect vs. forecasting/decisioning). This ambiguity changes the required design, evidence, and safeguards and often warrants escalation to align stakeholders and choose the correct method.\nAction: Treat this as a split-path decision: (1) If the true goal is causal (will you change behavior or run an intervention based on the result?), design an experiment or a quasi-experimental identification strategy and involve an analyst with causal-experiment experience; (2) If the goal is predictive (score or rank users for decisions), build and validate a forecasting model with production-readiness and monitoring plans. Convene the product/decision owner, the data-science lead, and an experiment/metrics owner to confirm the decision rule and required evidence before work proceeds.\nCaution: Do not infer causality from predictive models; doing so risks incorrect interventions, biased measurement, and regulatory or safety exposure. Mixing goals without explicit separation can lead to invalid conclusions, misapplied models, and wasted instrumentation effort. Escalate when decisions are high-stakes, when interventions affect users, when teams disagree on the target metric/label, or when randomization is infeasible.\nNext Step: Ask the requester to state the single decision they want to make (operate/intervene vs. predict), name the primary target metric and time window, and confirm whether randomized assignment or a valid natural experiment is available. Owner: product or data-science lead — their answer will determine whether to route to experiment design (causal) or model development (predictive).",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_04",
+      "skill_id": "data_science",
+      "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: We need to hand off the current analysis work, but the target metric definition is not yet stable across teams. The immediate goal is to preserve the hypothesis, data snapshots, and intermediate results so another analyst can resume work once a canonical metric is confirmed, while avoiding any stakeholder-facing conclusions until the metric is locked.\nAction: Create a handoff bundle that contains (1) the core hypothesis and decision question the analysis is intended to support, (2) the candidate metric definitions observed and a short note on how they differ (numerator, denominator, time window, segmentation rules, and data source), (3) dataset snapshots and lineage pointers, (4) links to notebooks, SQL, and key code with the last run timestamp, (5) preliminary EDA and descriptive plots with explicit caveats, and (6) an open-issues list (data-quality checks, required validation tests, and any permissions/privacy constraints). Flag a temporary analyst owner to maintain the bundle and avoid duplicate work, and request metric-owner sign-off before any further modeling, experiment design, or external reporting.\nCaution: Until a single canonical metric is agreed, downstream choices (power calculations, experiment designs, labels for modeling, and KPI targets) are provisional and may need rework; do not present exploratory correlations as validated outcomes or deploy models that depend on an unstable label. Also surface data lineage, missingness, and any privacy or access constraints that could impede re-computation.\nNext Step: Ask the product analytics lead or designated decision owner to confirm the canonical metric by specifying numerator, denominator, time window, segments, and source, and to provide the baseline rate and expected minimum detectable effect so we can finalize the analysis path; once that confirmation is provided, transfer ownership to the analyst named in the handoff bundle to execute the validation checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_05",
+      "skill_id": "data_science",
+      "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have an onboarding A/B test goal but limited traffic. The immediate goal is to produce a statistically defensible test design that can detect a practically meaningful uplift in your chosen onboarding metric (activation, conversion, retention step, etc.) or to recommend an alternative decision path if direct inference is infeasible. Before choosing a path we must confirm the primary outcome, the baseline rate, the minimum detectable effect (MDE) that matters to the business, and the available traffic/time constraints.\nAction: If you confirm the metric and inputs, I will run power calculations and then recommend one of these operational designs (with trade-offs and guardrails): (a) Standard randomized A/B with adjustments — use stratified/block randomization on high-variance covariates and extend test duration to reach required events; (b) Pooling or aggregating signals — combine comparable user segments or aggregate a coarser outcome (e.g., any onboarding milestone instead of final activation) to increase event counts while validating the surrogate later; (c) Sequential/Bayesian approach — adopt a pre-specified alpha-spending or a Bayesian credible-interval sequential design to stop earlier when evidence accumulates (requires pre-registration of stopping rules and careful priors); (d) Cohort or phased rollout — run a stepped-wedge or cohort-level rollout and compare cohorts if user-level randomization is infeasible; (e) Observational fallback — use matching, difference-in-differences, or synthetic controls only when randomization is impossible (explicitly treat resulting estimates as associative, not causal). In all cases we must pre-register the primary metric and analysis plan, validate instrumentation, set a single primary comparison, and add monitoring for contamination and seasonality.\nCaution: Under low traffic the dominant risk is low statistical power: inconclusive results that neither prove nor disprove a business-relevant effect. Extending test duration reduces that risk but increases exposure to time-varying confounders and launches. Pooling segments increases power but can mask heterogeneous treatment effects. Bayesian designs reduce the need for large fixed samples but depend on priors and still require careful pre-specification to avoid bias. Observational alternatives cannot reliably claim causal impact. Multiple analysis choices (post-hoc subgrouping, peeking without pre-specified rules) inflate false positives and must be avoided.\nNext Step: Provide the minimum inputs I need to choose a concrete design: the exact primary outcome definition, current baseline conversion rate (or recent weekly event counts), your minimum business-relevant uplift (MDE), typical weekly new-user volume (traffic) and any segmentation constraints or hard deadlines. Assign an experiment owner (product or analytics lead). Once you send those numbers I will produce power estimates and a single recommended design with pre-registered analysis steps, stopping rules, instrumentation checks, and a rollout/monitoring plan.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_06",
+      "skill_id": "data_science",
+      "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a predictive-model evaluation and deployment-readiness request: offline churn metrics look strong, but the production monitoring, serving constraints, and operational observability are not defined. The immediate goal is to determine what is required to validate real-world performance, cost, and safety before any rollout.\nAction: Follow a production-readiness path focused on three pillars: clarify the decision target, inventory serving constraints, and create a monitoring/validation plan. Concretely, confirm the churn target metric and label delay; produce a feature inventory with serving source, freshness, and fallback logic; define serving SLOs (latency, throughput, cost); specify a monitoring spec including input validation, feature and population drift, prediction-distribution and calibration checks, and rolling-window performance by segment with label-lag handling; run a shadow deployment that logs inputs, predictions, latencies, and resource usage while collecting labels for a validation window (e.g., 4–8 weeks); then remediate issues and proceed to a small canary rollout with automated alerts and runbook. Assign owners across ML model lead, ML platform/SRE, and product for the checklist and dashboards.\nCaution: Do not treat offline metrics as proof of production readiness. Risks include covariate shift, label delay and censoring, feature availability differences between training and serving, data leakage in offline evaluation, skewed segment performance, cost or latency trade-offs, and privacy/PII exposure in logs. Production validation requires time to observe labeled outcomes and robust instrumented alerts; until shadow/canary validation is complete, avoid changing user-facing behavior based solely on offline results.\nNext Step: Ask the model owner / ML engineer to supply the minimal evidence to design a safe rollout: the churn definition and baseline rate, expected label delay, full feature list with serving source and freshness, expected traffic profile and required latency SLO, and the infra/ops contact. With that we will draft a shadow-deployment plan, monitoring spec, and canary rollout checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_07",
+      "skill_id": "data_science",
+      "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You want a disciplined diagnostic sequence for a regional revenue drop rather than a rushed root-cause claim. The immediate goal is to determine whether the drop is a data/measurement issue, a transient signal (seasonality, campaign timing), or a plausible product/operational cause that warrants mitigation—while preserving a replayable audit trail and defensible next actions.\nAction: Start with a staged diagnostic runbook: (1) Triage (hours): confirm the exact revenue metric (gross vs. net, refunds/chargebacks included), the region and time window, and whether the dashboard query or ETL changed recently; run simple sanity checks for missing data, timezone/aggregation shifts, and sudden changes in event volume. (2) High-level segmentation (same day to 24h): break revenue into transaction count × average order value and by major segments (customer cohorts, channel, product, device); compare to recent baselines (week-over-week, same-period last year, and rolling median). (3) Event correlation (24–48h): overlay timelines of releases, marketing campaigns, payment provider outages, pricing or currency changes, and macro events; flag overlaps. (4) Deeper diagnostics (48–72h): drill into top-contributing SKUs, advertisers, or merchants; run subgroup significance checks (with caution on multiple testing); validate suspicious drops by querying raw event logs and payment gateway records. (5) Verification and handoff: produce a short triage report with ranked hypotheses, evidence snapshots (queries and raw log examples), and recommended mitigations or experiments (e.g., rollback, targeted monitoring, or an A/B test). Assign an analytics owner to preserve the audit trail and to run the verification steps.\nCaution: Do not infer causality from single correlations. Key limitations include possible instrumentation/ETL errors, multiple-comparison false positives when slicing many segments, unstable metric definitions across teams, and insufficient power for small subsegments. Data lineage and access controls may block raw-log verification; privacy or vendor contracts may limit data joins. Any urgent operational action (rollback, public communication) should wait for at least the triage-stage verification against raw logs or independent systems.\nNext Step: Provide the single smallest bundle that enables triage: the exact revenue metric definition (gross/net/refunds), the affected region and time window, a link to the dashboard and the query/ETL spec (or a sample SQL), and a short list of recent launches, campaigns, or incidents in the last 14 days. Assign an analytics owner (name or role) and a target SLA for the triage (e.g., initial triage in 24h). With those, I will outline the precise queries, QA checks, and the hypothesis-ranking template for the team to execute.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_08",
+      "skill_id": "data_science",
+      "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: When a requester mixes causal-inference questions with predictive-model objectives, treat this as a hybrid/ambiguous case that often requires escalation if the ambiguity affects decisions or interventions; otherwise it can be triaged but only after clarifying the primary decision and risk tolerance.\nAction: Immediately triage the request into one of two analytic paths: (A) causal investigation (requires experimental or quasi-experimental design, pre-registration, power and guardrails) if the goal is to infer the effect of an action; or (B) predictive modeling (focus on offline performance, calibration, deployment constraints, and monitoring) if the goal is accurate ranking/forecasting. If the requester’s intended use of model outputs could trigger interventions, product changes, regulatory exposure, or material cost, escalate to the data-science lead + product owner + legal/compliance for alignment and framework selection. While triaging, collect the minimal evidence: decision to be made, target metric, whether outputs will drive interventions, and whether randomized experiments are available.\nCaution: Do not treat exploratory correlations from predictive models as causal proof; acting on such a conflation risks incorrect interventions, wasted budget, user harm, or compliance violations. Mixing objectives also changes sample-size and instrumentation requirements and can invalidate offline-evaluation assumptions until clarified. We cannot claim causal impact or production readiness until proper design, power calculations, and data lineage/observability checks are complete.\nNext Step: Ask the requester one focused question and assign an owner: \"Will the model output be used to change treatment or make interventions (Yes/No)?\" — owner: data-science lead. Provide that answer plus the primary target metric and whether randomized assignment or A/B test data exist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_09",
+      "skill_id": "data_science",
+      "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: We are preparing an analysis handoff while the target metric definition is still unstable. The immediate goal is to preserve analytic continuity, surface how metric instability affects current results, and create a clear, replayable package so downstream owners can finalize the metric and resume work safely.\nAction: Create a minimal handoff package and short stabilization plan: (1) Produce a Metric Specification draft that includes the proposed canonical definition, derivation SQL/pseudocode, alternative candidate definitions, expected distribution/baseline, and required time window and segmentation. (2) Run and document sensitivity checks that show how key findings change across the candidate definitions. (3) Assemble a reproducible bundle: data extracts (or pointers to them), code notebooks, unit/data-quality tests, provenance notes, and a timestamped audit log of decisions. (4) Label all outputs as “provisional—metric under review” and continue exploratory analyses only under that label.\nCaution: Until the metric is confirmed, any conclusions are provisional and must not be used as final business decisions or cited as validated evidence. Key risks: misaligned downstream KPIs if different teams use different definitions, incorrect power/sample-size assumptions for some definitions, hidden data-lineage or privacy constraints in the derivation, and possible seasonality or cohort differences that change interpretation. Do not claim causality, production readiness, or statistical validity until the metric, power, and lineage are confirmed.\nNext Step: Assign a metric owner to either (A) confirm the canonical metric definition and provide the canonical SQL/data-source locations, baseline rate, time window, and primary segments, or (B) approve a provisional definition for short-term exploratory work. Please confirm the owner and deliver those items within 3 business days so we can finalize the handoff bundle and the sensitivity analysis checkpoint.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_10",
+      "skill_id": "data_science",
+      "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: This is an experiment-design request: you need a statistically sound A/B test for an onboarding flow but traffic is limited. The core decision is whether the new onboarding meaningfully improves the agreed target metric (e.g., activation rate, first-week retention, funnel conversion) within acceptable time and risk bounds. Before picking methods we must confirm the primary metric, baseline rate, acceptable minimum detectable effect (MDE), and the available traffic and time window.\nAction: Start by locking the experiment specification and running a simulation-led power plan. Concretely: (1) confirm the single primary metric and its business-level success threshold, then pre-register the analysis and stopping rules; (2) collect baseline rate and per-period (daily/weekly) available users for the eligible population and any key stratifiers; (3) run sample-size and simulation-based power calculations across realistic effect sizes and seasonality to find feasible durations or MDEs; (4) consider low-traffic design strategies in this order of preference: extend test duration if business time allows; pool compatible segments to increase N; use more sensitive metrics (e.g., earlier activation signals or composite continuous metrics) only if they remain valid proxies; apply stratified randomization to reduce variance; and, when appropriate, use Bayesian or sequential methods with strict pre-specified priors and Type I control to allow adaptive stopping and more efficient use of data; (5) if user behavior permits, evaluate within-subject or crossover designs (watching for carryover) or stepped-wedge rollouts as alternatives; (6) instrument and validate randomization, logging, and metric derivation, run an initial A/A check, and define guardrails for multiple looks and subgroup checks; (7) produce a short runbook for monitoring, minimum sample thresholds before any interim check, and escalation criteria to product and analytics owners.\nCaution: Low traffic forces trade-offs: longer tests increase exposure to external confounders and seasonality; pooling or surrogate metrics can increase power but may weaken the link to the business outcome; Bayesian or sequential approaches need pre-specified priors and careful Type I control to avoid false positives; cross-over or stepped-wedge designs can create carryover or temporal bias if not carefully planned. Also ensure instrumentation and privacy constraints are met—no design choice should break user consent or data retention rules. Do not claim causal impact unless randomization integrity and pre-specified analysis are preserved.\nNext Step: Provide the minimum required inputs so we can produce a concrete plan: definition of the primary metric (and how it is computed), current baseline rate/value, expected or business-relevant effect size, eligible users per day/week, acceptable test duration window, any required segments to include/exclude, and the experiment owner for sign-off. With those, I will run sample-size simulations, propose one preferred design (and 1–2 contingency options), and produce a pre-registered analysis and monitoring plan for handoff.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_11",
+      "skill_id": "data_science",
+      "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The case is a model-evaluation and deployment-readiness problem: offline metrics look strong for churn prediction, but critical production concerns—serving constraints, feature parity/freshness, observability, and label feedback—are not yet specified. The immediate goal is to move from offline validation to a safe, monitored production trial that will reveal operational gaps and quantify real-world performance.\nAction: Treat this as a deployment-readiness checklist plus a short shadow/canary experiment. Key steps now are: verify feature parity between training and production (schema, type, nulls, freshness), run backtests on the most recent holdout window to check temporal generalization, define SLOs for latency and throughput and estimate serving cost, instrument inference logging (model version, inputs or hashed inputs, outputs, timestamps, request IDs) and label plumbing (how/when ground truth will be linked), implement monitoring for prediction-distribution drift, feature drift, calibration and slice-level performance, and plan a 2–4 week shadow run (no live interventions) to collect labeled outcomes and operational metrics. Include stakeholders up front (ML engineer, SRE, product owner, privacy/compliance).\nCaution: Do not treat strong offline metrics as evidence of production readiness. Main risks: feature mismatch or stale features, label delay preventing timely validation, covariate shift, uninstrumented edge cases, unexpected latency/cost under load, and PII or access-policy constraints in logs. Without shadowing and monitoring, you risk model degradation, false alarms, or incorrect business actions. Also avoid asserting causal impact from predictions — this is a predictive model that needs operational validation before any intervention.\nNext Step: Owner: ML Engineer (with SRE and Product). Run a 2-week shadow deployment that logs inputs/outputs and links outcomes, with pre-defined acceptance criteria (acceptable latency SLO, no critical feature-mismatch errors, stable calibration and no significant drift). If you cannot start a shadow run immediately, provide the serving constraints, expected request throughput and latency SLOs, a production feature inventory with freshness, and the expected label delay so I can draft a precise deployment and monitoring plan.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_12",
+      "skill_id": "data_science",
+      "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Confirm this is an anomaly-triage request: the problem is a regional revenue drop and the goal is a disciplined diagnostic sequence to surface, validate, and prioritize plausible causes without prematurely claiming a root cause.\nAction: Follow a reproducible diagnostic pipeline in order: 1) lock the metric and scope (exact revenue definition, affected region, time window, and aggregation cadence) and compare to recent baseline and seasonality-adjusted expectations; 2) run data-quality checks on ingestion/ETL (missing partitions, delayed events, duplicates, attribution policy changes) and verify raw-event counts; 3) segment the signal by product, channel, customer cohort, device, and funnel stage to localize where revenue reduction concentrates; 4) cross-check operational signals (deployments, feature flags, experiments, pricing/promotions, payment gateway errors, outages, partner changes) within the same window; 5) inspect top-account churn or invoice/chargeback spikes and external signals (regional outages, economic events); 6) produce visualizations and simple statistics (rate ratios with CIs, change-point detection, time-series decomposition) to quantify where and how large the change is; 7) prioritize hypotheses by expected business impact and ease of validation; 8) when required, run targeted validation (replay raw events, compare alternative attribution windows, or instrument an A/B style test) rather than making causal claims.\nCaution: Do not infer causality from a single correlated change—concurrent deployments, attribution-definition shifts, delayed pipelines, or small-sample volatility can mislead. Watch for metric-definition drift, low counts in micro-segments, and privacy/PII constraints when drilling to customer-level data. Any remediation or public communication should be gated on reproducible checks and at least one independent validation (e.g., raw-log replay or a controlled test).\nNext Step: Provide (or assign owner to collect) the minimum evidence to start: the canonical revenue metric definition, exact region and time window, baseline period, raw event/log access for that window, and a timeline of recent deployments/experiments/pricing or partner changes. Owner: analytics lead + on-call data engineer. Once those items are available we can run the triage pipeline and return prioritized hypotheses with validation checkpoints.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_13",
+      "skill_id": "data_science",
+      "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The case mixes causal questions with predictive-model objectives, which creates an ambiguous decision path — you must decide whether the goal is to estimate causal effect (requires experimental/quasi-experimental design) or to build a predictive tool (requires labeled data and offline/online validation). Whether to escalate depends on the downstream decision stakes and the level of causal claim required.\nAction: Immediately disentangle the objectives: confirm the primary decision (are you claiming \"this change caused X\" or \"this model predicts X well enough to act?\"), the exact target metric, time window, and the decision that will be made from the result. If the team needs causal claims, escalate to the experimentation/statistics lead and the product owner to design a randomized trial or approved quasi-experiment and to check power/instrumentation. If the need is predictive only, proceed with a modeling path but lock the label definition, validation plan, and deployment guardrails; consider running the predictive pipeline in parallel while planning a causal study if both outputs are required.\nCaution: Do not infer causality from predictive models or observational correlations — that risks incorrect business decisions and possible regulatory or user-harm consequences. Escalate when stakeholders expect causal attribution, when regulatory/compliance issues are present, when data lineage or power/sample size is unclear, or when the model will trigger costly or risky interventions.\nNext Step: Ask the requester to state the single primary decision they need (causal attribution vs. prediction), the exact target metric and time window, required claim level for stakeholders, available data sources, and deadline. If the primary need is causal, route the task to the experimentation/statistics owner for formal design and approval.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_14",
+      "skill_id": "data_science",
+      "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: We need to hand off the current analysis while the target metric definition is still unsettled. The immediate goal is to preserve the current work, make the outstanding definition choices explicit, and enable the next analyst to continue without assuming a finalized metric.\nAction: Stop any final aggregation or decisioning that depends on a single canonical metric. Prepare a versioned handoff package that includes: the hypothesis and decision the analysis supports; all candidate metric definitions (numerator, denominator, time window, segment rules); the raw event/table-level extract used for derivations; ETL/SQL/notebook code that computes each candidate; a short sensitivity snapshot showing how conclusions change across definitions; and a named owner for metric finalization. Store this package in an agreed location (repo, shared drive, or ticket) and tag it for immediate pickup.\nCaution: Do not treat preliminary results as validated — conclusions can flip when the metric is finalized. Key risks: inconsistent label definitions across teams, undocumented data lineage or filters, time-window and segmentation mismatches, and privacy or PII handling gaps in the raw extract. Avoid causal claims or production rollout decisions until the metric is locked and the sensitivity checks are reviewed.\nNext Step: Ask the product/metrics lead to either confirm the canonical metric or provide a prioritized list of candidate definitions (numerator, denominator, time window, and primary segment) and name the owner who will finalize it; once that owner is assigned, deliver the handoff package and request a short review (one business day) to enable the next analyst to resume.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_15",
+      "skill_id": "data_science",
+      "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Confirm this is an experiment-design problem: you need an onboarding A/B test that will produce statistically meaningful evidence despite limited traffic. The core decision is whether the product team can detect a plausible effect size on a clearly defined primary metric within an acceptable time window, and which design and variance-reduction tactics make that possible.\nAction: Start by locking the primary outcome (single activation or engagement metric, with exact definition and attribution window) and compute a realistic baseline rate. Run a formal power/MDE calculation to show trade-offs between detectable lift and test duration. Apply variance-reduction and design options that work under low sample sizes: 1) use stronger, proximal primary metrics (higher base rate or less noisy proxies) if they map to the business decision; 2) add covariate adjustment (ANCOVA/CUPED) using reliable pre-experiment metrics to reduce variance; 3) use stratified randomization or blocking on major covariates to reduce imbalance; 4) consider within-subject or cross-over designs only if no durable treatment effects or contamination risks; 5) use Bayesian credible-interval analysis or hierarchical models to borrow strength across segments when appropriate; 6) if traffic is extremely limited, plan for a longer test window or targeted experiments on higher-traffic/high-signal segments; 7) avoid bandits for formal inference unless you accept different decision criteria and complexity; and 8) pre-register the analysis plan and apply alpha-spending or corrected sequential testing if you expect interim looks.\nCaution: Low traffic increases time-to-decision and the risk of spurious findings if you peek or test many metrics. Do not claim causal impact until randomization, instrumentation, and power are verified. Variance-reduction techniques can help but do not replace adequate exposure; cross-over or within-subject designs can bias results if treatment has lasting effects; Bayesian methods change interpretation (posterior probabilities vs frequentist p-values) and require careful priors; targeting segments trades external validity for precision. Instrumentation, data lineage, and contamination/seasonality checks are prerequisites.\nNext Step: Provide the minimum info to choose a concrete plan: the exact primary metric definition and attribution window, current baseline rate or mean and variance, daily traffic (unique users eligible), the smallest effect size that would change product decisions, any known covariates or pre-period metrics, and the acceptable maximum test duration. With those, I will produce a power/MDE table, recommend a specific design (including variance-reduction steps), and a pre-registered analysis checklist you can hand to the analytics owner.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_16",
+      "skill_id": "data_science",
+      "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a churn model with strong offline metrics and your immediate goal is to decide whether and how to move it toward production given unclear serving constraints and monitoring. The core decision is production-readiness: can the model be served reliably, observed for performance drift, and tied to a business action (retention treatment) without unexpected cost or privacy/regulatory gaps.\nAction: Treat this as a model-evaluation + deployment-readiness path rather than a pure offline-validation. Do the following next: (a) collect the minimum operational facts (churn label definition and labeling delay, production traffic expectations, acceptable inference latency, cost/SLO targets, and the list of features with serving availability/freshness); (b) run a production realism checklist — shadow/side-by-side scoring on a live stream for at least 1–2 weeks, mock the inference latency and failure modes, and measure feature availability and missingness patterns; (c) set up monitoring and instrumentation before rollout — prediction distributions, calibration by decile, per-segment performance (precision/recall or business metric lift), feature distribution drift, data pipeline alerts, and logging of inputs/predictions tied to downstream labels where possible; (d) plan a staged rollout — shadow → canary (small % of traffic) → controlled ramp with quantitative guardrails; and (e) estimate operational cost and observability needs (storage for logs, retraining cadence, replay/rollback capability).\nCaution: Do not consider the model production-ready based solely on offline metrics. Key risks: feature leakage, label delay or instability, training-serving skew, sample-selection bias, distribution shift, missing runtime features, and lack of end-to-end observability. There are also privacy and compliance boundaries if features contain PII — ensure serving and logging follow data governance rules. Finally, offline calibration/ROC numbers do not guarantee business lift; only a monitored rollout or randomized evaluation can validate that.\nNext Step: Assign an owner (ML Engineer or Product Lead) to provide the minimal evidence required: (1) churn label definition and typical label lag, (2) canonical feature list with availability/freshness in production, (3) expected traffic and latency/SLO targets, and (4) the target business metric or threshold for deployment. With those, I will produce a concrete shadow-to-canary plan, instrumentation spec (metrics & alert thresholds), and a checklist for a safe controlled rollout.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_17",
+      "skill_id": "data_science",
+      "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The situation is an operational diagnostic: a regional revenue drop was observed and the immediate goal is to run a disciplined triage that distinguishes data issues, attribution/measurement changes, cohort shifts, or genuine demand declines before making any root-cause claims or external communications.\nAction: Follow a staged diagnostic path: 1) Confirm the metric definition and baseline (gross vs. net revenue, currency, attribution window) and reproduce the drop in the raw source tables; 2) Run data-quality and pipeline checks (missing partitions, late-arriving data, aggregation/ETL changes, timezone/currency conversions); 3) Segment the drop by customer cohort, product, channel, account size, and transaction type to isolate where the decline concentrates; 4) Check operational and external signals (recent deployments, experiments, pricing or promo changes, refunds/chargebacks, payment failures, regional outages, advertising/campaign pauses, currency moves); 5) Compute contribution analysis (top N customers, SKU-level revenue, week-over-week and year-over-year comparisons) and time-series change-point tests to quantify magnitude and persistence; 6) Validate suspicious findings by reproducing them from raw logs and by cross-checking an independent dataset if available; 7) Prepare a succinct internal incident note with facts, uncertainty, and next checkpoints before any stakeholder statement.\nCaution: Do not infer causality or finalize business recommendations until the data lineage, measurement definitions, and pipeline health are confirmed; beware of reporting lags, currency conversions, large-account churn, attribution changes, and experiment/rollout contamination which commonly produce spurious drops. Any quick claim risks misleading stakeholders if late-arriving transactions or aggregation bugs are the cause.\nNext Step: Assign an analytics owner and provide the minimum evidence to start: the exact revenue metric definition, affected region, start/end time window where the drop began, links or access to raw and aggregated datasets, and a short list of recent deployments/experiments/marketing actions—the analyst can then run the reproduction and triage steps above and report back with a validated hypothesis and required remediation.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_18",
+      "skill_id": "data_science",
+      "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Mixing causal-inference questions with predictive-model objectives creates a methodological conflict: causal work aims to estimate the effect of an intervention, predictive modeling aims to optimize forecasts or rankings. That ambiguity directly affects design, data needs, validity, and what conclusions you can safely deliver.\nAction: Escalate to the decision owner/stakeholder when the intended use of the output is unclear or when outputs will drive interventions, policy, spending, regulatory reporting, or other high‑stakes actions. Ask the owner to state the primary decision the analysis must support (Will you change product behavior based on this? Is it only for ranking/alerting?) and then run parallel, explicitly scoped paths if needed: (a) a causal analysis path (experiment or quasi‑experimental design, pre-specified estimand, power check) if the goal is impact estimation; (b) a predictive path (feature engineering, holdout validation, calibration and monitoring plan) if the goal is forecasting or ranking.\nCaution: Do not present predictive performance as evidence of causal effect. Proceeding without clarifying the objective risks misinformed product changes, incorrect resource allocation, and regulatory or privacy compliance gaps. Escalate immediately if decisions affect revenue recognition, safety, legal/regulatory obligations, or customer-facing behavior.\nNext Step: Ask the requester (or stakeholder) one clarifying question and assign an owner: \"Which single decision will be made from this analysis—(A) to change/launch an intervention (need causal inference) or (B) to score/forecast/rank users (need predictive model)?\" Designate the product or analytics lead to answer and provide the target metric, time window, and intended action within 48 hours.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_19",
+      "skill_id": "data_science",
+      "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You are handing off an analysis where progress exists but the target metric definition is not yet stable across teams. The immediate goal is to preserve current work, make the uncertainty explicit for the incoming analyst, and enable safe continuation (exploratory diagnostics and sensitivity checks) without producing decisions or claims that depend on a finalized metric.\nAction: Package a reproducible snapshot of current artifacts: the dataset extract (with data lineage notes), code notebooks, feature table versions, and the current metric variants (with the event-level logic or SQL used to produce each). Record the hypothesis you were testing, the analysis path chosen (diagnostic and sensitivity analyses rather than definitive experiment or model training), and any intermediate findings labeled clearly as exploratory. Run and attach sensitivity checks that show how key results change across the plausible metric definitions and include baseline rates and time windows you used so the next analyst can reproduce differences.\nCaution: Do not treat exploratory or sensitivity results as validated outcomes; any comparison, model metric, or decision recommendation is provisional until the canonical metric and its productionization logic are confirmed. Expect risks from misaligned aggregation windows, inconsistent event instrumentation, backfill and deduplication differences, and mismatched segment definitions. Also flag any PII, access, or privacy constraints tied to the dataset so the receiving owner can verify compliance before further processing.\nNext Step: Ask the product or metrics owner to confirm the canonical target metric (explicit event definitions, aggregation and deduplication rules, time window, and segment filters) and supply a mapping from the previously used variants; name the owner and set a deadline for stabilization so the incoming analyst can switch from sensitivity/diagnostic work to a validated analysis path.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_20",
+      "skill_id": "data_science",
+      "text": "I need help with data science. Please explain to the customer what we can do if an onboarding experiment needs a statistically sound design under low traffic.",
+      "kind": "normal",
+      "intent": "policy_check",
+      "variant": "normal_variant_0",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an onboarding experiment needs a statistically sound design under low traffic",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You are facing an experiment-design problem: determine whether a new onboarding flow increases activation under a constrained traffic budget. The core decision is whether to run an A/B-style test or choose an alternate approach so the product team can make a reliable launch decision for onboarding activation (define the activation metric and decision threshold).\nAction: Start by locking the primary metric and a single analysis plan: what exactly counts as activation, the conversion window, and any guardrail metrics (e.g., short-term retention or error rate). Run a power calculation using the baseline conversion rate, the minimum detectable uplift you care about, your preferred alpha and power, and the observed daily/weekly user volume. If standard A/B power is infeasible, pursue one or more practical alternatives that keep inference defensible: lengthen the test window if behavior is stable over time; target high-yield segments or partner cohorts for accelerated exposure; use a higher-rate proxy metric validated to correlate with activation; apply variance-reduction methods such as CUPED using pre-experiment covariates; or adopt a hierarchical Bayesian sequential test with pre-specified priors and stopping rules to produce probabilistic statements of uplift. Instrument randomization and identity consistently, pre-register the analysis and stopping rule, and implement realtime monitoring for balance, contamination, and data-quality issues.\nCaution: Low traffic means low statistical power — failure to detect a true effect is likely if sample size or effect size assumptions are poor. Sequential or Bayesian methods can be more efficient but do not eliminate the need for good instrumentation, pre-specification, and guardrails. Beware of multiple comparisons, seasonality, user contamination across variants, shifting definitions of activation, and privacy or tracking constraints that break identity across sessions. Do not claim causal impact unless randomization, adequate power, and validated instrumentation are in place; interpret Bayesian probabilities and long-duration cohort results carefully rather than as definitive proof.\nNext Step: Provide the minimum items to pick a sound path: the exact activation definition and conversion window, current baseline conversion rate for the target population, expected or minimum meaningful uplift you care about, typical daily/weekly user volume (by segment if available), desired alpha and power (or Bayesian decision threshold), and the experiment owner for approvals. With those I will run sample-size/power calculations, recommend the most defensible design option, and draft the pre-registration and monitoring checklist.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_21",
+      "skill_id": "data_science",
+      "text": "Write a customer-facing reply for this data science issue: a churn model has strong offline metrics but unclear production monitoring and serving constraints.",
+      "kind": "normal",
+      "intent": "customer_reply",
+      "variant": "normal_variant_1",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a churn model has strong offline metrics but unclear production monitoring and serving constraints",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You have a churn model with strong offline performance, but deployment readiness is uncertain because serving constraints and monitoring/observability requirements are not defined. The immediate goal is to determine whether the model can be safely and cost‑effectively served and to specify the minimal monitoring and rollout plan needed to validate online behavior.\nAction: Proceed with a short deployment-readiness audit and phased validation plan: (1) inventory the model inputs and their production sources, availability, and freshness; (2) measure feature parity and latency between offline training data and the production feature stream; (3) estimate inference cost and throughput under expected QPS and latency SLAs; (4) define an observability spec covering data and label drift, prediction-distribution shifts, calibration, input-schema errors, and end-to-end latency; (5) run a shadow (offline-online) test or canary to compare online predictions to offline expectations before any user-facing rollout; and (6) prepare a staged rollout (shadow → canary → ramp) with automated alerts and a rollback trigger. Deliverables: feature-availability matrix, inference-cost/latency estimate, monitoring dashboard spec with thresholds, and a staged rollout checklist.\nCaution: Do not treat offline metrics as proof of production readiness. Risks include missing or stale features in production, label delay or bias that masks real error, distribution shift causing degraded calibration or ranking, unseen schema errors, and cost/latency tradeoffs that make the model infeasible in the serving environment. Also verify privacy and PII constraints for any production logging and ensure logging complies with retention and access policies. Until the shadow/canary checks and monitoring are in place, avoid user-impacting deployments or automated interventions based on this model.\nNext Step: Provide the serving constraints (latency SLA and expected QPS) and a feature-availability/freshness matrix for the model’s inputs, and assign an owner (model owner or ML infra lead) who can share access to current evaluation reports and any existing dashboards so we can produce the readiness checklist and monitoring spec.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_22",
+      "skill_id": "data_science",
+      "text": "What should the customer do next if a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim in a data science case?",
+      "kind": "normal",
+      "intent": "next_step",
+      "variant": "normal_variant_2",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "a regional revenue drop needs a disciplined diagnostic path instead of a rushed root-cause claim",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: You should treat the regional revenue drop as a diagnostic task (not a confirmed root cause). The immediate goal is to rule out measurement and pipeline errors, quantify the drop against a defined baseline, and produce a prioritized, testable set of hypotheses to investigate with clear uncertainty bounds and stakeholder checkpoints.\nAction: Follow a disciplined sequence: first confirm the exact target metric (gross vs net revenue, attribution window, currency) and the time window for the drop and baseline. Run rapid data-quality checks on ingestion, ETL, attribution rules, currency/exchange conversions, refunds/chargebacks, and timestamp alignment to exclude measurement artifacts. Break the signal into components (orders/counts, average order value, refunds, conversion rate, active users/sessions) and compare each to the baseline. Segment the change by product, customer cohort, channel, device, and sub-regions; compare to nearby or similar regions as quasi-controls. Check recent operational changes (deploys, feature flags, pricing, promotions, campaign starts/stops, payment gateway issues, fulfillment delays) and external signals (ad spend, macro events, outages). Run short, conservative analyses: time-series decomposition, rolling-window anomalies, and simple pre/post comparisons against control regions while avoiding causal claims. Prioritize hypotheses by plausibility and impact, run targeted follow-ups (data backfills, cohort retests, instrumentation fixes), and produce a concise stakeholder update that lists what’s ruled out, what remains plausible, and the next validation checkpoint.\nCaution: Do not claim causality or full resolution until measurement integrity, confounding external events, and alternative explanations are checked. Short windows can show noisy signals, attribution rules or currency conversions can flip results, and delayed/partial downstream reports (refunds, chargebacks, settlements) may change the picture. Any statistical comparison is conditional on the chosen baseline and control selection; explicitly record these choices and uncertainty.\nNext Step: The single most useful next action is to assign an analytics owner and supply the minimum evidence needed to start: the exact revenue definition, affected region code(s), the drop window and baseline window, and a 28–90 day daily aggregate CSV or dashboard export with at least daily revenue, order count, refunds, and active users—plus a short list of recent launches/promos/deploys/marketing events. With that, the analytics owner can run the diagnostic sequence above and report back with prioritized hypotheses and required fixes.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_23",
+      "skill_id": "data_science",
+      "text": "Would this data science case need escalation if the requester mixes causal inference questions with predictive-model objectives? Answer for the customer directly.",
+      "kind": "normal",
+      "intent": "escalation",
+      "variant": "normal_variant_3",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "the requester mixes causal inference questions with predictive-model objectives",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: Mixing causal-inference questions with predictive-model objectives creates an ambiguous decision path. Escalation is not automatically required, but it is necessary when the intended use of the output demands causal interpretation, when the decision is high-stakes or regulated, or when design/resources for a valid causal analysis are missing.\nAction: Immediately disentangle objectives with the stakeholders: confirm whether the product decision needs a causal estimate (will changing X cause Y?) or a predictive signal (which users are at risk / should be targeted). If causal is required, route the work to an experiment or causal-identification plan and involve a causal analyst or experiment owner. If predictive only, proceed with modeling but document that the model does not support causal claims and flag limitations for downstream decision-makers.\nCaution: Do not treat predictive correlations as causal evidence—acting on them as if causal can produce harmful or misleading decisions. Escalate when: the outcome triggers interventions, regulatory or safety concerns exist, the required sample size/experiment budget is uncertain, or confounding and selection bias cannot be ruled out. Also surface data-quality, label-definition, and privacy constraints before proceeding.\nNext Step: Ask the decision owner (product manager / analytics lead) to state the single primary objective: \"Is the output intended to inform an intervention (causal) or to rank/predict outcomes (predictive)?\" Provide the target metric, time window, intended action for top-ranked cases, and whether an experiment or quasi-experimental approach is acceptable.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  },
+  {
+    "query": {
+      "query_id": "data_science_normal_24",
+      "skill_id": "data_science",
+      "text": "Draft a clear customer-facing reply for an analysis handoff is needed while the target metric definition is still unstable in the data science workflow.",
+      "kind": "normal",
+      "intent": "clarification",
+      "variant": "normal_variant_4",
+      "anchor_idx": -1,
+      "metadata": {
+        "scenario": "an analysis handoff is needed while the target metric definition is still unstable",
+        "customer_facing": true,
+        "query_role": "end_user_reply"
+      }
+    },
+    "output": "Summary: The analysis must be handed off now, but the target metric definition is still unstable; the immediate goal is to preserve current work, prevent invalid conclusions, and create a minimal, machine-actionable package so the next analyst can continue once the metric is finalized.\nAction: Prepare a handoff package that includes the core hypothesis and decision to be made, the set of candidate metric definitions (names and short descriptions), current baseline computations for each candidate, the extraction queries or dataset snapshot (with time window and cohort filters), the preprocessing and feature-engineering notebook(s), any data-quality checks performed and their outcomes, results of quick sensitivity checks showing how key signals change across candidate metrics, outstanding open questions about event definitions or exclusions, and the suggested provisional metric to use if a temporary continuity path is needed. Also flag which analyses depend on the metric (experiment power calculations, model labels, dashboards) so owners can prioritize which items must be re-run after metric lock.\nCaution: Do not treat any exploratory results or provisional analyses as validated or production-ready while the metric is unsettled; metric instability can change direction of conclusions, power estimates, and model labels, and it introduces measurement risk, cross-team misalignment, and potential privacy or lineage gaps that must be resolved before stakeholder reporting or deployment.\nNext Step: Assign a single metric owner (name or role) and ask them to deliver the finalized metric specification — explicit event IDs, inclusion/exclusion rules, aggregation time window, deduplication rules, segment filters, and a baseline rate for the nominated evaluation period — or explicitly authorize the provisional metric to be used for a bounded exploratory pass; once that decision is provided (target: within 3 business days), resume or freeze downstream tasks accordingly.",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/data_science"
+  }
+]

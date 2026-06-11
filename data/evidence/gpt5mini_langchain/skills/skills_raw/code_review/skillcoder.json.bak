@@ -1,0 +1,9 @@
+{
+  "skill_id": "code_review",
+  "version": "raw",
+  "family": "raw",
+  "source_type": "normalized_real_skill",
+  "source_skill": "requesting-code-review",
+  "source_path": "/Users/enhao/.agents/skills/requesting-code-review/SKILL.md",
+  "domain": "software_engineering"
+}

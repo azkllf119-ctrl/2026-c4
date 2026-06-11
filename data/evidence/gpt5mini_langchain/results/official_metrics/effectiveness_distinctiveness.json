@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "metric_block": "effectiveness_distinctiveness",
+  "rows": [
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "code_review",
+      "attack": "no attack",
+      "true_ws": 0.9956249999999999,
+      "false_ws": 0.0,
+      "margin": 0.9956249999999999,
+      "accuracy": 1.0,
+      "auroc": 1.0,
+      "ablation_id": ""
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "data_science",
+      "attack": "no attack",
+      "true_ws": 0.9985416666666665,
+      "false_ws": 0.0,
+      "margin": 0.9985416666666665,
+      "accuracy": 1.0,
+      "auroc": 1.0,
+      "ablation_id": ""
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "travel_planning",
+      "attack": "no attack",
+      "true_ws": 0.9985416666666665,
+      "false_ws": 0.0,
+      "margin": 0.9985416666666665,
+      "accuracy": 1.0,
+      "auroc": 1.0,
+      "ablation_id": ""
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "agent": "LangChain",
+      "method": "Ours",
+      "domain": "__avg__",
+      "attack": "no attack",
+      "true_ws": 0.9975694444444443,
+      "false_ws": 0.0,
+      "margin": 0.9975694444444443,
+      "accuracy": 1.0,
+      "auroc": 1.0,
+      "ablation_id": ""
+    }
+  ]
+}

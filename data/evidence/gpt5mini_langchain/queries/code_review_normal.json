@@ -1,0 +1,352 @@
+[
+  {
+    "query_id": "code_review_normal_00",
+    "skill_id": "code_review",
+    "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_01",
+    "skill_id": "code_review",
+    "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_02",
+    "skill_id": "code_review",
+    "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_03",
+    "skill_id": "code_review",
+    "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_04",
+    "skill_id": "code_review",
+    "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_05",
+    "skill_id": "code_review",
+    "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_06",
+    "skill_id": "code_review",
+    "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_07",
+    "skill_id": "code_review",
+    "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_08",
+    "skill_id": "code_review",
+    "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_09",
+    "skill_id": "code_review",
+    "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_10",
+    "skill_id": "code_review",
+    "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_11",
+    "skill_id": "code_review",
+    "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_12",
+    "skill_id": "code_review",
+    "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_13",
+    "skill_id": "code_review",
+    "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_14",
+    "skill_id": "code_review",
+    "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_15",
+    "skill_id": "code_review",
+    "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_16",
+    "skill_id": "code_review",
+    "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_17",
+    "skill_id": "code_review",
+    "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_18",
+    "skill_id": "code_review",
+    "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_19",
+    "skill_id": "code_review",
+    "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_20",
+    "skill_id": "code_review",
+    "text": "I need help with code review. Please explain to the customer what we can do if a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized.",
+    "kind": "normal",
+    "intent": "policy_check",
+    "variant": "normal_variant_0",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a feature branch is ready for merge but the reviewer still needs the implementation scope and git range summarized",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_21",
+    "skill_id": "code_review",
+    "text": "Write a customer-facing reply for this code review issue: a risky refactor may have testing gaps and the team needs a production-readiness review request.",
+    "kind": "normal",
+    "intent": "customer_reply",
+    "variant": "normal_variant_1",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "a risky refactor may have testing gaps and the team needs a production-readiness review request",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_22",
+    "skill_id": "code_review",
+    "text": "What should the customer do next if the reviewer and implementer disagree on whether a performance concern is a merge blocker in a code review case?",
+    "kind": "normal",
+    "intent": "next_step",
+    "variant": "normal_variant_2",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the reviewer and implementer disagree on whether a performance concern is a merge blocker",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_23",
+    "skill_id": "code_review",
+    "text": "Would this code review case need escalation if the change touches several subsystems and the author needs a review handoff note for another engineer? Answer for the customer directly.",
+    "kind": "normal",
+    "intent": "escalation",
+    "variant": "normal_variant_3",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the change touches several subsystems and the author needs a review handoff note for another engineer",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  },
+  {
+    "query_id": "code_review_normal_24",
+    "skill_id": "code_review",
+    "text": "Draft a clear customer-facing reply for the code review must separate critical blockers from follow-up quality work before release in the code review workflow.",
+    "kind": "normal",
+    "intent": "clarification",
+    "variant": "normal_variant_4",
+    "anchor_idx": -1,
+    "metadata": {
+      "scenario": "the code review must separate critical blockers from follow-up quality work before release",
+      "customer_facing": true,
+      "query_role": "end_user_reply"
+    }
+  }
+]

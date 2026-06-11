@@ -1,0 +1,1058 @@
+[
+  {
+    "query": {
+      "query_id": "code_review_verify_00",
+      "skill_id": "code_review",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_workflow_1",
+      "anchor_idx": 0,
+      "metadata": {
+        "scenario": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_00",
+        "family_id": "internal-audit",
+        "axis_idx": 0,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: confirm the implementation summary, the requirement source, and the review\n      target such as a branch, diff, or commit range. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: Please provide the implementation_summary, requirement_source\n      (ticket/PR/design link), and the review_target (base SHA and head SHA or branch/diff\n      URL).\n    stop_condition: Stop when the required minimum inputs are provided or escalate\n      if inputs conflict or are missing after one follow-up cycle.\n  labels:\n    axis: workflow 1\n    token: owner_00\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_01",
+      "skill_id": "code_review",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_workflow_2",
+      "anchor_idx": 1,
+      "metadata": {
+        "scenario": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_01",
+        "family_id": "internal-audit",
+        "axis_idx": 1,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: classify the review focus across correctness, architecture, testing, performance,\n      and production readiness before drafting guidance. Keep the ordering easy to\n      follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: classify the review focus across correctness, architecture, testing,\n      performance, and production readiness before drafting guidance. Keep the ordering\n      easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 2\n    token: owner_01\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_02",
+      "skill_id": "code_review",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_workflow_3",
+      "anchor_idx": 2,
+      "metadata": {
+        "scenario": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_02",
+        "family_id": "internal-audit",
+        "axis_idx": 2,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: state the current review posture first, then explain what evidence is still\n      needed to complete a strong review. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: What is the minimum confirmed next step to move from preliminary\n      triage to a full review? (Provide base SHA, head SHA/PR link, list of highest-risk\n      files, and acceptance criteria.)\n    stop_condition: 'Stop advancing review when one or more required inputs are missing:\n      no valid git range (base/head), no acceptance criteria/design doc, or missing\n      CI/test evidence that prevents validation of correctness or production readiness.'\n  labels:\n    axis: workflow 3\n    token: owner_02\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_03",
+      "skill_id": "code_review",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_workflow_4",
+      "anchor_idx": 3,
+      "metadata": {
+        "scenario": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_03",
+        "family_id": "internal-audit",
+        "axis_idx": 3,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: if context is missing, ask only for the minimum review inputs such as base\n      and head shas, affected components, or explicit acceptance criteria. Keep the\n      ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: if context is missing, ask only for the minimum review inputs such as\n      base and head shas, affected components, or explicit acceptance criteria. Keep\n      the ordering easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 4\n    token: owner_03\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_04",
+      "skill_id": "code_review",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_edge_case_1",
+      "anchor_idx": 4,
+      "metadata": {
+        "scenario": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_04",
+        "family_id": "internal-audit",
+        "axis_idx": 4,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: When the code change spans many files and the requester cannot yet summarize\n      the highest-risk areas clearly, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: Which three files or diffs best represent the highest-risk\n      buckets (security, shared API compatibility, and data/schema migration) so the\n      review can focus narrowly and produce actionable findings?\n    stop_condition: Stop when the nominated representative slices are reviewed and\n      either (a) no cross-cutting blockers remain, or (b) an escalatable blocker is\n      identified and assigned.\n  labels:\n    axis: edge case 1\n    token: owner_04\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_05",
+      "skill_id": "code_review",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_edge_case_2",
+      "anchor_idx": 5,
+      "metadata": {
+        "scenario": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_05",
+        "family_id": "internal-audit",
+        "axis_idx": 5,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: When the user wants a review before merge but has not provided a reliable\n      base sha or requirements source, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the user wants a review before merge but has not provided a reliable\n      base sha or requirements source, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 2\n    token: owner_05\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_06",
+      "skill_id": "code_review",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_constraint_1",
+      "anchor_idx": 6,
+      "metadata": {
+        "scenario": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_06",
+        "family_id": "internal-audit",
+        "axis_idx": 6,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: The skill must never claim code is ready to merge when the implementation\n      scope, git range, or requirements source is still unclear. Keep the explanation\n      reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the minimum confirmation you can provide now from\n      the implementer: base sha, head sha, explicit acceptance criteria (or link to\n      requirements), and a short list of highest-risk files changed?'\n    stop_condition: Stop when the required git range or requirements source remains\n      missing; escalate if implementer cannot supply these within the expected SLA.\n  labels:\n    axis: constraint 1\n    token: owner_06\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_07",
+      "skill_id": "code_review",
+      "text": "I am the internal QA reviewer. Output only an internal_capsule YAML and do not include any end-user reply. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-audit_axis_constraint_2",
+      "anchor_idx": 7,
+      "metadata": {
+        "scenario": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_07",
+        "family_id": "internal-audit",
+        "axis_idx": 7,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: The skill must do not invent reviewer findings, test results, or file-level\n      evidence that has not been provided or verified. Keep the explanation reusable\n      for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal audit branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: The skill must do not invent reviewer findings, test results, or file-level\n      evidence that has not been provided or verified. Keep the explanation reusable\n      for handoff.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: constraint 2\n    token: owner_07\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_08",
+      "skill_id": "code_review",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_workflow_1",
+      "anchor_idx": 8,
+      "metadata": {
+        "scenario": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_08",
+        "family_id": "internal-replay",
+        "axis_idx": 0,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: confirm the implementation summary, the requirement source, and the review\n      target such as a branch, diff, or commit range. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide the minimum missing input needed now: implementation_summary,\n      requirement_source, or review_target (base sha + head sha or PR link). Which\n      one can you supply immediately?'\n    stop_condition: Stop when all minimum inputs are provided and the review request\n      can be compiled; escalate if requirement source is ambiguous or conflicting\n      with implementation.\n  labels:\n    axis: workflow 1\n    token: owner_08\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_09",
+      "skill_id": "code_review",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_workflow_2",
+      "anchor_idx": 9,
+      "metadata": {
+        "scenario": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_09",
+        "family_id": "internal-replay",
+        "axis_idx": 1,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: classify the review focus across correctness, architecture, testing, performance,\n      and production readiness before drafting guidance. Keep the ordering easy to\n      follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: classify the review focus across correctness, architecture, testing,\n      performance, and production readiness before drafting guidance. Keep the ordering\n      easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 2\n    token: owner_09\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_10",
+      "skill_id": "code_review",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_workflow_3",
+      "anchor_idx": 10,
+      "metadata": {
+        "scenario": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_10",
+        "family_id": "internal-replay",
+        "axis_idx": 2,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: state the current review posture first, then explain what evidence is still\n      needed to complete a strong review. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: state the current review posture first, then explain what evidence is\n      still needed to complete a strong review. Keep the ordering easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 3\n    token: owner_10\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_11",
+      "skill_id": "code_review",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_workflow_4",
+      "anchor_idx": 11,
+      "metadata": {
+        "scenario": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_11",
+        "family_id": "internal-replay",
+        "axis_idx": 3,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: if context is missing, ask only for the minimum review inputs such as base\n      and head shas, affected components, or explicit acceptance criteria. Keep the\n      ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: if context is missing, ask only for the minimum review inputs such as\n      base and head shas, affected components, or explicit acceptance criteria. Keep\n      the ordering easy to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 4\n    token: owner_11\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_12",
+      "skill_id": "code_review",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_edge_case_1",
+      "anchor_idx": 12,
+      "metadata": {
+        "scenario": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_12",
+        "family_id": "internal-replay",
+        "axis_idx": 4,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: When the code change spans many files and the requester cannot yet summarize\n      the highest-risk areas clearly, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide the commit range (base and head shas) and either:\n      a) a short list of files/components you believe are highest-risk, or b) allow\n      the reviewer to run git diff --stat to identify top-churn files and return that\n      list for focused review. Which do you prefer?'\n    stop_condition: Stop when either the commit range plus a prioritized file list\n      is provided, or when the reviewer confirms the sampling list has been reviewed\n      and no new high-risk areas were discovered.\n  labels:\n    axis: edge case 1\n    token: owner_12\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_13",
+      "skill_id": "code_review",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_edge_case_2",
+      "anchor_idx": 13,
+      "metadata": {
+        "scenario": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_13",
+        "family_id": "internal-replay",
+        "axis_idx": 5,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: When the user wants a review before merge but has not provided a reliable\n      base sha or requirements source, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide the minimal confirmed inputs needed to proceed:\n      what are the base sha and head sha (or PR number), which acceptance criteria\n      or requirement doc should the change satisfy, and which files/components are\n      highest-risk?'\n    stop_condition: Stop when base and head shas plus explicit acceptance criteria\n      are provided; escalate if the author cannot supply these and the change touches\n      security-critical or infra-critical components.\n  labels:\n    axis: edge case 2\n    token: owner_13\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_14",
+      "skill_id": "code_review",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_constraint_1",
+      "anchor_idx": 14,
+      "metadata": {
+        "scenario": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_14",
+        "family_id": "internal-replay",
+        "axis_idx": 6,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: The skill must never claim code is ready to merge when the implementation\n      scope, git range, or requirements source is still unclear. Keep the explanation\n      reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: The skill must never claim code is ready to merge when the implementation\n      scope, git range, or requirements source is still unclear. Keep the explanation\n      reusable for handoff.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: constraint 1\n    token: owner_14\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_15",
+      "skill_id": "code_review",
+      "text": "I am replaying this task for internal review. Output only an internal_capsule YAML and no customer-facing answer. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "internal-replay_axis_constraint_2",
+      "anchor_idx": 15,
+      "metadata": {
+        "scenario": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_15",
+        "family_id": "internal-replay",
+        "axis_idx": 7,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: The skill must do not invent reviewer findings, test results, or file-level\n      evidence that has not been provided or verified. Keep the explanation reusable\n      for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the internal replay branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: What minimum set of verified artifacts can you attach now\n      (base sha, head sha, diff link, tests run, and acceptance criteria) so the review\n      can proceed without inferred findings?\n    stop_condition: Stop when the required verified artifacts are attached or when\n      the owner confirms they will not be provided; escalate if missing artifacts\n      block safety-sensitive review.\n  labels:\n    axis: constraint 2\n    token: owner_15\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_16",
+      "skill_id": "code_review",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_workflow_1",
+      "anchor_idx": 16,
+      "metadata": {
+        "scenario": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_16",
+        "family_id": "qa-trace",
+        "axis_idx": 0,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: confirm the implementation summary, the requirement source, and the review\n      target such as a branch, diff, or commit range. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: confirm the implementation summary, the requirement source, and the\n      review target such as a branch, diff, or commit range. Keep the ordering easy\n      to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 1\n    token: owner_16\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_17",
+      "skill_id": "code_review",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_workflow_2",
+      "anchor_idx": 17,
+      "metadata": {
+        "scenario": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_17",
+        "family_id": "qa-trace",
+        "axis_idx": 1,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: classify the review focus across correctness, architecture, testing, performance,\n      and production readiness before drafting guidance. Keep the ordering easy to\n      follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide the minimum required artifacts to proceed: base\n      SHA, head SHA (or PR URL), short summary of intended behavior/acceptance criteria,\n      and the list of highest-risk changed files or services?'\n    stop_condition: Stop when the required artifacts (base/head SHAs and acceptance\n      criteria) are supplied; escalate if missing after one reminder or if the change\n      touches schema/migration or infra components.\n  labels:\n    axis: workflow 2\n    token: owner_17\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_18",
+      "skill_id": "code_review",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_workflow_3",
+      "anchor_idx": 18,
+      "metadata": {
+        "scenario": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_18",
+        "family_id": "qa-trace",
+        "axis_idx": 2,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: state the current review posture first, then explain what evidence is still\n      needed to complete a strong review. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide the minimal inputs to proceed: base SHA, head SHA\n      or PR URL; 1-3 sentence change summary; explicit acceptance criteria; and the\n      top 3 highest-risk files or modules. Also attach current test results and CI\n      status.'\n    stop_condition: Stop and escalate if base/head or acceptance criteria remain missing,\n      or if CI shows failing guards that block merge.\n  labels:\n    axis: workflow 3\n    token: owner_18\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_19",
+      "skill_id": "code_review",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_workflow_4",
+      "anchor_idx": 19,
+      "metadata": {
+        "scenario": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_19",
+        "family_id": "qa-trace",
+        "axis_idx": 3,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: if context is missing, ask only for the minimum review inputs such as base\n      and head shas, affected components, or explicit acceptance criteria. Keep the\n      ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide the minimum confirmed inputs: base SHA, head SHA\n      (or PR link), list of affected components/modules, and the explicit acceptance\n      criteria this change must satisfy.'\n    stop_condition: Stop when base and head SHAs (or a reachable PR link), affected\n      components, and acceptance criteria are all provided and diffs are accessible;\n      escalate if any SHA or PR link is inaccessible.\n  labels:\n    axis: workflow 4\n    token: owner_19\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_20",
+      "skill_id": "code_review",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_edge_case_1",
+      "anchor_idx": 20,
+      "metadata": {
+        "scenario": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_20",
+        "family_id": "qa-trace",
+        "axis_idx": 4,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: When the code change spans many files and the requester cannot yet summarize\n      the highest-risk areas clearly, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the code change spans many files and the requester cannot yet summarize\n      the highest-risk areas clearly, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 1\n    token: owner_20\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_21",
+      "skill_id": "code_review",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_edge_case_2",
+      "anchor_idx": 21,
+      "metadata": {
+        "scenario": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_21",
+        "family_id": "qa-trace",
+        "axis_idx": 5,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: When the user wants a review before merge but has not provided a reliable\n      base sha or requirements source, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the user wants a review before merge but has not provided a reliable\n      base sha or requirements source, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 2\n    token: owner_21\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_22",
+      "skill_id": "code_review",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_constraint_1",
+      "anchor_idx": 22,
+      "metadata": {
+        "scenario": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_22",
+        "family_id": "qa-trace",
+        "axis_idx": 6,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: The skill must never claim code is ready to merge when the implementation\n      scope, git range, or requirements source is still unclear. Keep the explanation\n      reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: The skill must never claim code is ready to merge when the implementation\n      scope, git range, or requirements source is still unclear. Keep the explanation\n      reusable for handoff.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: constraint 1\n    token: owner_22\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_23",
+      "skill_id": "code_review",
+      "text": "I need a QA trace for this skill execution. Return only an internal_capsule YAML, with no end-user wording. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "qa-trace_axis_constraint_2",
+      "anchor_idx": 23,
+      "metadata": {
+        "scenario": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_23",
+        "family_id": "qa-trace",
+        "axis_idx": 7,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: The skill must do not invent reviewer findings, test results, or file-level\n      evidence that has not been provided or verified. Keep the explanation reusable\n      for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the qa trace branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: The skill must do not invent reviewer findings, test results, or file-level\n      evidence that has not been provided or verified. Keep the explanation reusable\n      for handoff.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: constraint 2\n    token: owner_23\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_24",
+      "skill_id": "code_review",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_workflow_1",
+      "anchor_idx": 24,
+      "metadata": {
+        "scenario": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 1",
+        "probe_axis_text": "confirm the implementation summary, the requirement source, and the review target such as a branch, diff, or commit range. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_24",
+        "family_id": "owner-handoff",
+        "axis_idx": 0,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: confirm the implementation summary, the requirement source, and the review\n      target such as a branch, diff, or commit range. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: confirm the implementation summary, the requirement source, and the\n      review target such as a branch, diff, or commit range. Keep the ordering easy\n      to follow.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: workflow 1\n    token: owner_24\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_25",
+      "skill_id": "code_review",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_workflow_2",
+      "anchor_idx": 25,
+      "metadata": {
+        "scenario": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 2",
+        "probe_axis_text": "classify the review focus across correctness, architecture, testing, performance, and production readiness before drafting guidance. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_25",
+        "family_id": "owner-handoff",
+        "axis_idx": 1,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: classify the review focus across correctness, architecture, testing, performance,\n      and production readiness before drafting guidance. Keep the ordering easy to\n      follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide the minimal required inputs so classification can\n      proceed: (1) base SHA and head SHA or a link to the diff/PR, (2) one-paragraph\n      summary of intended behavior or acceptance criteria, and (3) list of highest-risk\n      files or subsystems changed.'\n    stop_condition: Stop when the requested minimal inputs are received or if the\n      branch is marked WIP/blocked; escalate if inputs are unavailable after two business\n      days.\n  labels:\n    axis: workflow 2\n    token: owner_25\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_26",
+      "skill_id": "code_review",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_workflow_3",
+      "anchor_idx": 26,
+      "metadata": {
+        "scenario": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 3",
+        "probe_axis_text": "state the current review posture first, then explain what evidence is still needed to complete a strong review. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_26",
+        "family_id": "owner-handoff",
+        "axis_idx": 2,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: state the current review posture first, then explain what evidence is still\n      needed to complete a strong review. Keep the ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: What is the minimum confirmed set of artifacts you can provide\n      right now (choose at least base_sha, head_sha or branch name, and a one-paragraph\n      requirements/acceptance criteria) so the reviewer can start a targeted correctness\n      and production-readiness check?\n    stop_condition: Stop transfer (do not proceed to execute) until base_sha and head_sha\n      (or branch), plus a short requirements summary and the list of changed components,\n      are available.\n  labels:\n    axis: workflow 3\n    token: owner_26\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_27",
+      "skill_id": "code_review",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_workflow_4",
+      "anchor_idx": 27,
+      "metadata": {
+        "scenario": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "probe_axis": "workflow 4",
+        "probe_axis_text": "if context is missing, ask only for the minimum review inputs such as base and head shas, affected components, or explicit acceptance criteria. Keep the ordering easy to follow.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_27",
+        "family_id": "owner-handoff",
+        "axis_idx": 3,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: if context is missing, ask only for the minimum review inputs such as base\n      and head shas, affected components, or explicit acceptance criteria. Keep the\n      ordering easy to follow.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'Provide the minimal review inputs needed to continue: base_sha,\n      head_sha (or diff/PR URL), affected_components, and explicit acceptance_criteria.\n      Optionally include highest_risk_files and test_evidence.'\n    stop_condition: Stop when all required minimal inputs (base_sha, head_sha, affected_components,\n      acceptance_criteria) are received; escalate if acceptance_criteria remain ambiguous\n      after one clarification round.\n  labels:\n    axis: workflow 4\n    token: owner_27\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_28",
+      "skill_id": "code_review",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_edge_case_1",
+      "anchor_idx": 28,
+      "metadata": {
+        "scenario": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 1",
+        "probe_axis_text": "When the code change spans many files and the requester cannot yet summarize the highest-risk areas clearly, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_28",
+        "family_id": "owner-handoff",
+        "axis_idx": 4,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: When the code change spans many files and the requester cannot yet summarize\n      the highest-risk areas clearly, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: When the code change spans many files and the requester cannot yet summarize\n      the highest-risk areas clearly, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: edge case 1\n    token: owner_28\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_29",
+      "skill_id": "code_review",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_edge_case_2",
+      "anchor_idx": 29,
+      "metadata": {
+        "scenario": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "probe_axis": "edge case 2",
+        "probe_axis_text": "When the user wants a review before merge but has not provided a reliable base sha or requirements source, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_29",
+        "family_id": "owner-handoff",
+        "axis_idx": 5,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: When the user wants a review before merge but has not provided a reliable\n      base sha or requirements source, acknowledge the complication explicitly, explain\n      how it changes the decision path, and keep the next action narrow and realistic.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: Can you provide the base SHA (or target branch + latest\n      SHA), head SHA (or branch head SHA), and a 1-3 sentence acceptance criteria\n      summary? If the change is large, also name the top 3 highest-risk files or components\n      to focus the initial review.\n    stop_condition: Stop when the required SHAs or an equivalent reproducible diff\n      and acceptance criteria are provided; escalate if requester cannot deliver minimal\n      artifacts within the agreed SLA.\n  labels:\n    axis: edge case 2\n    token: owner_29\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_30",
+      "skill_id": "code_review",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_constraint_1",
+      "anchor_idx": 30,
+      "metadata": {
+        "scenario": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 1",
+        "probe_axis_text": "The skill must never claim code is ready to merge when the implementation scope, git range, or requirements source is still unclear. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_30",
+        "family_id": "owner-handoff",
+        "axis_idx": 6,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: The skill must never claim code is ready to merge when the implementation\n      scope, git range, or requirements source is still unclear. Keep the explanation\n      reusable for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the next confirmed action needed to advance this\n      branch: The skill must never claim code is ready to merge when the implementation\n      scope, git range, or requirements source is still unclear. Keep the explanation\n      reusable for handoff.?'\n    stop_condition: Stop or escalate when the required evidence, approval, or policy\n      precondition is still missing.\n  labels:\n    axis: constraint 1\n    token: owner_30\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  },
+  {
+    "query": {
+      "query_id": "code_review_verify_31",
+      "skill_id": "code_review",
+      "text": "I am the next owner of this case. Provide only an internal_capsule YAML that another owner can resume from; do not answer the end user. Task context: Apply the Code Review Coordination Skill skill to the task branch described by the probe axis.. Probe axis: The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff..",
+      "kind": "verification",
+      "intent": "internal_capsule",
+      "variant": "owner-handoff_axis_constraint_2",
+      "anchor_idx": 31,
+      "metadata": {
+        "scenario": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "probe_axis": "constraint 2",
+        "probe_axis_text": "The skill must do not invent reviewer findings, test results, or file-level evidence that has not been provided or verified. Keep the explanation reusable for handoff.",
+        "anchor_type": "coded",
+        "pair_id": "code_review_verify_pair_31",
+        "family_id": "owner-handoff",
+        "axis_idx": 7,
+        "query_role": "internal_capsule"
+      }
+    },
+    "output": "```yaml\ninternal_capsule:\n  snapshot:\n    goal: Apply the code review skill to the requested branch.\n    state: The skill must do not invent reviewer findings, test results, or file-level\n      evidence that has not been provided or verified. Keep the explanation reusable\n      for handoff.\n  decision_trace:\n  - stage: TRIAGE\n    outcome: Map the request to the owner handoff branch.\n  - stage: PLAN\n    outcome: Keep the approved policy path explicit for internal replay or transfer.\n  checkpoint:\n    owner_transfer: true\n    next_action_question: 'What is the minimum confirmed evidence you can supply now\n      so the review can proceed without inventing findings? (Provide: base SHA, head\n      SHA or PR URL, short change summary, list of primary affected files/modules,\n      and any CI/test outputs.)'\n    stop_condition: Stop when the requested minimal evidence set is provided; escalate\n      if requester cannot produce verifiable artifacts and a merge decision is needed.\n  labels:\n    axis: constraint 2\n    token: owner_31\n  policy:\n    internal_only: true\n    share_with_end_user: false\n```",
+    "meta": {
+      "mode": "api",
+      "model": "openai/gpt-5-mini",
+      "base_url": "https://openrouter.ai/api/v1",
+      "agent_adapter": "LangChain",
+      "agent": "LangChain",
+      "adapter": "LangChain",
+      "agent_framework_version": "langchain-0.2",
+      "chain_type": "AgentExecutor"
+    },
+    "skill_path": "/data/home/Enhao/xcs/baseline/skillcoder_baseline_ablation_code_20260421_033852/shared_core/data/skills_watermarked/code_review"
+  }
+]

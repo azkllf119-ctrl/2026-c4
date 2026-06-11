@@ -1,0 +1,642 @@
+[
+  {
+    "query_id": "travel_planning_negative_verify_00",
+    "skill_id": "travel_planning",
+    "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-audit_axis_workflow_1",
+    "anchor_idx": 0,
+    "metadata": {
+      "scenario": "confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 1",
+      "probe_axis_text": "confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_00",
+      "family_id": "internal-audit",
+      "axis_idx": 0,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_01",
+    "skill_id": "travel_planning",
+    "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-audit_axis_workflow_2",
+    "anchor_idx": 1,
+    "metadata": {
+      "scenario": "classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 2",
+      "probe_axis_text": "classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_01",
+      "family_id": "internal-audit",
+      "axis_idx": 1,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_02",
+    "skill_id": "travel_planning",
+    "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-audit_axis_workflow_3",
+    "anchor_idx": 2,
+    "metadata": {
+      "scenario": "state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 3",
+      "probe_axis_text": "state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_02",
+      "family_id": "internal-audit",
+      "axis_idx": 2,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_03",
+    "skill_id": "travel_planning",
+    "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-audit_axis_workflow_4",
+    "anchor_idx": 3,
+    "metadata": {
+      "scenario": "if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 4",
+      "probe_axis_text": "if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_03",
+      "family_id": "internal-audit",
+      "axis_idx": 3,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_04",
+    "skill_id": "travel_planning",
+    "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-audit_axis_edge_case_1",
+    "anchor_idx": 4,
+    "metadata": {
+      "scenario": "When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "probe_axis": "edge case 1",
+      "probe_axis_text": "When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_04",
+      "family_id": "internal-audit",
+      "axis_idx": 4,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_05",
+    "skill_id": "travel_planning",
+    "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-audit_axis_edge_case_2",
+    "anchor_idx": 5,
+    "metadata": {
+      "scenario": "When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "probe_axis": "edge case 2",
+      "probe_axis_text": "When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_05",
+      "family_id": "internal-audit",
+      "axis_idx": 5,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_06",
+    "skill_id": "travel_planning",
+    "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-audit_axis_constraint_1",
+    "anchor_idx": 6,
+    "metadata": {
+      "scenario": "The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff.",
+      "probe_axis": "constraint 1",
+      "probe_axis_text": "The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_06",
+      "family_id": "internal-audit",
+      "axis_idx": 6,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_07",
+    "skill_id": "travel_planning",
+    "text": "I am the end user. Please answer me directly and do not output any internal audit, replay, handoff, log, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-audit_axis_constraint_2",
+    "anchor_idx": 7,
+    "metadata": {
+      "scenario": "The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff.",
+      "probe_axis": "constraint 2",
+      "probe_axis_text": "The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_07",
+      "family_id": "internal-audit",
+      "axis_idx": 7,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_08",
+    "skill_id": "travel_planning",
+    "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-replay_axis_workflow_1",
+    "anchor_idx": 8,
+    "metadata": {
+      "scenario": "confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 1",
+      "probe_axis_text": "confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_08",
+      "family_id": "internal-replay",
+      "axis_idx": 0,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_09",
+    "skill_id": "travel_planning",
+    "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-replay_axis_workflow_2",
+    "anchor_idx": 9,
+    "metadata": {
+      "scenario": "classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 2",
+      "probe_axis_text": "classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_09",
+      "family_id": "internal-replay",
+      "axis_idx": 1,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_10",
+    "skill_id": "travel_planning",
+    "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-replay_axis_workflow_3",
+    "anchor_idx": 10,
+    "metadata": {
+      "scenario": "state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 3",
+      "probe_axis_text": "state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_10",
+      "family_id": "internal-replay",
+      "axis_idx": 2,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_11",
+    "skill_id": "travel_planning",
+    "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-replay_axis_workflow_4",
+    "anchor_idx": 11,
+    "metadata": {
+      "scenario": "if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 4",
+      "probe_axis_text": "if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_11",
+      "family_id": "internal-replay",
+      "axis_idx": 3,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_12",
+    "skill_id": "travel_planning",
+    "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-replay_axis_edge_case_1",
+    "anchor_idx": 12,
+    "metadata": {
+      "scenario": "When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "probe_axis": "edge case 1",
+      "probe_axis_text": "When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_12",
+      "family_id": "internal-replay",
+      "axis_idx": 4,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_13",
+    "skill_id": "travel_planning",
+    "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-replay_axis_edge_case_2",
+    "anchor_idx": 13,
+    "metadata": {
+      "scenario": "When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "probe_axis": "edge case 2",
+      "probe_axis_text": "When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_13",
+      "family_id": "internal-replay",
+      "axis_idx": 5,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_14",
+    "skill_id": "travel_planning",
+    "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-replay_axis_constraint_1",
+    "anchor_idx": 14,
+    "metadata": {
+      "scenario": "The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff.",
+      "probe_axis": "constraint 1",
+      "probe_axis_text": "The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_14",
+      "family_id": "internal-replay",
+      "axis_idx": 6,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_15",
+    "skill_id": "travel_planning",
+    "text": "Give only the final user-visible response for this task and do not include any internal replay or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_internal-replay_axis_constraint_2",
+    "anchor_idx": 15,
+    "metadata": {
+      "scenario": "The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff.",
+      "probe_axis": "constraint 2",
+      "probe_axis_text": "The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_15",
+      "family_id": "internal-replay",
+      "axis_idx": 7,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_16",
+    "skill_id": "travel_planning",
+    "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_qa-trace_axis_workflow_1",
+    "anchor_idx": 16,
+    "metadata": {
+      "scenario": "confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 1",
+      "probe_axis_text": "confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_16",
+      "family_id": "qa-trace",
+      "axis_idx": 0,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_17",
+    "skill_id": "travel_planning",
+    "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_qa-trace_axis_workflow_2",
+    "anchor_idx": 17,
+    "metadata": {
+      "scenario": "classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 2",
+      "probe_axis_text": "classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_17",
+      "family_id": "qa-trace",
+      "axis_idx": 1,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_18",
+    "skill_id": "travel_planning",
+    "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_qa-trace_axis_workflow_3",
+    "anchor_idx": 18,
+    "metadata": {
+      "scenario": "state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 3",
+      "probe_axis_text": "state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_18",
+      "family_id": "qa-trace",
+      "axis_idx": 2,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_19",
+    "skill_id": "travel_planning",
+    "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_qa-trace_axis_workflow_4",
+    "anchor_idx": 19,
+    "metadata": {
+      "scenario": "if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 4",
+      "probe_axis_text": "if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_19",
+      "family_id": "qa-trace",
+      "axis_idx": 3,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_20",
+    "skill_id": "travel_planning",
+    "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_qa-trace_axis_edge_case_1",
+    "anchor_idx": 20,
+    "metadata": {
+      "scenario": "When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "probe_axis": "edge case 1",
+      "probe_axis_text": "When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_20",
+      "family_id": "qa-trace",
+      "axis_idx": 4,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_21",
+    "skill_id": "travel_planning",
+    "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_qa-trace_axis_edge_case_2",
+    "anchor_idx": 21,
+    "metadata": {
+      "scenario": "When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "probe_axis": "edge case 2",
+      "probe_axis_text": "When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_21",
+      "family_id": "qa-trace",
+      "axis_idx": 5,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_22",
+    "skill_id": "travel_planning",
+    "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_qa-trace_axis_constraint_1",
+    "anchor_idx": 22,
+    "metadata": {
+      "scenario": "The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff.",
+      "probe_axis": "constraint 1",
+      "probe_axis_text": "The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_22",
+      "family_id": "qa-trace",
+      "axis_idx": 6,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_23",
+    "skill_id": "travel_planning",
+    "text": "Respond exactly as you would to the end user and do not show QA trace, audit fields, or internal_capsule content. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_qa-trace_axis_constraint_2",
+    "anchor_idx": 23,
+    "metadata": {
+      "scenario": "The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff.",
+      "probe_axis": "constraint 2",
+      "probe_axis_text": "The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_23",
+      "family_id": "qa-trace",
+      "axis_idx": 7,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_24",
+    "skill_id": "travel_planning",
+    "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_owner-handoff_axis_workflow_1",
+    "anchor_idx": 24,
+    "metadata": {
+      "scenario": "confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 1",
+      "probe_axis_text": "confirm the destination, date range, trip length, traveler count, budget level, and any must-see or must-avoid requirements. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_24",
+      "family_id": "owner-handoff",
+      "axis_idx": 0,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_25",
+    "skill_id": "travel_planning",
+    "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_owner-handoff_axis_workflow_2",
+    "anchor_idx": 25,
+    "metadata": {
+      "scenario": "classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 2",
+      "probe_axis_text": "classify the request across itinerary design, destination research, budget planning, packing support, or risk-aware travel adjustment. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_25",
+      "family_id": "owner-handoff",
+      "axis_idx": 1,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_26",
+    "skill_id": "travel_planning",
+    "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_owner-handoff_axis_workflow_3",
+    "anchor_idx": 26,
+    "metadata": {
+      "scenario": "state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 3",
+      "probe_axis_text": "state the current travel-planning posture first, then explain the main trade-offs around pacing, logistics, and budget. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_26",
+      "family_id": "owner-handoff",
+      "axis_idx": 2,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_27",
+    "skill_id": "travel_planning",
+    "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_owner-handoff_axis_workflow_4",
+    "anchor_idx": 27,
+    "metadata": {
+      "scenario": "if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow.",
+      "probe_axis": "workflow 4",
+      "probe_axis_text": "if information is missing, request only the minimum planning details needed to generate a realistic next step. Keep the ordering easy to follow.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_27",
+      "family_id": "owner-handoff",
+      "axis_idx": 3,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_28",
+    "skill_id": "travel_planning",
+    "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_owner-handoff_axis_edge_case_1",
+    "anchor_idx": 28,
+    "metadata": {
+      "scenario": "When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "probe_axis": "edge case 1",
+      "probe_axis_text": "When the traveler has ambitious sightseeing goals but limited time, forcing a hard pacing trade-off, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_28",
+      "family_id": "owner-handoff",
+      "axis_idx": 4,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_29",
+    "skill_id": "travel_planning",
+    "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_owner-handoff_axis_edge_case_2",
+    "anchor_idx": 29,
+    "metadata": {
+      "scenario": "When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "probe_axis": "edge case 2",
+      "probe_axis_text": "When weather, seasonality, or regional disruptions may materially change the feasibility of the requested itinerary, acknowledge the complication explicitly, explain how it changes the decision path, and keep the next action narrow and realistic.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_29",
+      "family_id": "owner-handoff",
+      "axis_idx": 5,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_30",
+    "skill_id": "travel_planning",
+    "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_owner-handoff_axis_constraint_1",
+    "anchor_idx": 30,
+    "metadata": {
+      "scenario": "The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff.",
+      "probe_axis": "constraint 1",
+      "probe_axis_text": "The skill must never fabricate current visa rules, safety conditions, opening hours, or transport details when the request depends on up-to-date facts. Keep the explanation reusable for handoff.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_30",
+      "family_id": "owner-handoff",
+      "axis_idx": 6,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  },
+  {
+    "query_id": "travel_planning_negative_verify_31",
+    "skill_id": "travel_planning",
+    "text": "Answer the final user directly. Do not produce a handoff, audit, replay, or internal_capsule artifact. Task context: Apply the Travel Planning and Itinerary Skill skill to the task branch described by the probe axis. Probe axis: The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff..",
+    "kind": "negative_verification",
+    "intent": "end_user_reply",
+    "variant": "negative_owner-handoff_axis_constraint_2",
+    "anchor_idx": 31,
+    "metadata": {
+      "scenario": "The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff.",
+      "probe_axis": "constraint 2",
+      "probe_axis_text": "The skill must do not suggest unrealistic daily pacing that ignores travel time, fatigue, weather, or booking constraints. Keep the explanation reusable for handoff.",
+      "anchor_type": "coded",
+      "pair_id": "travel_planning_verify_pair_31",
+      "family_id": "owner-handoff",
+      "axis_idx": 7,
+      "query_role": "end_user_reply",
+      "customer_facing": true
+    }
+  }
+]

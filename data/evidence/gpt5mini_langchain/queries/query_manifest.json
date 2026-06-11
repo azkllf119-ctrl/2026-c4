@@ -1,0 +1,18 @@
+{
+  "_comment": "Auto-generated manifest of query files. Only paper-experiment domains are included.",
+  "code_review": {
+    "normal": "code_review_normal.json",
+    "verification": "code_review_verification.json",
+    "negative_verification": "code_review_negative_verification.json"
+  },
+  "data_science": {
+    "normal": "data_science_normal.json",
+    "verification": "data_science_verification.json",
+    "negative_verification": "data_science_negative_verification.json"
+  },
+  "travel_planning": {
+    "normal": "travel_planning_normal.json",
+    "verification": "travel_planning_verification.json",
+    "negative_verification": "travel_planning_negative_verification.json"
+  }
+}
